@@ -1,7 +1,16 @@
-# Setting working directory
+
+# Importing packages
 
 import os
-os.chdir(r'F:\Arquivos Acadêmicos\UFMG\Doutorado\Resultados\Python')
+import pandas as pd
+import re
+import string
+import pickle
+from sklearn.feature_extraction.text import CountVectorizer
+
+# Setting working directory
+
+os.chdir(r'/Users/lucaspb/git-repositories/portifolio-projects')
 
 #############################
 #                           #
@@ -19,14 +28,12 @@ os.chdir(r'F:\Arquivos Acadêmicos\UFMG\Doutorado\Resultados\Python')
   
 #Reading a File as small strings
 
-text = open ("NLP/data/rochel.txt", "r", encoding='utf-8')
+text = open ("nlp-learning/input/rochel.txt", "r", encoding='utf-8')
 print(text.read())
 text.seek(0)
 
 #Transforming in Data Frame
-## pip install pandas
 
-import pandas as pd
 pd.set_option('max_colwidth',150)
 
 data = pd.DataFrame(text)
@@ -40,8 +47,7 @@ data.columns = ['transcript']
 ### data = ' '.join(data.transcript)
 
 # Let's pickle it for later use
-import pandas
-data.to_pickle("NLP/output/corpus/corpus.pkl")
+data.to_pickle("nlp-learning/output/corpus/corpus.pkl")
 
 
 #############################
@@ -52,10 +58,6 @@ data.to_pickle("NLP/output/corpus/corpus.pkl")
 
 
 # Apply a first round of text cleaning techniques
-## pip install re
-## pip install string
-import re
-import string
 
 def clean_text_round1(text):
     '''Make text lowercase, remove text in square brackets, remove punctuation and remove words containing numbers.'''
@@ -84,10 +86,6 @@ round2 = lambda x: clean_text_round2(x)
 data_clean = pd.DataFrame(data_clean.transcript.apply(round2))
 data_clean
 
-## Other data cleaning possible
-## Mark 'cheering' and 'cheer' as the same word (stemming / lemmatization)
-## Combine 'thank you' into one term (bi-grams)
-
 
 
 #############################
@@ -98,7 +96,6 @@ data_clean
 
 # We are going to create a document-term matrix using CountVectorizer, and exclude common English stop words
 ## pip install sklearn.feature_extraction.text
-from sklearn.feature_extraction.text import CountVectorizer
 
 cv = CountVectorizer(stop_words='english')
 data_cv = cv.fit_transform(data_clean.transcript)
@@ -115,11 +112,11 @@ data_dtm.columns = ['Rochel']
 data_dtm = data_dtm.transpose()
 
 # Let's pickle it for later use
-data_dtm.to_pickle("NLP/output/corpus/dtm.pkl")
+data_dtm.to_pickle("nlp-learning/output/corpus/dtm.pkl")
 
 # Let's also pickle the cleaned data (before we put it in document-term matrix format) and the CountVectorizer object
-data_clean.to_pickle('NLP/output/corpus/data_clean.pkl')
-pickle.dump(cv, open("NLP/output/corpus/cv.pkl", "wb"))
+data_clean.to_pickle('nlp-learning/output/corpus/data_clean.pkl')
+pickle.dump(cv, open("nlp-learning/output/corpus/cv.pkl", "wb"))
 
 
 

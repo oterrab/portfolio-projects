@@ -1,7 +1,22 @@
-# Setting working directory
+# Importing packages
 
 import os
-os.chdir(r'F:\Arquivos Acadêmicos\UFMG\Doutorado\Resultados\Python')
+import pandas as pd
+from sklearn.feature_extraction import text 
+from sklearn.feature_extraction.text import CountVectorizer
+import pickle
+# Terminal / Anaconda Prompt: conda install -c conda-forge wordcloud
+from wordcloud import WordCloud
+# pip install matplotlib.pyplot
+import matplotlib.pyplot as plt
+import numpy as np
+#pip install PIL
+from PIL import Image
+
+
+# Setting working directory
+
+os.chdir(r'/Users/lucaspb/git-repositories/portifolio-projects')
 
 
                         #############################
@@ -18,9 +33,8 @@ os.chdir(r'F:\Arquivos Acadêmicos\UFMG\Doutorado\Resultados\Python')
 #############################
 
 # Read in the document-term matrix
-import pandas as pd
 
-data = pd.read_pickle('NLP/output/corpus/dtm.pkl')
+data = pd.read_pickle('nlp-learning/output/corpus/dtm.pkl')
 data = data.transpose()
 data.head()
 
@@ -37,11 +51,8 @@ add_stop_words = ['ok', 'right','little','form', 'thats', 'got', 'called', 'folk
 add_stop_words
 
 # Let's update our document-term matrix with the new list of stop words
-from sklearn.feature_extraction import text 
-from sklearn.feature_extraction.text import CountVectorizer
-
 # Read in cleaned data
-data_clean = pd.read_pickle('NLP/output/corpus/data_clean.pkl')
+data_clean = pd.read_pickle('nlp-learning/output/corpus/data_clean.pkl')
 
 # Add new stop words
 stop_words = text.ENGLISH_STOP_WORDS.union(add_stop_words)
@@ -60,29 +71,19 @@ print (data_stop.head(5))
 data_stop = data_stop.transpose()
 
 # Pickle it for later use
-import pickle
-pickle.dump(cv, open("NLP/output/corpus/cv_stop.pkl", "wb"))
-data_stop.to_pickle("NLP/output/corpus/dtm_stop.pkl")
-
+pickle.dump(cv, open("nlp-learning/output/corpus/cv_stop.pkl", "wb"))
+data_stop.to_pickle("nlp-learning/output/corpus/dtm_stop.pkl")
 
 # Let's make some word clouds!
-# Terminal / Anaconda Prompt: conda install -c conda-forge wordcloud
-from wordcloud import WordCloud
-# pip install matplotlib.pyplot
-import matplotlib.pyplot as plt
-import numpy as np
-#pip install PIL
-from PIL import Image
-from os import path
+currdir = os.path.dirname(os.path.realpath('__file__'))
+mask = np.array(Image.open(os.path.join("nlp-learning/input/cloud.png")))
 
-currdir = os.path.dirname(__file__)
-mask = np.array(Image.open(path.join("NLP/wordcloud-example-master/cloud.png")))
+wcdata = ' '.join(data_clean.transcript)
+
 wc = WordCloud(stopwords=stop_words, background_color="white", colormap="Dark2",
                max_font_size=150, mask=mask, random_state=42).generate(wcdata)
 
 # Create wordcloud plot
-wcdata = ' '.join(data_clean.transcript)
-
 plt.rcParams['figure.figsize'] = [16, 6]
 plt.imshow(wc, interpolation="bilinear")
 plt.axis("off")
@@ -92,18 +93,4 @@ fig1
 
 # Save wordcloud plot
 
-fig1.savefig('NLP/output/images/wcrochel.png', quality=95, dpi=1000)
-
-
-#############################
-#                           #
-#         Other?            #
-#                           #
-#############################
-
-
-
-
-
-
-
+fig1.savefig('nlp-learning/output/images/wordcloud.png', quality=95, dpi=1000)
