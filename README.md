@@ -8,3 +8,7 @@ projects here with a quick note on what each project does.
 This code I used NLP techniques to interpret text data that I was working with in my PhD. I did this before learning how to use Git, so in the future ill try to redo my coding so it's updated.
 
 Text pre-processing techniques include tokenization, text normalization and data cleaning. Once in a standard format, various machine learning techniques can be applied to better understand the data. This includes using popular modeling techniques to score the sentiment of a text.
+
+
+![Sentiment Analysis](nlp-learning/output/images/sentimentanalysis.png)
+
