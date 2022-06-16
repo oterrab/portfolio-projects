@@ -12,7 +12,7 @@ I've started with pre-processing techniques including tokenization, text normali
 ![Word Cloud](nlp-learning/output/images/wordcloud.png)
 
 
-Also worked with popular modeling techniques to score the sentiment of a text. To perform a sentiment analysis, I did a subjectivity score to understand how much the teacher speech was opiniated (if what he was saying was a objective fact or a subjective opinion) and a polarity score to understand if what he is talking is negative or positive.
+Also worked with modeling techniques to score the sentiment of a text. To perform a sentiment analysis, I did a subjectivity score to understand how much the teacher speech was opiniated (if what he was saying was a objective fact or a subjective opinion) and a polarity score to understand if what he is talking is negative or positive.
 
 ![Sentiment Analysis](nlp-learning/output/images/sentiment2.png)
 
