@@ -1,4 +1,4 @@
-# Learning Programming and Data Science
+# Portifolio Projects to Learn Programming and Data Science
 
 These will be my forays into learning techniques for data science. I'll track my
 projects here with a quick note on what each project does.
