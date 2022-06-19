@@ -2,7 +2,7 @@
 
 In this code I analysed educational data from my home state. The educational data consist in state schools and students who passed, failed and those who dropped out of school.
 
-This is an analisys of schools per counties aggregating them by their unique schools number called INEP.
+This is an analisys of schools per counties aggregating them by their unique school number called INEP.
 
 ![Schools per Counties](output/images/escolaxmunicipios.png)
 

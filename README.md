@@ -16,3 +16,10 @@ Also worked with modeling techniques to score the sentiment of a text. To perfor
 
 ![Sentiment Analysis](nlp-learning/output/images/sentiment2.png)
 
+## Educação ES
+
+In this code I analysed educational data from my home state. The educational data consist in state schools and students who passed, failed and those who dropped out of school.
+
+This is an analisys of schools per counties aggregating them by their unique school number called INEP.
+
+![Schools per Counties](educacao-es/output/images/escolaxmunicipios.png)
