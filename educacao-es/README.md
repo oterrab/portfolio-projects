@@ -4,4 +4,4 @@ In this code I analysed educational data from my home state. The educational dat
 
 ![Schools per Counties](output/images/escolaxmunicipios.png)
 
-![Turnos](output/images/turno.png')
+![Turnos](output/images/turno.png)
