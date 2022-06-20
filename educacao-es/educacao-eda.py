@@ -17,10 +17,8 @@ os.chdir(r'/Users/lucaspb/git-repositories/portifolio-projects')
 
 #Importing Data
 
-data_escola  = pd.read_csv('educacao-es/input/DADOSESCOLA.csv')
-data_matricula  = pd.read_csv('educacao-es/input/DADOSMATRICULA.csv')
 data_rendimento  = pd.read_csv('educacao-es/input/DADOSRENDIMENTO.csv')
-data_mapa  = pd.read_csv('educacao-es/input/MAPAEDUCACAO.csv')
+
 
 #Getting to know the data
 
@@ -57,7 +55,6 @@ df[cols] = df[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', 
 # Plotting Municipios
 
 ## Lets plot Schools x Counties
-
 df_sccount = df[['Inep','Municipio']]
 
 # df_sccount.groupby('Inep').Municipio.nunique()
@@ -80,25 +77,33 @@ plt.xticks(rotation = 90)
 
 plt.savefig('educacao-es/output/images/escolaxmunicipios.png', quality=95, dpi=600)
 
-del(df_sccount)
-# Fazer escola por população do municipio #
-
-
 
 # Plotting Turnos
 
-data = data_rendimento[data_rendimento['Ano'] == 2022]
-
-
-df['Turno'].unique()
+df_turnos = df[['Inep', 'Turno', 'Escola']]
 
 ## Specific data cleaning
-df['Turno'].replace({'intermediario - manha': 'manha'}, regex=True, inplace=True)
-df['Turno'].replace({'intermediario - tarde': 'tarde'}, regex=True, inplace=True)
+df_turnos['Turno'].replace({'intermediario - manha': 'manha'}, regex=True, inplace=True)
+df_turnos['Turno'].replace({'intermediario - tarde': 'tarde'}, regex=True, inplace=True)
+
+
+## subsetting turnos and aggregating
+
+group = df_turnos.groupby('Inep')
+
+df_turnos2 = group.apply(lambda x: x['Turno'].unique())
+df_turnos2 = df_turnos2.apply(pd.Series)
+df_turnos2 = df_turnos2.reset_index()
+
+df_turnosmelted = df_turnos2.melt(value_vars=df_turnos2.columns)
+df_turnosmelted = df_turnosmelted.dropna()
 
 ## Plotting
+order = ['manha', 'tarde', 'noite', 'integral']
+
 plt.figure(figsize=(15,12))
-sns.countplot(df['Turno'],data=df,palette='hls')
+sns.countplot(data=df_turnosmelted, x="value", palette='hls',
+              order = order)
 plt.xticks(rotation = 90)
 
 plt.savefig('educacao-es/output/images/turno.png', quality=95, dpi=600)
