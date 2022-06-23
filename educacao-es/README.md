@@ -10,6 +10,4 @@ This is an analisys of elementary schools per cities aggregating them by their a
 **Middle School**
 ![Schools per City - Instance](output/images/type_school_city_medio.png)
 
-Also did a count of unique schools shifts. Some schools offer more than one shift and in total the file have 97027 shift  observations over several years (2008-2022). So I isolated unique shifts grouped by INEP for the year of 2022.
-
-![Turnos](output/images/turno.png)
+What I can learn from this is that most of elementary teaching is done by the city administrative instance while most of middle school teaching is done by the state administrative instance.
