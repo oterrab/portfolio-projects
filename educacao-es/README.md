@@ -4,7 +4,7 @@ In this code I analysed educational data from my home state using data from Inst
 
 This is an analisys of schools per cities aggregating them by their administrative instance (municipal, state or private).
 
-![Schools per City/Instance](output/images/type_school - city - fundamental.png)
+![Schools per City - Instance](output/images/type_school_city_fundamental.png)
 
 
 Also did a count of unique schools shifts. Some schools offer more than one shift and in total the file have 97027 shift  observations over several years (2008-2022). So I isolated unique shifts grouped by INEP for the year of 2022.

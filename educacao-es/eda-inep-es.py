@@ -31,9 +31,13 @@ df_escolascount_fund.unstack().plot(
     kind='bar', 
     stacked=True
     )
-plt.ylabel('Número de Escolas');
-
-sns.despine(left=True, bottom=True)
+plt.ylabel('Número de Escolas Fundamentais')
+plt.legend(frameon=False, loc='upper left', 
+           prop={'size':13},
+           title='Dependência Administrativa',
+           title_fontsize='13',
+           labels=['Estadual', 'Municipal', 'Privada'])
+sns.despine(left=False, bottom=True)
 plt.tight_layout()
-plt.savefig('educacao-es/output/images/type_school - city - fundamental.png', quality=95, dpi=600, bbox_inches = "tight")
+plt.savefig('educacao-es/output/images/type_school_city_fundamental.png', dpi=600, bbox_inches = "tight")
 plt.show()
