@@ -1,10 +1,10 @@
 # Portifolio Project - Educação ES
 
-In this code I analysed educational data from my home state. The educational data consist in state schools and students who passed, failed and those who dropped out of school.
+In this code I analysed educational data from my home state using data from Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP). The institute is responsible for promoting studies, research and periodic evaluations on the Brazilian educational system, with the objective of subsidizing the formulation and implementation of public policies for the educational area.
 
-This is an analisys of schools per counties aggregating them by their unique school number called INEP.
+This is an analisys of schools per cities aggregating them by their administrative instance (municipal, state or private).
 
-![Schools per Counties](output/images/escolaxmunicipios.png)
+![Schools per City/Instance](output/images/type_school - city - fundamental.png)
 
 
 Also did a count of unique schools shifts. Some schools offer more than one shift and in total the file have 97027 shift  observations over several years (2008-2022). So I isolated unique shifts grouped by INEP for the year of 2022.

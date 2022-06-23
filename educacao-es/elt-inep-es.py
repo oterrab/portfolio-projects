@@ -11,8 +11,6 @@ Created on Wed Jun 22 22:09:54 2022
 import os
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
 import warnings
 
 pd.set_option('display.max_columns', 500)
@@ -135,7 +133,36 @@ df_fund[cols] = df_fund[cols].apply(lambda x: x.str.normalize('NFKD').str.encode
 del(index, row, cols)
 
 
-#Importing Schools Data
+# Importing Fundamental Schools Data
 
-df_escolas_fund  = pd.read_csv('educacao-es/input/Lista das escolas - Fundamental.csv')
-df_escolas_medio = pd.read_csv('educacao-es/input/Lista das escolas - Médio.csv')
+df_escolas_fund  = pd.read_csv('educacao-es/input/Lista das escolas - Fundamental.csv', sep=';')
+
+# Grouping into a new DF and counting number and type of schools per city 
+
+df_escolas_fund['Total Escolas'] = 1
+
+aggregation_dict = {
+        'Total Escolas' : 'sum'
+}
+
+g = df_escolas_fund.groupby(['Município', 'Dependência Administrativa'])
+df_escolascount_fund = g.agg(aggregation_dict)
+del(aggregation_dict, g)
+
+
+# Importing Middle Schools Data
+
+df_escolas_medio = pd.read_csv('educacao-es/input/Lista das escolas - Médio.csv', sep=';')
+
+# Grouping into a new DF and counting number and type of schools per city 
+
+df_escolas_medio['Total Escolas'] = 1
+
+aggregation_dict = {
+        'Total Escolas' : 'sum'
+}
+
+g = df_escolas_medio.groupby(['Município', 'Dependência Administrativa'])
+df_escolascount_medio = g.agg(aggregation_dict)
+del(aggregation_dict, g)
+
