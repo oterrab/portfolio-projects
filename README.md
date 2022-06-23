@@ -20,6 +20,10 @@ Also worked with modeling techniques to score the sentiment of a text. To perfor
 
 In this code I analysed educational data from my home state using data from Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP). The institute is responsible for promoting studies, research and periodic evaluations on the Brazilian educational system, with the objective of subsidizing the formulation and implementation of public policies for the educational area.
 
-This is an analisys of schools per cities aggregating them by their administrative instance (municipal, state or private).
+This is an analisys of elementary schools per cities aggregating them by their administrative instance (municipal, state, federal or private).
 
-![Schools per City - Instance](educacao-es/output/images/type_school_city_fundamental.png)
+**Elementary**
+![Schools per City - Instance](output/images/type_school_city_fundamental.png)
+
+**Middle School**
+![Schools per City - Instance](output/images/type_school_city_medio.png)
