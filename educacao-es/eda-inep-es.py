@@ -23,12 +23,14 @@ pd.set_option('display.max_rows', 500)
 os.chdir(r'/Users/lucaspb/git-repositories/portifolio-projects')
 
 
-# Ploting School, Type of School and City for Fundamental School
+# Ploting School, Type of School and City 
+## Elementary School
 
 plt.figure(figsize=(15,18))
 df_escolascount_fund.unstack().plot(
     kind='bar', 
-    stacked=True
+    stacked=True,
+    color=['cornflowerblue', 'gold', 'indianred']
     )
 plt.ylabel('Número de Escolas - Fundamental')
 plt.legend(frameon=False, loc='upper left', 
@@ -41,13 +43,32 @@ plt.tight_layout()
 plt.savefig('educacao-es/output/images/type_school_city_fundamental.png', dpi=600, bbox_inches = "tight")
 plt.show()
 
-
-# Ploting School, Type of School and City for Middle School
+## Middle School
 
 plt.figure(figsize=(15,18))
 df_escolascount_medio.unstack().plot(
     kind='bar', 
-    stacked=True
+    stacked=True,
+    color=['cornflowerblue', 'seagreen', 'gold', 'indianred']
+    )
+plt.ylabel('Número de Escolas - Médio')
+plt.legend(frameon=False, loc='upper left', 
+           prop={'size':13},
+           title='Dependência Administrativa',
+           title_fontsize='13',
+           labels=['Estadual', 'Federal', 'Municipal', 'Privada'])
+sns.despine(left=False, bottom=True)
+plt.tight_layout()
+plt.savefig('educacao-es/output/images/type_school_city_medio.png', dpi=600, bbox_inches = "tight")
+plt.show()
+
+# Ploting Cities x Ratio
+
+plt.figure(figsize=(15,18))
+df_escolascount_medio.unstack().plot(
+    kind='bar', 
+    stacked=True,
+    color=['cornflowerblue', 'seagreen', 'gold', 'indianred']
     )
 plt.ylabel('Número de Escolas - Médio')
 plt.legend(frameon=False, loc='upper left', 

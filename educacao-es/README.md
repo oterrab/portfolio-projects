@@ -11,3 +11,11 @@ This is an analisys of elementary schools per cities aggregating them by their a
 ![Schools per City - Instance](output/images/type_school_city_medio.png)
 
 What I can learn from this is that most of elementary teaching is done by the city administrative instance while most of middle school teaching is done by the state administrative instance.
+
+Also did an analyze of number os students per school in elementary and middle school. For this I used data from public schools of my home state.
+
+**Elementary**
+![Schools per City - Instance](output/images/ratio_student_per_school_fund.png)
+
+**Middle School**
+![Schools per City - Instance](output/images/ratio_student_per_school_medio.png)

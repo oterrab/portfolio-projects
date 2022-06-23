@@ -137,7 +137,7 @@ del(index, row, cols)
 
 df_escolas_fund  = pd.read_csv('educacao-es/input/Lista das escolas - Fundamental.csv', sep=';')
 
-# Grouping into a new DF and counting number and type of schools per city 
+## Grouping into a new DF and counting number and type of schools per city 
 
 df_escolas_fund['Total Escolas'] = 1
 
@@ -154,7 +154,7 @@ del(aggregation_dict, g)
 
 df_escolas_medio = pd.read_csv('educacao-es/input/Lista das escolas - Médio.csv', sep=';')
 
-# Grouping into a new DF and counting number and type of schools per city 
+## Grouping into a new DF and counting number and type of schools per city 
 
 df_escolas_medio['Total Escolas'] = 1
 
@@ -165,4 +165,71 @@ aggregation_dict = {
 g = df_escolas_medio.groupby(['Município', 'Dependência Administrativa'])
 df_escolascount_medio = g.agg(aggregation_dict)
 del(aggregation_dict, g)
+
+# Generating new DF that do not have Federal and Private Schools
+## Fundamental
+df_escolascount_fund2 = df_escolascount_fund.reset_index()
+df_escolascount_fund2 = df_escolascount_fund2[~df_escolascount_fund2.isin(['Privada', 'Federal']).any(axis=1)]
+
+### Lower case
+df_escolascount_fund2 = df_escolascount_fund2.applymap(lambda s: s.lower() if type(s) == str else s)
+
+### Removing accentuation
+cols = df_escolascount_fund2.select_dtypes(include=[np.object]).columns
+df_escolascount_fund2[cols] = df_escolascount_fund2[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
+          
+del(index, row, cols)
+
+## Medio
+df_escolascount_medio2 = df_escolascount_medio.reset_index()
+df_escolascount_medio2 = df_escolascount_medio2[~df_escolascount_medio2.isin(['Privada', 'Federal']).any(axis=1)]
+
+### Lower case
+df_escolascount_medio2 = df_escolascount_medio2.applymap(lambda s: s.lower() if type(s) == str else s)
+
+### Removing accentuation
+cols = df_escolascount_medio2.select_dtypes(include=[np.object]).columns
+df_escolascount_medio2[cols] = df_escolascount_medio2[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
+          
+del(index, row, cols)
+
+# Generating a new DF to count number of students per city
+## Fundamental
+df_alunos_total_fund = df_fund.loc[1:, 'cidades':'estadual'].join(df_fund.loc[1:, 'municipal'])
+df_alunos_total_fund['total'] = df_alunos_total_fund['estadual'] + df_alunos_total_fund['municipal']
+
+## Medio
+df_alunos_total_medio = df_medio.loc[1:, 'cidades':'estadual'].join(df_medio.loc[1:, 'municipal'])
+df_alunos_total_medio['total'] = df_alunos_total_medio['estadual'] + df_alunos_total_medio['municipal']
+
+
+# Adding students schools ratio to the table
+## Fundamental
+
+df_escolascount_fund2 = df_escolascount_fund2.pivot_table(index='Município', columns='Dependência Administrativa', values='Total Escolas', aggfunc='sum')
+
+df_result = pd.merge(pd.DataFrame(df_alunos_total_fund), pd.DataFrame(df_escolascount_fund2), left_on=['cidades'], 
+             right_on= ['Município'], how='left')
+
+df_result = df_result.fillna(0)
+df_result.columns = ['cidades', 'estudantes estadual', 'estudantes municipal', 'total', 'escolas estadual', 'escolas municipal']
+df_result['total escolas'] = df_result['escolas estadual'] + df_result['escolas municipal']
+df_result['ratio'] = df_result['total'] / df_result['total escolas']
+
+#del(df_escolascount_fund2)
+
+## Médio
+
+df_escolascount_medio2 = df_escolascount_medio2.pivot_table(index='Município', columns='Dependência Administrativa', values='Total Escolas', aggfunc='sum')
+
+df_result2 = pd.merge(pd.DataFrame(df_alunos_total_medio), pd.DataFrame(df_escolascount_medio2), left_on=['cidades'], 
+             right_on= ['Município'], how='left')
+
+df_result2 = df_result2.fillna(0)
+df_result2.columns = ['cidades', 'estudantes estadual', 'estudantes municipal', 'total', 'escolas estadual', 'escolas municipal']
+df_result2['total escolas'] = df_result2['escolas estadual'] + df_result2['escolas municipal']
+df_result2['ratio'] = df_result2['total'] / df_result2['total escolas']
+
+#del(df_escolascount_medio2)
+
 
