@@ -63,20 +63,25 @@ plt.savefig('educacao-es/output/images/type_school_city_medio.png', dpi=600, bbo
 plt.show()
 
 # Ploting Cities x Ratio
+## Elementary School
 
 plt.figure(figsize=(15,18))
-df_escolascount_medio.unstack().plot(
-    kind='bar', 
-    stacked=True,
-    color=['cornflowerblue', 'seagreen', 'gold', 'indianred']
-    )
-plt.ylabel('Número de Escolas - Médio')
-plt.legend(frameon=False, loc='upper left', 
-           prop={'size':13},
-           title='Dependência Administrativa',
-           title_fontsize='13',
-           labels=['Estadual', 'Federal', 'Municipal', 'Privada'])
-sns.despine(left=False, bottom=True)
+sns.barplot(data=df_result, x='ratio', y='cidades', palette='Blues_d')
+plt.ylabel('Cidades')
+plt.title('Estudantes por Escola - Fundamental')
+sns.despine(left=True, bottom=True)
 plt.tight_layout()
-plt.savefig('educacao-es/output/images/type_school_city_medio.png', dpi=600, bbox_inches = "tight")
+plt.savefig('educacao-es/output/images/ratio_student_per_school_fund.png', quality=95, dpi=600, bbox_inches = "tight")
+plt.show()
+
+
+## Middle School
+
+plt.figure(figsize=(15,18))
+sns.barplot(data=df_result, x='ratio', y='cidades', palette='Blues_d')
+plt.ylabel('Cidades')
+plt.title('Estudantes por Escola - Médio')
+sns.despine(left=True, bottom=True)
+plt.tight_layout()
+plt.savefig('educacao-es/output/images/ratio_student_per_school_medio.png', quality=95, dpi=600, bbox_inches = "tight")
 plt.show()
