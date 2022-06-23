@@ -23,7 +23,7 @@ In this code I analysed educational data from my home state using data from Inst
 This is an analisys of elementary schools per cities aggregating them by their administrative instance (municipal, state, federal or private).
 
 **Elementary**
-![Schools per City - Instance](output/images/type_school_city_fundamental.png)
+![Schools per City - Instance](educacao-es/output/images/type_school_city_fundamental.png)
 
 **Middle School**
-![Schools per City - Instance](output/images/type_school_city_medio.png)
+![Schools per City - Instance](educacao-es/output/images/type_school_city_medio.png)

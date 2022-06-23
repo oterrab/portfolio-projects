@@ -32,11 +32,13 @@ df_escolascount_fund.unstack().plot(
     stacked=True,
     color=['cornflowerblue', 'gold', 'indianred']
     )
-plt.ylabel('Número de Escolas - Fundamental')
+plt.title('Número de Escolas - Fundamental', size=7)
+plt.xlabel('Cidades', size = 5)
+plt.tick_params(axis='both',labelsize=5)
 plt.legend(frameon=False, loc='upper left', 
-           prop={'size':13},
+           prop={'size':4},
            title='Dependência Administrativa',
-           title_fontsize='13',
+           title_fontsize='4',
            labels=['Estadual', 'Municipal', 'Privada'])
 sns.despine(left=False, bottom=True)
 plt.tight_layout()
@@ -51,11 +53,13 @@ df_escolascount_medio.unstack().plot(
     stacked=True,
     color=['cornflowerblue', 'seagreen', 'gold', 'indianred']
     )
-plt.ylabel('Número de Escolas - Médio')
+plt.title('Número de Escolas - Médio', size=7)
+plt.xlabel('Cidades', size = 5)
+plt.tick_params(axis='both',labelsize=5)
 plt.legend(frameon=False, loc='upper left', 
-           prop={'size':13},
+           prop={'size':4},
            title='Dependência Administrativa',
-           title_fontsize='13',
+           title_fontsize='4',
            labels=['Estadual', 'Federal', 'Municipal', 'Privada'])
 sns.despine(left=False, bottom=True)
 plt.tight_layout()
@@ -68,7 +72,7 @@ plt.show()
 plt.figure(figsize=(15,18))
 sns.barplot(data=df_result, x='ratio', y='cidades', palette='Blues_d')
 plt.ylabel('Cidades')
-plt.title('Estudantes por Escola - Fundamental')
+plt.title('Estudantes por Escola Pública - Fundamental')
 sns.despine(left=True, bottom=True)
 plt.tight_layout()
 plt.savefig('educacao-es/output/images/ratio_student_per_school_fund.png', quality=95, dpi=600, bbox_inches = "tight")
@@ -80,7 +84,7 @@ plt.show()
 plt.figure(figsize=(15,18))
 sns.barplot(data=df_result, x='ratio', y='cidades', palette='Blues_d')
 plt.ylabel('Cidades')
-plt.title('Estudantes por Escola - Médio')
+plt.title('Estudantes por Escola Pública - Médio')
 sns.despine(left=True, bottom=True)
 plt.tight_layout()
 plt.savefig('educacao-es/output/images/ratio_student_per_school_medio.png', quality=95, dpi=600, bbox_inches = "tight")

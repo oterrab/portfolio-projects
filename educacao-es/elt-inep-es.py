@@ -69,7 +69,7 @@ df_medio = df_medio.applymap(lambda s: s.lower() if type(s) == str else s)
 cols = df_medio.select_dtypes(include=[np.object]).columns
 df_medio[cols] = df_medio[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
 
-del(index, row, cols)
+#del(index, row, cols)
 
 # Generating a table with all students from fundamental school
 
@@ -130,7 +130,7 @@ df_fund = df_fund.applymap(lambda s: s.lower() if type(s) == str else s)
 cols = df_fund.select_dtypes(include=[np.object]).columns
 df_fund[cols] = df_fund[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
           
-del(index, row, cols)
+#del(index, row, cols)
 
 
 # Importing Fundamental Schools Data
@@ -147,7 +147,7 @@ aggregation_dict = {
 
 g = df_escolas_fund.groupby(['Município', 'Dependência Administrativa'])
 df_escolascount_fund = g.agg(aggregation_dict)
-del(aggregation_dict, g)
+#del(aggregation_dict, g)
 
 
 # Importing Middle Schools Data
@@ -164,7 +164,7 @@ aggregation_dict = {
 
 g = df_escolas_medio.groupby(['Município', 'Dependência Administrativa'])
 df_escolascount_medio = g.agg(aggregation_dict)
-del(aggregation_dict, g)
+#del(aggregation_dict, g)
 
 # Generating new DF that do not have Federal and Private Schools
 ## Fundamental
@@ -178,7 +178,7 @@ df_escolascount_fund2 = df_escolascount_fund2.applymap(lambda s: s.lower() if ty
 cols = df_escolascount_fund2.select_dtypes(include=[np.object]).columns
 df_escolascount_fund2[cols] = df_escolascount_fund2[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
           
-del(index, row, cols)
+#del(index, row, cols)
 
 ## Medio
 df_escolascount_medio2 = df_escolascount_medio.reset_index()
@@ -191,7 +191,7 @@ df_escolascount_medio2 = df_escolascount_medio2.applymap(lambda s: s.lower() if 
 cols = df_escolascount_medio2.select_dtypes(include=[np.object]).columns
 df_escolascount_medio2[cols] = df_escolascount_medio2[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
           
-del(index, row, cols)
+#del(index, row, cols)
 
 # Generating a new DF to count number of students per city
 ## Fundamental
