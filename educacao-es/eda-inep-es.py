@@ -22,6 +22,11 @@ pd.set_option('display.max_rows', 500)
 
 os.chdir(r'/Users/lucaspb/git-repositories/portifolio-projects')
 
+#############################
+#                           #
+#      Schools x City       #
+#                           #
+#############################
 
 # Ploting School, Type of School and City 
 ## Elementary School
@@ -66,6 +71,13 @@ plt.tight_layout()
 plt.savefig('educacao-es/output/images/type_school_city_medio.png', dpi=600, bbox_inches = "tight")
 plt.show()
 
+
+#############################
+#                           #
+#    Students per School    #
+#                           #
+#############################
+
 # Ploting Cities x Ratio
 ## Elementary School
 
@@ -89,3 +101,32 @@ sns.despine(left=True, bottom=True)
 plt.tight_layout()
 plt.savefig('educacao-es/output/images/ratio_student_per_school_medio.png', quality=95, dpi=600, bbox_inches = "tight")
 plt.show()
+
+
+#############################
+#                           #
+#   Expenses in Education   #
+#                           #
+#############################
+
+plt.figure(figsize=(15,18))
+sns.lineplot(
+    data=df_despesas[df_despesas["EsferaAdministrativa"].isin(["Vitória", "Viana"])], 
+    x=df_despesas.Ano[df_despesas.Ano != 2022], 
+    y=df_despesas["AplicacaoPercentual"].astype(float), 
+    hue="EsferaAdministrativa",
+    markers=True
+)
+plt.title('Despesas Educacionais', size=30)
+plt.xlabel('Ano', size = 25)
+plt.ylabel('Aplicação Percentual', size = 25)
+plt.tick_params(axis='both',labelsize=20)
+plt.legend(frameon=False, loc='upper right', 
+           prop={'size':15},
+           title='Esfera Administrativa',
+           title_fontsize='15')
+sns.despine(left=False, bottom=False)
+plt.tight_layout()
+plt.savefig('educacao-es/output/images/despesas_educacionais.png', quality=95, dpi=600, bbox_inches = "tight")
+plt.show()
+

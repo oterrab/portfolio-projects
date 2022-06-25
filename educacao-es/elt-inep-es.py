@@ -5,8 +5,10 @@ Created on Wed Jun 22 22:09:54 2022
 
 @author: lucaspb
 """
+## https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/indicadores-educacionais/media-de-alunos-por-turma
 
-#packages
+
+# Libraries
 
 import os
 import numpy as np
@@ -20,7 +22,15 @@ pd.set_option('display.max_rows', 500)
 
 os.chdir(r'/Users/lucaspb/git-repositories/portifolio-projects')
 
-#Importing Student Data
+#############################
+#                           #
+#          Students         #
+#                           #
+#############################
+
+
+# Importing Student Data
+## https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-escolar/resultados
 
 df_alunos  = pd.read_excel('educacao-es/input/inep-resultado_final_anexo_1_.xlsx', skiprows=4872, nrows=474)
 df_alunos.columns = ['c0','infantil creche parcial', 'infantil creche integral', 'infantil preescola parcial', 
@@ -132,8 +142,26 @@ df_fund[cols] = df_fund[cols].apply(lambda x: x.str.normalize('NFKD').str.encode
           
 #del(index, row, cols)
 
+# Generating a new DF to count number of students per city
+## Fundamental
+df_alunos_total_fund = df_fund.loc[1:, 'cidades':'estadual'].join(df_fund.loc[1:, 'municipal'])
+df_alunos_total_fund['total'] = df_alunos_total_fund['estadual'] + df_alunos_total_fund['municipal']
+
+## Medio
+df_alunos_total_medio = df_medio.loc[1:, 'cidades':'estadual'].join(df_medio.loc[1:, 'municipal'])
+df_alunos_total_medio['total'] = df_alunos_total_medio['estadual'] + df_alunos_total_medio['municipal']
+
+
+
+#############################
+#                           #
+#          Schools          #
+#                           #
+#############################
+
 
 # Importing Fundamental Schools Data
+## https://inepdata.inep.gov.br/analytics/saw.dll?dashboard
 
 df_escolas_fund  = pd.read_csv('educacao-es/input/Lista das escolas - Fundamental.csv', sep=';')
 
@@ -166,6 +194,14 @@ g = df_escolas_medio.groupby(['Município', 'Dependência Administrativa'])
 df_escolascount_medio = g.agg(aggregation_dict)
 #del(aggregation_dict, g)
 
+
+#############################
+#                           #
+#       Mixing Tables       #
+#                           #
+#############################
+
+
 # Generating new DF that do not have Federal and Private Schools
 ## Fundamental
 df_escolascount_fund2 = df_escolascount_fund.reset_index()
@@ -192,16 +228,6 @@ cols = df_escolascount_medio2.select_dtypes(include=[np.object]).columns
 df_escolascount_medio2[cols] = df_escolascount_medio2[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
           
 #del(index, row, cols)
-
-# Generating a new DF to count number of students per city
-## Fundamental
-df_alunos_total_fund = df_fund.loc[1:, 'cidades':'estadual'].join(df_fund.loc[1:, 'municipal'])
-df_alunos_total_fund['total'] = df_alunos_total_fund['estadual'] + df_alunos_total_fund['municipal']
-
-## Medio
-df_alunos_total_medio = df_medio.loc[1:, 'cidades':'estadual'].join(df_medio.loc[1:, 'municipal'])
-df_alunos_total_medio['total'] = df_alunos_total_medio['estadual'] + df_alunos_total_medio['municipal']
-
 
 # Adding students schools ratio to the table
 ## Fundamental
@@ -231,5 +257,21 @@ df_result2['total escolas'] = df_result2['escolas estadual'] + df_result2['escol
 df_result2['ratio'] = df_result2['total'] / df_result2['total escolas']
 
 #del(df_escolascount_medio2)
+
+#############################
+#                           #
+#         Expenses          #
+#                           #
+#############################
+
+
+# Importing cities expenses on education
+## https://dados.es.gov.br/dataset/saude-educacao-pessoal/resource/189ec1f5-abed-4f0f-97c0-4fb858871a47
+
+df_despesas.info()
+df_despesas  = pd.read_csv('educacao-es/input/despesas-educacao.csv', sep=',')
+df_despesas = df_despesas[['Ano', 'EsferaAdministrativa', 'AplicacaoPercentual']]
+df_despesas.replace({',': '.'}, regex=True, inplace=True)
+df_despesas = df_despesas.sort_values(['EsferaAdministrativa', 'Ano'])
 
 

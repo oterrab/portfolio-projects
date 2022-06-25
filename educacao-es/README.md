@@ -10,9 +10,9 @@ This is an analisys of elementary schools per cities aggregating them by their a
 **Middle School**
 ![Schools per City - Instance](output/images/type_school_city_medio.png)
 
-As expected most of elementary teaching is done by the city administrative instance while most of middle school teaching is done by the state administrative instance. The federal constitution defines that the municipality takes care of early childhood Education and also elementary school 1; Middle school is a priority for the state government, but they also manage elementary schoool 2. The Union, in turn, is responsible for the financial and technical coordination while conducting the federal universities.
+As expected most of elementary teaching is done by the city administrative instance while most of middle school teaching is done by the state administrative instance. The federal constitution defines that the municipality takes care of early childhood education and also elementary school 1; Middle school is a priority for the state government, but they also manage elementary schoool 2. The union, in turn, is responsible for the financial and technical coordination while conducting the federal universities.
 
-Also did an analyze of number os students per school in elementary and middle school. For this I used data from public schools of my home state.
+Also did an analyze of number of students per public school in elementary and middle school.
 
 **Elementary**
 ![Schools per City - Instance](output/images/ratio_student_per_school_fund.png)
@@ -20,3 +20,6 @@ Also did an analyze of number os students per school in elementary and middle sc
 **Middle School**
 ![Schools per City - Instance](output/images/ratio_student_per_school_medio.png)
 
+I also used TCU data to see the expenses each city had on education.
+
+![Expenses per City Relative to FUNDEB](output/images/despesas_educacionais.png)
