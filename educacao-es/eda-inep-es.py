@@ -111,7 +111,7 @@ plt.show()
 
 plt.figure(figsize=(15,18))
 sns.lineplot(
-    data=df_despesas[df_despesas["EsferaAdministrativa"].isin(["Vitória", "Viana"])], 
+    data=df_despesas[df_despesas["EsferaAdministrativa"].isin(["Alegre", "Cariacica", "Vitória", "Serra", "Guarapari", "Vila Velha", "Marataízes", "Cachoeiro do Itapemerim",  "Viana"])], 
     x=df_despesas.Ano[df_despesas.Ano != 2022], 
     y=df_despesas["AplicacaoPercentual"].astype(float), 
     hue="EsferaAdministrativa",
