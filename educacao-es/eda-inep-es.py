@@ -87,7 +87,7 @@ plt.ylabel('Cidades')
 plt.title('Estudantes por Escola Pública - Fundamental')
 sns.despine(left=True, bottom=True)
 plt.tight_layout()
-plt.savefig('educacao-es/output/images/ratio_student_per_school_fund.png', quality=95, dpi=600, bbox_inches = "tight")
+#plt.savefig('educacao-es/output/images/ratio_student_per_school_fund.png', quality=95, dpi=600, bbox_inches = "tight")
 plt.show()
 
 
@@ -99,7 +99,7 @@ plt.ylabel('Cidades')
 plt.title('Estudantes por Escola Pública - Médio')
 sns.despine(left=True, bottom=True)
 plt.tight_layout()
-plt.savefig('educacao-es/output/images/ratio_student_per_school_medio.png', quality=95, dpi=600, bbox_inches = "tight")
+#plt.savefig('educacao-es/output/images/ratio_student_per_school_medio.png', quality=95, dpi=600, bbox_inches = "tight")
 plt.show()
 
 
@@ -127,6 +127,48 @@ plt.legend(frameon=False, loc='upper right',
            title_fontsize='15')
 sns.despine(left=False, bottom=False)
 plt.tight_layout()
-plt.savefig('educacao-es/output/images/despesas_educacionais.png', quality=95, dpi=600, bbox_inches = "tight")
+#plt.savefig('educacao-es/output/images/despesas_educacionais.png', quality=95, dpi=600, bbox_inches = "tight")
 plt.show()
 
+
+#############################
+#                           #
+#   Expenses per Student    #
+#                           #
+#############################
+
+# Ploting Expenses / Student x Cities
+
+def show_values_on_bars(axs, h_v="v", hspace=0.4, vspace=0.4):
+    def _show_on_single_plot(ax):
+        if h_v == "v":
+            for p in ax.patches:
+                _x = p.get_x() + p.get_width() / 2
+                _y = p.get_y() + p.get_height()
+                value = int(p.get_height())
+                ax.text(_x, _y, value, ha="center") 
+        elif h_v == "h":
+            for p in ax.patches:
+                _x = p.get_x() + p.get_width() + float(hspace)
+                _y = p.get_y() + p.get_height()+ float(vspace)
+                value = int(p.get_width())
+                ax.text(_x, _y, value, ha="left")
+
+    if isinstance(axs, np.ndarray):
+        for idx, ax in np.ndenumerate(axs):
+            _show_on_single_plot(ax)
+    else:
+        _show_on_single_plot(axs)
+
+
+## Elementary School
+
+plt.figure(figsize=(15,18))
+ax = sns.barplot(data=df_despesas_2021, x='ExpStu_raw', y='EsferaAdministrativa', palette='YlOrBr_r')
+plt.ylabel('Cidades')
+plt.title('Investimento por Estudante - 2021')
+sns.despine(left=True, bottom=True)
+plt.tight_layout()
+show_values_on_bars(ax, "h", 100, -0.2)
+plt.savefig('educacao-es/output/images/expernses_per_student_per_city.png', quality=95, dpi=600, bbox_inches = "tight")
+plt.show()

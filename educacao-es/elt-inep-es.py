@@ -29,7 +29,7 @@ os.chdir(r'/Users/lucaspb/git-repositories/portifolio-projects')
 #############################
 
 
-# Importing Student Data
+# Importing Student Data 2021
 ## https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/censo-escolar/resultados
 
 df_alunos  = pd.read_excel('educacao-es/input/inep-resultado_final_anexo_1_.xlsx', skiprows=4872, nrows=474)
@@ -195,6 +195,11 @@ df_escolascount_medio = g.agg(aggregation_dict)
 #del(aggregation_dict, g)
 
 
+# DF with total students
+
+df_alunos_total = df_alunos_total_fund + df_alunos_total_medio
+df_alunos_total.iloc[:, 0] = df_alunos_total_fund.iloc[:, 0]
+
 #############################
 #                           #
 #       Mixing Tables       #
@@ -268,10 +273,36 @@ df_result2['ratio'] = df_result2['total'] / df_result2['total escolas']
 # Importing cities expenses on education
 ## https://dados.es.gov.br/dataset/saude-educacao-pessoal/resource/189ec1f5-abed-4f0f-97c0-4fb858871a47
 
-df_despesas.info()
 df_despesas  = pd.read_csv('educacao-es/input/despesas-educacao.csv', sep=',')
-df_despesas = df_despesas[['Ano', 'EsferaAdministrativa', 'AplicacaoPercentual']]
+
+df_despesas.info()
+df_despesas = df_despesas[['Ano', 'EsferaAdministrativa', 'Aplicacao', 'AplicacaoPercentual']]
 df_despesas.replace({',': '.'}, regex=True, inplace=True)
 df_despesas = df_despesas.sort_values(['EsferaAdministrativa', 'Ano'])
 
 
+## 2021
+### pd.set_option('display.float_format', lambda x: '%.3f' % x)
+
+df_despesas_2021 = df_despesas.loc[df_despesas['Ano'] == 2021]
+### Lower case
+df_despesas_2021 = df_despesas_2021.applymap(lambda s: s.lower() if type(s) == str else s)
+
+### Removing accentuation
+cols = df_despesas_2021.select_dtypes(include=[np.object]).columns
+df_despesas_2021[cols] = df_despesas_2021[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
+        
+
+df_despesas_2021 = df_despesas_2021.sort_values('EsferaAdministrativa').reset_index(drop=True)
+df_despesas_2021 = df_despesas_2021.drop('Ano', 1)
+
+df_alunos_total = df_alunos_total.sort_values('cidades').reset_index(drop=True)
+
+
+df_despesas_2021['Aplicacao'] = pd.to_numeric(df_despesas_2021['Aplicacao'], errors='coerce')
+df_despesas_2021['AplicacaoPercentual'] = pd.to_numeric(df_despesas_2021['AplicacaoPercentual'], errors='coerce')
+
+df_despesas_2021['ExpStu_raw'] = df_despesas_2021['Aplicacao'] / df_alunos_total['total']
+df_despesas_2021['ExpStu_per'] = df_despesas_2021['AplicacaoPercentual'] / df_alunos_total['total']
+
+df_despesas_2021 = df_despesas_2021.sort_values('ExpStu_raw', ascending=False).reset_index(drop=True)

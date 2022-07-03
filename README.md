@@ -3,7 +3,7 @@
 These will be my forays into learning techniques for data science. I'll track my
 projects here with a quick note on what each project does.
 
-## Natural Language Processing - NLP
+## 📑  Natural Language Processing - NLP
 
 In this code I used NLP techniques to interpret text data that I was working with in my PhD and to learn some techniques I was going to use in other context. The text used to perform this analysis was a transcript of a chemistry class for undergraduation students.
 

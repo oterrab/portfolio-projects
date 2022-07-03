@@ -1,4 +1,4 @@
-# Portifolio Project - Educação ES
+# Portifolio Project - Educação ES :school_satchel: :memo:
 
 In this code I analysed educational data from my home state using data from Instituto Nacional de Estudos e Pesquisas Educacionais Anísio Teixeira (INEP). The institute is responsible for promoting studies, research and periodic evaluations on the Brazilian educational system, with the objective of subsidizing the formulation and implementation of public policies for the educational area.
 
@@ -20,6 +20,10 @@ Also did an analyze of number of students per public school in elementary and mi
 **Middle School**
 ![Schools per City - Instance](output/images/ratio_student_per_school_medio.png)
 
-I also used TCU data to see the expenses each city had on education.
+I also used TCU ES data to see the expenses each city had on education.
 
 ![Expenses per City Relative to FUNDEB](output/images/despesas_educacionais.png)
+
+Total public resources invested in maintenance and development of education divided by the number of students enrolled in the public education network. The higher the position in the ranking, the greater the investment in maintenance and development of education per student in the municipal network.
+
+![Expense per Student](output/images/expernses_per_student_per_city.png')
