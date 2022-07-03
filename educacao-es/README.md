@@ -20,7 +20,7 @@ Also did an analyze of number of students per public school in elementary and mi
 :memo: **Middle School**
 ![Schools per City - Instance](output/images/ratio_student_per_school_medio.png)
 
-Total public resources invested in maintenance and development of education in the public education network.
+Total public resources invested in maintenance and development of education in the public education network.The Constitution establishes that municipalities must apply at least 25% (twenty-five) of the revenue resulting from taxes, including that from transfers, in the maintenance and development of education.
 
 ![Expenses per City Relative to FUNDEB](output/images/despesas_educacionais.png)
 
