@@ -24,6 +24,6 @@ Total public resources invested in maintenance and development of education in t
 
 ![Expenses per City Relative to FUNDEB](output/images/despesas_educacionais.png)
 
-Total public resources invested in maintenance and development of education **divided by the number of students enrolled in the public education network**. The higher the position in the ranking, the greater the investment in maintenance and development of education per student in the municipal network.
+Total public resources invested in maintenance and development of education **divided by the number of students enrolled in the public education network**. The higher the position in the ranking, the greater the investment in maintenance and development of education per student in the education network.
 
 ![Expense per Student](output/images/expernses_per_student_per_city.png)

@@ -109,7 +109,7 @@ plt.show()
 #                           #
 #############################
 
-plt.figure(figsize=(15,18))
+plt.figure(figsize=(10,9))
 sns.lineplot(
     data=df_despesas[df_despesas["EsferaAdministrativa"].isin(["Alegre", "Cariacica", "Vitória", "Serra", "Guarapari", "Vila Velha", "Marataízes", "Cachoeiro do Itapemerim",  "Viana"])], 
     x=df_despesas.Ano[df_despesas.Ano != 2022], 
@@ -117,10 +117,10 @@ sns.lineplot(
     hue="EsferaAdministrativa",
     markers=True
 )
-plt.title('Despesas Educacionais', size=30)
-plt.xlabel('Ano', size = 25)
-plt.ylabel('Aplicação Percentual', size = 25)
-plt.tick_params(axis='both',labelsize=20)
+plt.title('Despesas Educacionais', size=20)
+plt.xlabel('Ano', size = 15)
+plt.ylabel('Aplicação Percentual', size = 15)
+plt.tick_params(axis='both',labelsize=15)
 plt.legend(frameon=False, loc='upper right', 
            prop={'size':15},
            title='Esfera Administrativa',
@@ -172,5 +172,5 @@ plt.xlabel('R$')
 sns.despine(left=True, bottom=True)
 plt.tight_layout()
 show_values_on_bars(ax, "h", 100, -0.4)
-plt.savefig('educacao-es/output/images/expernses_per_student_per_city.png', quality=95, dpi=600, bbox_inches = "tight")
+#plt.savefig('educacao-es/output/images/expernses_per_student_per_city.png', quality=95, dpi=600, bbox_inches = "tight")
 plt.show()
