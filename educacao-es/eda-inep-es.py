@@ -138,6 +138,7 @@ plt.show()
 #############################
 
 # Ploting Expenses / Student x Cities
+## modified from: https://stackoverflow.com/questions/42861049/horizontal-barplot-with-annotations/42865017
 
 def show_values_on_bars(axs, h_v="v", hspace=0.4, vspace=0.4):
     def _show_on_single_plot(ax):
@@ -152,7 +153,7 @@ def show_values_on_bars(axs, h_v="v", hspace=0.4, vspace=0.4):
                 _x = p.get_x() + p.get_width() + float(hspace)
                 _y = p.get_y() + p.get_height()+ float(vspace)
                 value = int(p.get_width())
-                ax.text(_x, _y, value, ha="left")
+                ax.text(_x, _y, value, ha="left", va="center")
 
     if isinstance(axs, np.ndarray):
         for idx, ax in np.ndenumerate(axs):
@@ -167,8 +168,9 @@ plt.figure(figsize=(15,18))
 ax = sns.barplot(data=df_despesas_2021, x='ExpStu_raw', y='EsferaAdministrativa', palette='YlOrBr_r')
 plt.ylabel('Cidades')
 plt.title('Investimento por Estudante - 2021')
+plt.xlabel('R$', size = 25)
 sns.despine(left=True, bottom=True)
 plt.tight_layout()
-show_values_on_bars(ax, "h", 100, -0.2)
+show_values_on_bars(ax, "h", 100, -0.4)
 plt.savefig('educacao-es/output/images/expernses_per_student_per_city.png', quality=95, dpi=600, bbox_inches = "tight")
 plt.show()

@@ -26,4 +26,4 @@ I also used TCU ES data to see the expenses each city had on education.
 
 Total public resources invested in maintenance and development of education divided by the number of students enrolled in the public education network. The higher the position in the ranking, the greater the investment in maintenance and development of education per student in the municipal network.
 
-![Expense per Student](output/images/expernses_per_student_per_city.png')
+![Expense per Student](output/images/expernses_per_student_per_city.png)
