@@ -139,7 +139,6 @@ sns.despine(left=True, bottom=True)
 plt.tick_params(axis='x',labelsize=15)
 plt.tight_layout()
 show_values_on_bars(ax, "h", 10, -0.4)
-
 #plt.savefig('educacao-es/output/images/ratio_student_per_school_medio.png', quality=95, dpi=600, bbox_inches = "tight")
 plt.show()
 
@@ -158,10 +157,10 @@ sns.lineplot(
     hue="EsferaAdministrativa",
     markers=True
 )
-plt.title('Educational Expenses', size=15)
-plt.xlabel('Year', size = 15)
-plt.ylabel('Percentage of Total FUDEB Budget', size = 8)
-plt.tick_params(axis='both',labelsize=15)
+plt.title('Educational Expenses', size=10)
+plt.xlabel('Year', size = 10)
+plt.ylabel('Percentage of Total FUDEB Budget', size = 10)
+plt.tick_params(axis='both',labelsize=12)
 plt.legend(frameon=False, loc='upper right', 
            prop={'size':10},
            title='Administrative Instance',

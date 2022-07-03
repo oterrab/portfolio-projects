@@ -1,4 +1,5 @@
 input/
+.spyproject/
 .DS_Store
 inep-es.py
 educacao-eda.py
