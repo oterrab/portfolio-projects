@@ -117,8 +117,9 @@ def colors_from_values(values, palette_name):
 
 plt.figure(figsize=(15,18))
 ax = sns.barplot(data=df_result, x='ratio', y='cidades', palette=colors_from_values(df_result.ratio, "Reds"))
-plt.ylabel('Cidades')
-plt.title('Estudantes por Escola Pública - Fundamental')
+plt.ylabel('Cities')
+plt.title('Students per Public School - Elementary School')
+plt.xlabel('Student per School')
 sns.despine(left=True, bottom=True)
 plt.tight_layout()
 show_values_on_bars(ax, "h", 10, -0.4)
@@ -131,7 +132,8 @@ plt.show()
 plt.figure(figsize=(15,18))
 ax = sns.barplot(data=df_result2, x='ratio', y='cidades', palette=colors_from_values(df_result2.ratio, "Reds"))
 plt.ylabel('Cidades')
-plt.title('Estudantes por Escola Pública - Médio')
+plt.title('Students per Public School - Middle School')
+plt.xlabel('Student per School')
 sns.despine(left=True, bottom=True)
 plt.tight_layout()
 show_values_on_bars(ax, "h", 10, -0.4)
@@ -153,13 +155,13 @@ sns.lineplot(
     hue="EsferaAdministrativa",
     markers=True
 )
-plt.title('Despesas Educacionais', size=20)
-plt.xlabel('Ano', size = 15)
-plt.ylabel('Aplicação Percentual', size = 15)
+plt.title('Educational Expenses', size=20)
+plt.xlabel('Year', size = 15)
+plt.ylabel('Percentage of Total FUDEB Budget', size = 8)
 plt.tick_params(axis='both',labelsize=15)
 plt.legend(frameon=False, loc='upper right', 
            prop={'size':10},
-           title='Esfera Administrativa',
+           title='Administrative Instance',
            title_fontsize='10')
 sns.despine(left=False, bottom=False)
 plt.tight_layout()
@@ -179,8 +181,8 @@ plt.show()
 
 plt.figure(figsize=(15,18))
 ax = sns.barplot(data=df_despesas_2021, x='ExpStu_raw', y='EsferaAdministrativa', palette='YlOrBr_r')
-plt.ylabel('Cidades')
-plt.title('Investimento por Estudante - 2021')
+plt.ylabel('Cities')
+plt.title('Investment per Student - 2021')
 plt.xlabel('R$')
 sns.despine(left=True, bottom=True)
 plt.tight_layout()
