@@ -37,17 +37,17 @@ df_escolascount_fund.unstack().plot(
     stacked=True,
     color=['cornflowerblue', 'gold', 'indianred']
     )
-plt.title('Número de Escolas - Fundamental', size=7)
-plt.xlabel('Cidades', size = 5)
+plt.title('Number of Schools - Elementary', size=7)
+plt.xlabel('Cities', size = 5)
 plt.tick_params(axis='both',labelsize=5)
 plt.legend(frameon=False, loc='upper left', 
            prop={'size':4},
-           title='Dependência Administrativa',
+           title='Administrative Instance',
            title_fontsize='4',
-           labels=['Estadual', 'Municipal', 'Privada'])
+           labels=['State', 'Municipal', 'Private'])
 sns.despine(left=False, bottom=True)
 plt.tight_layout()
-plt.savefig('educacao-es/output/images/type_school_city_fundamental.png', dpi=600, bbox_inches = "tight")
+#plt.savefig('educacao-es/output/images/type_school_city_fundamental.png', dpi=600, bbox_inches = "tight")
 plt.show()
 
 ## Middle School
@@ -58,17 +58,17 @@ df_escolascount_medio.unstack().plot(
     stacked=True,
     color=['cornflowerblue', 'seagreen', 'gold', 'indianred']
     )
-plt.title('Número de Escolas - Médio', size=7)
-plt.xlabel('Cidades', size = 5)
+plt.title('Number of Schools  - Middle', size=7)
+plt.xlabel('Cities', size = 5)
 plt.tick_params(axis='both',labelsize=5)
 plt.legend(frameon=False, loc='upper left', 
            prop={'size':4},
-           title='Dependência Administrativa',
+           title='Administrative Instance',
            title_fontsize='4',
-           labels=['Estadual', 'Federal', 'Municipal', 'Privada'])
+           labels=['State', 'Federal', 'Municipal', 'Private'])
 sns.despine(left=False, bottom=True)
 plt.tight_layout()
-plt.savefig('educacao-es/output/images/type_school_city_medio.png', dpi=600, bbox_inches = "tight")
+#plt.savefig('educacao-es/output/images/type_school_city_medio.png', dpi=600, bbox_inches = "tight")
 plt.show()
 
 
@@ -121,6 +121,7 @@ plt.ylabel('Cities')
 plt.title('Students per Public School - Elementary School')
 plt.xlabel('Student per School')
 sns.despine(left=True, bottom=True)
+plt.tick_params(axis='x',labelsize=15)
 plt.tight_layout()
 show_values_on_bars(ax, "h", 10, -0.4)
 #plt.savefig('educacao-es/output/images/ratio_student_per_school_fund.png', quality=95, dpi=600, bbox_inches = "tight")
@@ -135,8 +136,10 @@ plt.ylabel('Cidades')
 plt.title('Students per Public School - Middle School')
 plt.xlabel('Student per School')
 sns.despine(left=True, bottom=True)
+plt.tick_params(axis='x',labelsize=15)
 plt.tight_layout()
 show_values_on_bars(ax, "h", 10, -0.4)
+
 #plt.savefig('educacao-es/output/images/ratio_student_per_school_medio.png', quality=95, dpi=600, bbox_inches = "tight")
 plt.show()
 
@@ -155,7 +158,7 @@ sns.lineplot(
     hue="EsferaAdministrativa",
     markers=True
 )
-plt.title('Educational Expenses', size=20)
+plt.title('Educational Expenses', size=15)
 plt.xlabel('Year', size = 15)
 plt.ylabel('Percentage of Total FUDEB Budget', size = 8)
 plt.tick_params(axis='both',labelsize=15)
