@@ -27,3 +27,6 @@ This is an analisys of elementary schools per cities aggregating them by their a
 
 **Middle School**
 ![Schools per City - Instance](educacao-es/output/images/type_school_city_medio.png)
+
+
+t
