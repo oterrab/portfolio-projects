@@ -3,3 +3,4 @@ input/
 .DS_Store
 inep-es.py
 educacao-eda.py
+__pycache__/
