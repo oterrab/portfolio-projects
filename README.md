@@ -6,9 +6,12 @@ This is my Portfolio Summary where I provide a walkthrough to all of my forays i
 
 Feel free to chat with me on [LinkedIn](https://www.linkedin.com/in/lucas-passos-barreto-93b84351/) about my projects!
 
+***
+
 ## 📚 Table of Contents
 
 - [Python](#python)
+- [R](#R)
 - [SQL](#sql)
 
 _Click on the project's title (**bold** and coloured in Blue) to view my projects! Thank you!_
@@ -24,6 +27,12 @@ Libraries: pandas, numpy, matplotlib, seaborn, scikit-learn
 |----|--|---|---|-|
 | :pencil2: [Educação-ES](https://github.com/oterrab/portfolio-projects/tree/main/educacao-es) |   Data Wrangling & EDA | A project close to 🏡 home. Analysis of educational data from my home state using data from the institute responsible for promoting studies, research and periodic evaluations on the Brazilian educational system - Which city has the most number os schools, How many students there are per school, How much does each city invest in its students? | _pandas, seaborn, matplotlib_ | [Top](#table-of-contents) |
 | 📑 [Natural Language Processing](https://github.com/oterrab/portfolio-projects/tree/main/nlp-learning) |  Data Wrangling, EDA & Machine Learning | Analysis using NLP techniques to interpret text data that I was working with in my PhD and to learn some techniques I was going to use in other context. The text used to perform this analysis was a transcript of a chemistry class for undergraduation students. | _pandas, scikit-learn, pickle, textblob, spacy, re, string, numpy, wordcloud, matplotlib_ | [Top](#table-of-contents) |
+
+***
+
+# R
+
+***
 
 # SQL
 
