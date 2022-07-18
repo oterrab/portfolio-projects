@@ -33,6 +33,6 @@ Functions: Aggregations, Joins, CTEs, Window functions (aggregates, ranking, run
 
 | Project Name | Description | SQL Functions | Top |
 |---|---|---|-|
-| 🛍 [SQL Learning](https://github.com/oterrab/portfolio-projects/tree/main/sql-learning) | For now this is just queries that I used to practice SQL | PL/SQL, MySQL, MS SQL | [Top](#table-of-contents) |
+| 📊 [SQL Learning](https://github.com/oterrab/portfolio-projects/tree/main/sql-learning) | For now this is just queries that I used to practice SQL | PL/SQL, MySQL, MS SQL | [Top](#table-of-contents) |
 
 ***
