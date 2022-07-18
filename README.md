@@ -22,8 +22,8 @@ Libraries: pandas, numpy, matplotlib, seaborn, scikit-learn
 
 | Project Name | Area | Description | Libraries | Top |   
 |---|---|---|---|-|
-| 📑 [Educação-ES](https://github.com/oterrab/portfolio-projects/tree/main/educacao-es) |   Data Wrangling & EDA | A project close to 🏡 home. Analysis of educational data from my home state using data from the institute responsible for promoting studies, research and periodic evaluations on the Brazilian educational system - Which city has the most number os schools, How many students there are per school, How much does each city invest in its students? | _pandas, seaborn, matplotlib_ | [top](#table-of-contents) |
-| :pencil2: [Natural Language Processing](https://github.com/oterrab/portfolio-projects/tree/main/nlp-learning) |  Data Wrangling, EDA & Machine Learning | Analysis using NLP techniques to interpret text data that I was working with in my PhD and to learn some techniques I was going to use in other context. The text used to perform this analysis was a transcript of a chemistry class for undergraduation students. | _pandas, scikit-learn, pickle, textblob, spacy, re, string, numpy, wordcloud, matplotlib_ | [top](#table-of-contents) |
+| :pencil2: [Educação-ES](https://github.com/oterrab/portfolio-projects/tree/main/educacao-es) |   Data Wrangling & EDA | A project close to 🏡 home. Analysis of educational data from my home state using data from the institute responsible for promoting studies, research and periodic evaluations on the Brazilian educational system - Which city has the most number os schools, How many students there are per school, How much does each city invest in its students? | _pandas, seaborn, matplotlib_ | [Top](#table-of-contents) |
+| 📑 [Natural Language Processing](https://github.com/oterrab/portfolio-projects/tree/main/nlp-learning) |  Data Wrangling, EDA & Machine Learning | Analysis using NLP techniques to interpret text data that I was working with in my PhD and to learn some techniques I was going to use in other context. The text used to perform this analysis was a transcript of a chemistry class for undergraduation students. | _pandas, scikit-learn, pickle, textblob, spacy, re, string, numpy, wordcloud, matplotlib_ | [Top](#table-of-contents) |
 
 # SQL
 
@@ -33,6 +33,6 @@ Functions: Aggregations, Joins, CTEs, Window functions (aggregates, ranking, run
 
 | Project Name | Description | SQL Functions | Top |
 |---|---|---|-|
-| 🛍 [SQL Learning](https://github.com/oterrab/portfolio-projects/tree/main/sql-learning) | For now this is just queries that I used to practice SQL | PL/SQL, MySQL, MS SQL | [top](#table-of-contents) |
+| 🛍 [SQL Learning](https://github.com/oterrab/portfolio-projects/tree/main/sql-learning) | For now this is just queries that I used to practice SQL | PL/SQL, MySQL, MS SQL | [Top](#table-of-contents) |
 
 ***
