@@ -201,7 +201,6 @@ where max_salary >= 2*min_salary;
 
 ```
 
-<img width="421" alt="Screenshot 2022-05-26 at 2 07 42 PM" src="https://img-c.udemycdn.com/redactor/raw/2020-08-26_17-51-43-e1084abe9ce66a10dfba9b7354034ab0.png">
+<img width="421" alt="Screenshot 2022-05-26 at 2 07 42 PM" src="https://user-images.githubusercontent.com/59098085/179644679-becbe6a8-6d5e-4c52-8af9-7347b45f5c88.png">
 
-https://img-c.udemycdn.com/redactor/raw/2020-08-26_17-51-43-e1084abe9ce66a10dfba9b7354034ab0.png
 ***
