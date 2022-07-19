@@ -137,7 +137,7 @@ where department.id = (select department_id
 );
 ```
 
-**Result:**  
+Result:  
 <img width="382" alt="Screen Shot 2022-07-18 at 22 53 46" src="https://user-images.githubusercontent.com/59098085/179647406-289d91d3-fa5d-46dc-b69d-82085e686128.png">
 
 ### 📌 Q2: Query to list the names of the departments along with the average salary and the birthdate of the oldest employee that works in each department.
@@ -148,7 +148,7 @@ from department d, employee e
 where d.id = e.department_id
 group by d.name;
 ```
-
+Result:  
 <img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
 
 ### 📌 Q3: Query to list the names of the departments **that exist in the company**, along with the average salary and the birthdate of the oldest employee that works in each department **ordered by department id in descending order**.
@@ -168,7 +168,7 @@ from department d
 order by d.id desc;
 ```
 
-**Result:**  
+Result:  
 <img width="405" alt="Screen Shot 2022-07-18 at 22 52 05" src="https://user-images.githubusercontent.com/59098085/179647017-263edb75-367d-403a-91ef-dccba4171dd5.png">
 
 ### 📌 Q4: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
@@ -207,7 +207,7 @@ select *
 from subquery_salary
 where max_salary >= 2*min_salary;
 ```
-**Result:**  
+Result:  
 <img width="399" alt="Screen Shot 2022-07-18 at 22 50 04" src="https://user-images.githubusercontent.com/59098085/179646826-cdaba31f-e617-405b-8ca7-806fe99284fe.png">
 
 
@@ -216,7 +216,8 @@ where max_salary >= 2*min_salary;
 ```sql
 
 ```
-**Result:**  
+
+Result:  
 <img width="421" alt="Q5" src="https://user-images.githubusercontent.com/59098085/179644679-becbe6a8-6d5e-4c52-8af9-7347b45f5c88.png">
 
 ### 📌 Q6: Query to list the names of the departments that exist in the company, along with the average salary and the birthdate of the oldest employee that works in each department ordered by department id in descending order.
@@ -224,7 +225,8 @@ where max_salary >= 2*min_salary;
 ```sql
 
 ```
-**Result:**  
+
+Result:  
 <img width="421" alt="Q6" src="https://user-images.githubusercontent.com/59098085/179646234-aec04ac5-25e9-4384-b0cc-60e6edec832e.png">
 
 ***
