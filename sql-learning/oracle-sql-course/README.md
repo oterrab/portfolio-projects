@@ -104,6 +104,11 @@ insert into products values (5,'Amoxicillin',8,date '2026-07-31');
 
 commit;
 ```
+
+<img width="761" alt="Screen Shot 2022-07-18 at 22 54 05" src="https://user-images.githubusercontent.com/59098085/179647475-4f90450a-c2eb-47f6-ac28-5fe7553ed307.png">
+	
+<img width="443" alt="Screen Shot 2022-07-18 at 22 54 14" src="https://user-images.githubusercontent.com/59098085/179647724-ba10605d-1ea1-43e4-ab37-99d4ef97f48a.png">
+
 </details>
 
 ***
@@ -121,6 +126,7 @@ commit;
 
 ### 📌 Q1: Query to display all of the detail of the department where the youngest employee n the company works.
 
+
 ```sql
 select *
 from department
@@ -132,7 +138,7 @@ where department.id = (select department_id
 ```
 
 **Result:**  
-<img width="421" alt="Q1" src="https://user-images.githubusercontent.com/59098085/179645577-0a7a2a97-9183-4bdf-b664-71e43c09f877.png">
+<img width="382" alt="Screen Shot 2022-07-18 at 22 53 46" src="https://user-images.githubusercontent.com/59098085/179647406-289d91d3-fa5d-46dc-b69d-82085e686128.png">
 
 ### 📌 Q2: Query to list the names of the departments along with the average salary and the birthdate of the oldest employee that works in each department.
 
@@ -142,6 +148,8 @@ from department d, employee e
 where d.id = e.department_id
 group by d.name;
 ```
+
+<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
 
 ### 📌 Q3: Query to list the names of the departments **that exist in the company**, along with the average salary and the birthdate of the oldest employee that works in each department **ordered by department id in descending order**.
 
