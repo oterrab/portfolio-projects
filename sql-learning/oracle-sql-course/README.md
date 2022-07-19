@@ -249,11 +249,19 @@ Result:
 WARNING: The row limiting clause was introduced in version 12c.
 
 ```sql
-
+with sal as (
+select *
+from employee
+where salary > 2000
+)
+select *
+from sal
+order by birthdate desc
+fetch first 5 rows only;
 ```
 
 Result:  
-<img width="747" alt="Screen Shot 2022-07-18 at 23 20 46" src="https://user-images.githubusercontent.com/59098085/179650239-eac18d3f-8d24-4bb4-a9ee-8dfd9ba2d5fc.png">
+<img width="719" alt="Screen Shot 2022-07-18 at 23 48 48" src="https://user-images.githubusercontent.com/59098085/179653764-90e5ff9a-7031-40db-849f-7b1bc1226673.png">
 
 ***
 
