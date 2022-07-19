@@ -144,12 +144,17 @@ Click here for study notes on key concepts. 🔑
 
 **Content**
 
-- Subqueries
-- Inline Views
-- Subquery Factoring (WITH clause) 
-- Top-N Queries
-- Row Limiting Clause.
+- [Subqueries](#subqueries)
+- [Inline Views](#inline-views)
+- [Subquery Factoring (WITH clause)](#cte) 
+- [Top-N Queries](#top-n-queries)
+- [Row Limiting Clause](#row-limiting-clause)
 
+<br/>
+
+### Subqueries
+
+<br/>
 
 #### 📌 C1: Query to display all of the detail of the department where the youngest employee n the company works.
 
@@ -198,6 +203,13 @@ order by d.id desc;
 Result:  
 <img width="405" alt="Screen Shot 2022-07-18 at 22 52 05" src="https://user-images.githubusercontent.com/59098085/179647017-263edb75-367d-403a-91ef-dccba4171dd5.png">
 
+
+<br/>
+
+### Inline Views
+
+<br/>
+
 #### 📌 C4: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
 
 RESTRICTION: Not allowed to use a HAVING clause.
@@ -221,6 +233,15 @@ group by department_id
 having max(salary) >= 2*min(salary);
 ```
 
+<br/>
+
+### CTE
+**a.k.a. WITH Clause**
+
+<br/>
+
+#### 📌 C5: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
+
 This time **using subquery factoring (WITH clause)** instead of an inline view.  
 RESTRICTION: Not allowed to use a HAVING clause.
 
@@ -239,7 +260,14 @@ Result:
 <img width="399" alt="Screen Shot 2022-07-18 at 22 50 04" src="https://user-images.githubusercontent.com/59098085/179646826-cdaba31f-e617-405b-8ca7-806fe99284fe.png">
 
 
-#### 📌 C5: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table.
+<br/>
+
+### Top-N Queries
+
+<br/>
+
+
+#### 📌 C6: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table.
 
 ```sql
 with rownumbered as (
@@ -255,7 +283,7 @@ where rn <= 5;
 Result:  
 <img width="780" alt="Screen Shot 2022-07-18 at 23 14 24" src="https://user-images.githubusercontent.com/59098085/179649638-5ae85699-e895-4607-b6d8-94f992d37153.png">
 
-#### 📌 C6: Query that uses the dense_rank analytic function to list the bottom 3 earners in the employee table.
+#### 📌 C7: Query that uses the dense_rank analytic function to list the bottom 3 earners in the employee table.
 
 ```sql
 with rownumbered as (
@@ -271,7 +299,7 @@ where rn <= 3;
 Result:  
 <img width="747" alt="Screen Shot 2022-07-18 at 23 20 46" src="https://user-images.githubusercontent.com/59098085/179650239-eac18d3f-8d24-4bb4-a9ee-8dfd9ba2d5fc.png">
 
-#### 📌 C7: Use the row limiting clause to write a query to get the top 5 youngest employees among those who earn more than 2000 a month.
+#### 📌 C8: Use the row limiting clause to write a query to get the top 5 youngest employees among those who earn more than 2000 a month.
 
 WARNING: The row limiting clause was introduced in version 12c.
 
@@ -290,7 +318,13 @@ fetch first 5 rows only;
 Result:  
 <img width="719" alt="Screen Shot 2022-07-18 at 23 48 48" src="https://user-images.githubusercontent.com/59098085/179653764-90e5ff9a-7031-40db-849f-7b1bc1226673.png">
 
-#### 📌 C8: Query that segments the employee table in pages, based on the salary in ascending order, and returns the third page. The size of each page must be 4 rows.
+<br/>
+
+### Row Limiting Clause
+
+<br/>
+
+#### 📌 C9: Query that segments the employee table in pages, based on the salary in ascending order, and returns the third page. The size of each page must be 4 rows.
 
 WARNING: The row limiting clause was introduced in version 12c.
 
@@ -329,21 +363,61 @@ Click here for study notes on key concepts. 🔑
 
 **Content**
 
-- Text Functions
-- Numeric Functions
-- Date Functions
-- Conversion Functions
-- Decode Function and CASE expression
-- Date Arithmetic
+- [Text Functions](#text-functions)
+- [Numeric Functions](#numeric-functions)
+- [Date Functions](#date-functions)
+- [Conversion Functions](#conversion-functions)
+- [Decode Function and CASE expression](#decode-function-and-case-expression)
+- [Date Arithmetic](#date-arithmetic)
 
+<br/>
 
-#### 📌 C1: 
+### Text Functions
 
+<br/>
 
+#### 📌 C1: We need to make some changes to the data about our employees, but before applying the changes we need to see the data as it will be after the changes. Please write a query to list employees data with the following changes:
+
+ - The names of all of the employees must be stored with the first letter of each name in uppercase, and the rest of the name in lowercase.
+ - The e-mail addresses are incorrect.  All of them must be modified to add “@gmail.com” to the string they currently have, but the current value must be changed to lowercase.
+ - Phone numbers have dots, but we want them replaced by hyphens.
+ - We need a new column called “CODE” which will be generated by extracting the part of the name that appears before the first blank space, and then removing all vowels from it, so, for an employee called ‘CARLOS’ the code would be ‘CRLS’.
+ 
 ```sql
+select id,
+  initcap(name) as name,
+  birthdate,
+  replace(phone,'.','-') as phone,
+  salary,
+  department_id,
+  hire_date,
+  job_id,
+  lower(email) || '@gmail.com' as email,
+  translate(substr(name,1,instr(name,' ')-1),'*AEIOU','*') as code
+from employee;
+```
 
+Result:  
+<img width="878" alt="Screen Shot 2022-07-19 at 20 13 38" src="https://user-images.githubusercontent.com/59098085/179863620-ba0a916c-83c4-4493-b5a6-27b18eebacff.png">
+
+#### 📌 C2: Write a query to generate a list of employees following these requirements:
+
+ - We don’t need the complete phone number. In this report, we only want the numbers that are between the first and second dots, for example, for a number like this 515.123.4567 the report must display ‘123’ only.
+ - Please don’t include employees hired before 2010.
+ - The report must be ordered by salary, in descending order.
+ 
+```sql
 
 ```
 
 Result:  
 
+
+
+<br/>
+
+### Numeric Functions
+
+<br/>
+
+***
