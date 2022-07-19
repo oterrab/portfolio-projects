@@ -150,7 +150,7 @@ Click here for study notes on key concepts. 🔑
 - Row Limiting Clause.
 
 
-### 📌 C1: Query to display all of the detail of the department where the youngest employee n the company works.
+## 📌 C1: Query to display all of the detail of the department where the youngest employee n the company works.
 
 
 ```sql
