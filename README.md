@@ -43,7 +43,7 @@ Libraries: ggplot2
 
 | Project Name | Area | Description | Libraries | Top |   
 |----|--|---|---|-|
-| [LCT](https://github.com/oterrab/LCT-dev) |  Data Visualization | This was developed during my PhD. I will keep it private for now until fully prublished. | ggplot2, dplyr, lubridate | [Top](#table-of-contents) |
+| 🌊 [LCT](https://github.com/oterrab/LCT-dev) |  Data Visualization | This was developed during my PhD. I will keep it private until fully prublished. | ggplot2, dplyr, lubridate | [Top](#table-of-contents) |
 
 
 ***
