@@ -226,7 +226,7 @@ where rn <= 5;
 ```
 
 Result:  
-<img width="421" alt="Q5" src="https://user-images.githubusercontent.com/59098085/179644679-becbe6a8-6d5e-4c52-8af9-7347b45f5c88.png">
+<img width="780" alt="Screen Shot 2022-07-18 at 23 14 24" src="https://user-images.githubusercontent.com/59098085/179649638-5ae85699-e895-4607-b6d8-94f992d37153.png">
 
 ### 📌 Q6: Query to list the names of the departments that exist in the company, along with the average salary and the birthdate of the oldest employee that works in each department ordered by department id in descending order.
 
