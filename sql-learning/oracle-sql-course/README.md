@@ -114,17 +114,9 @@ commit;
 
 ## Subqueries
 
-**Content**
-
-- Subqueries
-- Inline Views
-- Subquery Factoring (WITH clause) 
-- Top-N Queries
-- Row Limiting Clause.
-
 <details> 
 <summary>
-**Click here for study notes on key concepts. 🔑**
+Click here for study notes on key concepts. 🔑
 	
 </summary>
 
@@ -135,6 +127,16 @@ commit;
 	Non-correlated subqueries are those that are totally independent of the main statement. The subquery executes first, and then passes its results to the outer query.
 
 </details> 
+
+
+**Content**
+
+- Subqueries
+- Inline Views
+- Subquery Factoring (WITH clause) 
+- Top-N Queries
+- Row Limiting Clause.
+
 
 ### 📌 Q1: Query to display all of the detail of the department where the youngest employee n the company works.
 
