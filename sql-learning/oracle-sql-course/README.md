@@ -161,7 +161,7 @@ order by d.id desc;
 ```
 
 **Result:**  
-<img width="421" alt="Q2" src="https://user-images.githubusercontent.com/59098085/179645599-ee37a161-79bf-4215-b024-5e808987a44f.png">
+<img width="405" alt="Screen Shot 2022-07-18 at 22 52 05" src="https://user-images.githubusercontent.com/59098085/179647017-263edb75-367d-403a-91ef-dccba4171dd5.png">
 
 ### 📌 Q4: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
 
