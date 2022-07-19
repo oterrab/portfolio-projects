@@ -113,7 +113,7 @@ commit;
 ***
 
 ## Subqueries
-
+<br/>
 <details> 
 <summary>
 Click here for study notes on key concepts. 🔑
@@ -123,9 +123,11 @@ Click here for study notes on key concepts. 🔑
 **Correlated Subqueries:**
 	Correlated subqueries are used for row-by-row processing. Each subquery is executed once for every row of the outer query. A correlated subquery is one way of reading every row in a table and comparing values in each row against related data. Because the subquery may be evaluated once for each row processed by the outer query, **it can be slow.** _It is used whenever a subquery must return a different result or set of results for each candidate row considered by the outer query (main query)._ For example, return a value necessary to compare with each employee (aka, a row) as in Q1. In this sense, a correlated subquery requires values from its outer query (main query) in order to execute, and if you try to run it separately, you have to substitute at least one of the values.
 	
-**Non-Correlated Scalar Subqueries:**	
+**Non-Correlated Subqueries:**	
 	Non-correlated subqueries are those that are totally independent of the main statement. The subquery executes first, and then passes its results to the outer query.
-
+	
+**Scalar Subqueries:**	
+	A scalar subquery is a subquery expression that can return a maximum of one value and can be either correlated or non-correlated. It is correlated when it returns a single value for each row of its correlated outer table set, as in [C1](#C1). And it is non-correlated when it returns a single value to its containing query.
 </details> 
 
 
@@ -138,7 +140,7 @@ Click here for study notes on key concepts. 🔑
 - Row Limiting Clause.
 
 
-### 📌 Q1: Query to display all of the detail of the department where the youngest employee n the company works.
+### 📌 C1: Query to display all of the detail of the department where the youngest employee n the company works.
 
 
 ```sql
@@ -154,7 +156,7 @@ where department.id = (select department_id
 Result:  
 <img width="382" alt="Screen Shot 2022-07-18 at 22 53 46" src="https://user-images.githubusercontent.com/59098085/179647406-289d91d3-fa5d-46dc-b69d-82085e686128.png">
 
-### 📌 Q2: Query to list the names of the departments along with the average salary and the birthdate of the oldest employee that works in each department.
+### 📌 C2: Query to list the names of the departments along with the average salary and the birthdate of the oldest employee that works in each department.
 
 ```sql
 select d.name, avg(e.salary) as average_salary, max(e.birthdate) as oldest_employee
@@ -165,7 +167,7 @@ group by d.name;
 Result:  
 <img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
 
-### 📌 Q3: Query to list the names of the departments **that exist in the company**, along with the average salary and the birthdate of the oldest employee that works in each department **ordered by department id in descending order**.
+### 📌 C3: Query to list the names of the departments **that exist in the company**, along with the average salary and the birthdate of the oldest employee that works in each department **ordered by department id in descending order**.
 
 ```sql
 select name, (
@@ -185,7 +187,7 @@ order by d.id desc;
 Result:  
 <img width="405" alt="Screen Shot 2022-07-18 at 22 52 05" src="https://user-images.githubusercontent.com/59098085/179647017-263edb75-367d-403a-91ef-dccba4171dd5.png">
 
-### 📌 Q4: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
+### 📌 C4: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
 
 RESTRICTION: Not allowed to use a HAVING clause.
 
@@ -226,7 +228,7 @@ Result:
 <img width="399" alt="Screen Shot 2022-07-18 at 22 50 04" src="https://user-images.githubusercontent.com/59098085/179646826-cdaba31f-e617-405b-8ca7-806fe99284fe.png">
 
 
-### 📌 Q5: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table.
+### 📌 C5: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table.
 
 ```sql
 with rownumbered as (
@@ -242,7 +244,7 @@ where rn <= 5;
 Result:  
 <img width="780" alt="Screen Shot 2022-07-18 at 23 14 24" src="https://user-images.githubusercontent.com/59098085/179649638-5ae85699-e895-4607-b6d8-94f992d37153.png">
 
-### 📌 Q6: Query that uses the dense_rank analytic function to list the bottom 3 earners in the employee table.
+### 📌 C6: Query that uses the dense_rank analytic function to list the bottom 3 earners in the employee table.
 
 ```sql
 with rownumbered as (
@@ -258,7 +260,7 @@ where rn <= 3;
 Result:  
 <img width="747" alt="Screen Shot 2022-07-18 at 23 20 46" src="https://user-images.githubusercontent.com/59098085/179650239-eac18d3f-8d24-4bb4-a9ee-8dfd9ba2d5fc.png">
 
-### 📌 Q7: Use the row limiting clause to write a query to get the top 5 youngest employees among those who earn more than 2000 a month.
+### 📌 C7: Use the row limiting clause to write a query to get the top 5 youngest employees among those who earn more than 2000 a month.
 
 WARNING: The row limiting clause was introduced in version 12c.
 
@@ -277,7 +279,7 @@ fetch first 5 rows only;
 Result:  
 <img width="719" alt="Screen Shot 2022-07-18 at 23 48 48" src="https://user-images.githubusercontent.com/59098085/179653764-90e5ff9a-7031-40db-849f-7b1bc1226673.png">
 
-### 📌 Q7: Query that segments the employee table in pages, based on the salary in ascending order, and returns the third page. The size of each page must be 4 rows.
+### 📌 C8: Query that segments the employee table in pages, based on the salary in ascending order, and returns the third page. The size of each page must be 4 rows.
 
 WARNING: The row limiting clause was introduced in version 12c.
 
