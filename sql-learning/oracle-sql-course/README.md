@@ -40,6 +40,7 @@ Click here for Introduction! 👋🏻
 
 - [Schema](#schema)
 - [Subqueries](#subqueries)
+- [Single Row Functions](#single-row-functions)
 
 ## Schema
 
@@ -305,6 +306,39 @@ offset (3 - 1) * 4 rows fetch next 4 rows only;
 Result:  
 <img width="712" alt="Screen Shot 2022-07-19 at 14 16 29" src="https://user-images.githubusercontent.com/59098085/179810583-43671351-68f6-4ede-b7d8-601e8a0cb5b5.png">
 
-
 ***
+
+
+## Single Row Functions
+
+<br/>
+
+<details> 
+<summary>
+Click here for study notes on key concepts. 🔑
+	
+</summary>
+	
+<br/>
+	
+**Placeholder:**
+	Placeholder
+
+</details> 
+<br/>
+
+**Content**
+
+- 
+
+
+#### 📌 C1: 
+
+
+```sql
+
+
+```
+
+Result:  
 
