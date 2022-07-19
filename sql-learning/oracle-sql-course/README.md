@@ -130,6 +130,7 @@ where department.id = (select department_id
                                           from employee)
 );
 ```
+<img width="421" alt="Q1" src="https://user-images.githubusercontent.com/59098085/179645577-0a7a2a97-9183-4bdf-b664-71e43c09f877.png">
 
 ### 📌 Q2: Query to list the names of the departments along with the average salary and the birthdate of the oldest employee that works in each department.
 
@@ -156,7 +157,7 @@ select name, (
 from department d
 order by d.id desc;
 ```
-
+<img width="421" alt="Q2" src="https://user-images.githubusercontent.com/59098085/179645599-ee37a161-79bf-4215-b024-5e808987a44f.png">
 
 ### 📌 Q4: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
 
@@ -195,12 +196,14 @@ from subquery_salary
 where max_salary >= 2*min_salary;
 ```
 
+<img width="421" alt="Q4" src="https://user-images.githubusercontent.com/59098085/179645154-d06bd350-67d8-4273-8786-a94b7f10c334.png">
+
 ### 📌 Q5: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table
 
 ```sql
 
 ```
 
-<img width="421" alt="Screenshot 2022-05-26 at 2 07 42 PM" src="https://user-images.githubusercontent.com/59098085/179644679-becbe6a8-6d5e-4c52-8af9-7347b45f5c88.png">
+<img width="421" alt="Q5" src="https://user-images.githubusercontent.com/59098085/179644679-becbe6a8-6d5e-4c52-8af9-7347b45f5c88.png">
 
 ***
