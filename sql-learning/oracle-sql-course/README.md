@@ -104,12 +104,11 @@ insert into products values (5,'Amoxicillin',8,date '2026-07-31');
 
 commit;
 ```
+</details>
 
 <img width="761" alt="Screen Shot 2022-07-18 at 22 54 05" src="https://user-images.githubusercontent.com/59098085/179647475-4f90450a-c2eb-47f6-ac28-5fe7553ed307.png">
 	
 <img width="443" alt="Screen Shot 2022-07-18 at 22 54 14" src="https://user-images.githubusercontent.com/59098085/179647724-ba10605d-1ea1-43e4-ab37-99d4ef97f48a.png">
-
-</details>
 
 ***
 
