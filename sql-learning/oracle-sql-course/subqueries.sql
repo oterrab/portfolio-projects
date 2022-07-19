@@ -1,9 +1,3 @@
-select * 
-from employee;
-
-select *
-from department;
-
 -- Query to display all of the detail of the department where the youngest employee n the company works. 
 
 select *
