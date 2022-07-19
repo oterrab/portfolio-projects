@@ -122,6 +122,19 @@ commit;
 - Top-N Queries
 - Row Limiting Clause.
 
+<details> 
+<summary>
+**Click here for study notes on key concepts. 🔑**
+	
+</summary>
+
+**Correlated Subqueries:**
+	Correlated subqueries are used for row-by-row processing. Each subquery is executed once for every row of the outer query. A correlated subquery is one way of reading every row in a table and comparing values in each row against related data. Because the subquery may be evaluated once for each row processed by the outer query, **it can be slow.** <sub>It is used whenever a subquery must return a different result or set of results for each candidate row considered by the outer query (main query).</sub> For example, return a value necessary to compare with each employee (aka, a row) as in Q1. In this sense, a correlated subquery requires values from its outer query (main query) in order to execute, and if you try to run it separately, you have to substitute at least one of the values.
+	
+**Non-Correlated Scalar Subqueries:**	
+	Non-correlated subqueries are those that are totally independent of the main statement. The subquery executes first, and then passes its results to the outer query.
+
+</details> 
 
 ### 📌 Q1: Query to display all of the detail of the department where the youngest employee n the company works.
 
