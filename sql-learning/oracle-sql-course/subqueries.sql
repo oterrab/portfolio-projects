@@ -98,3 +98,14 @@ select *
 from sal
 order by birthdate desc
 fetch first 5 rows only;
+
+-- Query that segments the employee table in pages, based on the salary in ascending order, and returns the third page. The size of each page must be 4 rows.
+
+select *
+from employee
+order by salary, id
+offset (3 - 1) * 4 rows fetch next 4 rows only;
+
+/* If using sql developer, I can replace 3 - 1 for &page -1 to get prompted which page I want */
+
+
