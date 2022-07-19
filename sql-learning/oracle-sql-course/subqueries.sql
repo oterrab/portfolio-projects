@@ -66,3 +66,35 @@ group by department_id
 select *
 from subquery_salary
 where max_salary >= 2*min_salary;
+
+-- Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table.
+with rownumbered as (
+    select e.*, row_number() over (order by salary desc) as rn
+    from employee e
+    order by salary desc
+)
+select *
+from rownumbered
+where rn <= 5;
+
+-- Query that uses the dense_rank analytic function to list the bottom 3 earners in the employee table.
+with rownumbered as (
+    select e.*, dense_rank() over (order by salary) as rn
+    from employee e
+    order by salary
+)
+select *
+from rownumbered
+where rn <= 3;
+
+
+-- Use the row limiting clause to write a query to get the top 5 youngest employees among those who earn more than 2000 a month.
+with sal as (
+select *
+from employee
+where salary > 2000
+)
+select *
+from sal
+order by birthdate desc
+fetch first 5 rows only;
