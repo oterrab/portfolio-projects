@@ -195,9 +195,13 @@ from subquery_salary
 where max_salary >= 2*min_salary;
 ```
 
-### 📌 Q5: 
+### 📌 Q5: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table
 
 ```sql
 
 ```
+
+<img width="421" alt="Screenshot 2022-05-26 at 2 07 42 PM" src="https://img-c.udemycdn.com/redactor/raw/2020-08-26_17-51-43-e1084abe9ce66a10dfba9b7354034ab0.png">
+
+https://img-c.udemycdn.com/redactor/raw/2020-08-26_17-51-43-e1084abe9ce66a10dfba9b7354034ab0.png
 ***
