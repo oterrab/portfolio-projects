@@ -150,7 +150,7 @@ Click here for study notes on key concepts. 🔑
 - Row Limiting Clause.
 
 
-## 📌 C1: Query to display all of the detail of the department where the youngest employee n the company works.
+#### 📌 C1: Query to display all of the detail of the department where the youngest employee n the company works.
 
 
 ```sql
@@ -166,7 +166,7 @@ where department.id = (select department_id
 Result:  
 <img width="382" alt="Screen Shot 2022-07-18 at 22 53 46" src="https://user-images.githubusercontent.com/59098085/179647406-289d91d3-fa5d-46dc-b69d-82085e686128.png">
 
-### 📌 C2: Query to list the names of the departments along with the average salary and the birthdate of the oldest employee that works in each department.
+#### 📌 C2: Query to list the names of the departments along with the average salary and the birthdate of the oldest employee that works in each department.
 
 ```sql
 select d.name, avg(e.salary) as average_salary, max(e.birthdate) as oldest_employee
@@ -177,7 +177,7 @@ group by d.name;
 Result:  
 <img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
 
-### 📌 C3: Query to list the names of the departments **that exist in the company**, along with the average salary and the birthdate of the oldest employee that works in each department **ordered by department id in descending order**.
+#### 📌 C3: Query to list the names of the departments **that exist in the company**, along with the average salary and the birthdate of the oldest employee that works in each department **ordered by department id in descending order**.
 
 ```sql
 select name, (
@@ -197,7 +197,7 @@ order by d.id desc;
 Result:  
 <img width="405" alt="Screen Shot 2022-07-18 at 22 52 05" src="https://user-images.githubusercontent.com/59098085/179647017-263edb75-367d-403a-91ef-dccba4171dd5.png">
 
-### 📌 C4: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
+#### 📌 C4: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
 
 RESTRICTION: Not allowed to use a HAVING clause.
 
@@ -238,7 +238,7 @@ Result:
 <img width="399" alt="Screen Shot 2022-07-18 at 22 50 04" src="https://user-images.githubusercontent.com/59098085/179646826-cdaba31f-e617-405b-8ca7-806fe99284fe.png">
 
 
-### 📌 C5: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table.
+#### 📌 C5: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table.
 
 ```sql
 with rownumbered as (
@@ -254,7 +254,7 @@ where rn <= 5;
 Result:  
 <img width="780" alt="Screen Shot 2022-07-18 at 23 14 24" src="https://user-images.githubusercontent.com/59098085/179649638-5ae85699-e895-4607-b6d8-94f992d37153.png">
 
-### 📌 C6: Query that uses the dense_rank analytic function to list the bottom 3 earners in the employee table.
+#### 📌 C6: Query that uses the dense_rank analytic function to list the bottom 3 earners in the employee table.
 
 ```sql
 with rownumbered as (
@@ -270,7 +270,7 @@ where rn <= 3;
 Result:  
 <img width="747" alt="Screen Shot 2022-07-18 at 23 20 46" src="https://user-images.githubusercontent.com/59098085/179650239-eac18d3f-8d24-4bb4-a9ee-8dfd9ba2d5fc.png">
 
-### 📌 C7: Use the row limiting clause to write a query to get the top 5 youngest employees among those who earn more than 2000 a month.
+#### 📌 C7: Use the row limiting clause to write a query to get the top 5 youngest employees among those who earn more than 2000 a month.
 
 WARNING: The row limiting clause was introduced in version 12c.
 
@@ -289,7 +289,7 @@ fetch first 5 rows only;
 Result:  
 <img width="719" alt="Screen Shot 2022-07-18 at 23 48 48" src="https://user-images.githubusercontent.com/59098085/179653764-90e5ff9a-7031-40db-849f-7b1bc1226673.png">
 
-### 📌 C8: Query that segments the employee table in pages, based on the salary in ascending order, and returns the third page. The size of each page must be 4 rows.
+#### 📌 C8: Query that segments the employee table in pages, based on the salary in ascending order, and returns the third page. The size of each page must be 4 rows.
 
 WARNING: The row limiting clause was introduced in version 12c.
 
