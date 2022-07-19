@@ -200,7 +200,8 @@ from subquery_salary
 where max_salary >= 2*min_salary;
 ```
 **Result:**  
-<img width="421" alt="Q4" src="https://user-images.githubusercontent.com/59098085/179645154-d06bd350-67d8-4273-8786-a94b7f10c334.png">
+<img width="399" alt="Screen Shot 2022-07-18 at 22 50 04" src="https://user-images.githubusercontent.com/59098085/179646826-cdaba31f-e617-405b-8ca7-806fe99284fe.png">
+
 
 ### 📌 Q5: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table
 
