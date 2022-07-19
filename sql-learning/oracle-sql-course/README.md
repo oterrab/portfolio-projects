@@ -329,7 +329,12 @@ Click here for study notes on key concepts. 🔑
 
 **Content**
 
-- 
+- Texto Functions
+- Numeric Functions
+- Date Functions
+- Conversion Functions
+- Decode Function and CASE expression
+- Date Arithmetic
 
 
 #### 📌 C1: 
