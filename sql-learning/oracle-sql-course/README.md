@@ -269,14 +269,14 @@ WARNING: The row limiting clause was introduced in version 12c.
 ```sql
 select *
 from employee
-order by salary desc
+order by salary, id
 offset (3 - 1) * 4 rows fetch next 4 rows only;
 
 -- If using sql developer, I can replace 3 - 1 for &page -1 to get prompted which page I want
 ```
 
 Result:  
-<img width="716" alt="Screen Shot 2022-07-19 at 14 14 16" src="https://user-images.githubusercontent.com/59098085/179810294-d53ad2df-ebe5-416e-965b-af851f82659a.png">
+<img width="712" alt="Screen Shot 2022-07-19 at 14 16 29" src="https://user-images.githubusercontent.com/59098085/179810583-43671351-68f6-4ede-b7d8-601e8a0cb5b5.png">
 
 
 ***
