@@ -216,6 +216,7 @@ where max_salary >= 2*min_salary;
 
 ```
 **Result:**
-<img width="421" alt="Q5" src="https://user-images.githubusercontent.com/59098085/179644679-becbe6a8-6d5e-4c52-8af9-7347b45f5c88.png">
+<img width="421" alt="Q6" src="https://user-images.githubusercontent.com/59098085/179646234-aec04ac5-25e9-4384-b0cc-60e6edec832e.png">
 
 ***
+
