@@ -212,7 +212,7 @@ Result:
 <img width="399" alt="Screen Shot 2022-07-18 at 22 50 04" src="https://user-images.githubusercontent.com/59098085/179646826-cdaba31f-e617-405b-8ca7-806fe99284fe.png">
 
 
-### 📌 Q5: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table
+### 📌 Q5: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table.
 
 ```sql
 with rownumbered as (
@@ -228,14 +228,32 @@ where rn <= 5;
 Result:  
 <img width="780" alt="Screen Shot 2022-07-18 at 23 14 24" src="https://user-images.githubusercontent.com/59098085/179649638-5ae85699-e895-4607-b6d8-94f992d37153.png">
 
-### 📌 Q6: Query to list the names of the departments that exist in the company, along with the average salary and the birthdate of the oldest employee that works in each department ordered by department id in descending order.
+### 📌 Q6: Query that uses the dense_rank analytic function to list the bottom 3 earners in the employee table.
+
+```sql
+with rownumbered as (
+    select e.*, dense_rank() over (order by salary) as rn
+    from employee e
+    order by salary
+)
+select *
+from rownumbered
+where rn <= 3;
+```
+
+Result:  
+<img width="747" alt="Screen Shot 2022-07-18 at 23 20 46" src="https://user-images.githubusercontent.com/59098085/179650239-eac18d3f-8d24-4bb4-a9ee-8dfd9ba2d5fc.png">
+
+### 📌 Q7: Use the row limiting clause to write a query to get the top 5 youngest employees among those who earn more than 2000 a month.
+
+WARNING: The row limiting clause was introduced in version 12c.
 
 ```sql
 
 ```
 
 Result:  
-<img width="421" alt="Q6" src="https://user-images.githubusercontent.com/59098085/179646234-aec04ac5-25e9-4384-b0cc-60e6edec832e.png">
+<img width="747" alt="Screen Shot 2022-07-18 at 23 20 46" src="https://user-images.githubusercontent.com/59098085/179650239-eac18d3f-8d24-4bb4-a9ee-8dfd9ba2d5fc.png">
 
 ***
 
