@@ -262,5 +262,22 @@ fetch first 5 rows only;
 Result:  
 <img width="719" alt="Screen Shot 2022-07-18 at 23 48 48" src="https://user-images.githubusercontent.com/59098085/179653764-90e5ff9a-7031-40db-849f-7b1bc1226673.png">
 
+### 📌 Q7: Query that segments the employee table in pages, based on the salary in ascending order, and returns the third page. The size of each page must be 4 rows.
+
+WARNING: The row limiting clause was introduced in version 12c.
+
+```sql
+select *
+from employee
+order by salary desc
+offset (3 - 1) * 4 rows fetch next 4 rows only;
+
+-- If using sql developer, I can replace 3 - 1 for &page -1 to get prompted which page I want
+```
+
+Result:  
+<img width="716" alt="Screen Shot 2022-07-19 at 14 14 16" src="https://user-images.githubusercontent.com/59098085/179810294-d53ad2df-ebe5-416e-965b-af851f82659a.png">
+
+
 ***
 
