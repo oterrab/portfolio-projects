@@ -20,7 +20,10 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 
 # Python
 
+Level: 
+
 Skills: Data cleaning, wrangling, visualisation, analysis
+
 Libraries: pandas, numpy, matplotlib, seaborn, scikit-learn
 
 | Project Name | Area | Description | Libraries | Top |   
@@ -36,6 +39,8 @@ Level:
 
 Functions: 
 
+Libraries: ggplot2
+
 | Project Name | Area | Description | Libraries | Top |   
 |----|--|---|---|-|
 | [Placeholder](https://github.com/oterrab/portfolio-projects/) |  Placeholder | **Placeholder.** | Placeholder | [Top](#table-of-contents) |
@@ -47,10 +52,11 @@ Functions:
 
 Level: Intermediate SQL
 
-Functions: Aggregations, Joins, CTEs, Window functions (aggregates, ranking, running total, partitioned averages), CASE WHEN statements, subqueries, nested subqueries, DATETIME functions, data type conversion, text and string manipulation
+Functions: joins, subqueries, inline views, CTE (WITH clause), row limiting clause, analytic functions (count, partitions, top-N queries, etc..), functions, procedures.
 
 | Project Name | Description | SQL Functions | Top |
 |---|---|---|-|
-| 📊 [SQL Learning](https://github.com/oterrab/portfolio-projects/tree/main/sql-learning) | **Temporary Section.** For now this is just queries that I used to practice SQL | PL/SQL, MySQL, MS SQL | [Top](#table-of-contents) |
+| 📊 [SQL Made Practical](https://github.com/oterrab/portfolio-projects/tree/main/sql-learning/oracle-sql-course) | Course I took that aims to teach SQL in a pratical way. Every topic is teached on video and after that, it gives a challenge that I had to do it by myself. Some of the queries are a little off topic because I was exploring learning possibilities within the lesson. | Oracle, SQL | [Top](#table-of-contents) |
+| 🔖 [SQL Learning](https://github.com/oterrab/portfolio-projects/tree/main/sql-learning) | **Temporary Section.** For now this is just queries that I used to practice SQL | PL/SQL, MySQL, MS SQL | [Top](#table-of-contents) |
 
 ***
