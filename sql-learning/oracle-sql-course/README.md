@@ -1,15 +1,15 @@
 # 📊 Oracle SQL Course: SQL Made Practical
 
 ## Introduction
-
+<br/>
 **All queries here were written by me and this repository does not cover queries that were made by the teacher on video.**
-
+<br/>
 <details> 
 <summary>
 Click here for Introduction! 👋🏻
 	
 </summary>
-
+<br/>
 **📈 BIREFING**
 
 - This course aims to teach SQL in a pratical way. Every topic is teached on video and after that, the couse gives a challenge that I had to do it by myself. Thats why some of the queries are a little off topic. It was me exploring learning possibilities within the lesson.
@@ -27,7 +27,7 @@ Click here for Introduction! 👋🏻
 - [Oracle LIVE SQL](https://livesql.oracle.com/)
 
 </details> 
-	
+<br/>	
 ***
 
 ## Table of Contents
@@ -119,7 +119,7 @@ commit;
 Click here for study notes on key concepts. 🔑
 	
 </summary>
-
+<br/>
 **Correlated Subqueries:**
 	Correlated subqueries are used for row-by-row processing. Each subquery is executed once for every row of the outer query. A correlated subquery is one way of reading every row in a table and comparing values in each row against related data. Because the subquery may be evaluated once for each row processed by the outer query, **it can be slow.** _It is used whenever a subquery must return a different result or set of results for each candidate row considered by the outer query (main query)._ For example, return a value necessary to compare with each employee (aka, a row) as in **C3**. In this sense, a correlated subquery requires values from its outer query (main query) in order to execute, and if you try to run it separately, you have to substitute at least one of the values.
 	
@@ -129,7 +129,7 @@ Click here for study notes on key concepts. 🔑
 **Scalar Subqueries:**	
 	A scalar subquery is a subquery expression that can return a maximum of one value and can be either correlated or non-correlated. It is correlated when it returns a single value for each row of its correlated outer table set, as in **C3**. And it is non-correlated when it returns a single value to its containing query, as in **C1**.
 </details> 
-
+<br/>
 
 **Content**
 
