@@ -57,3 +57,12 @@ having max(salary) >= 2*min(salary);
 
 /*This time using subquery factoring (WITH clause) instead of an inline view. RESTRICTION: Not allowed to use a HAVING clause.*/
 
+with subquery_salary (department_id, max_salary, min_salary, average_salary)
+as (
+select department_id, max(salary) , min(salary), avg(salary)
+from employee
+group by department_id
+)
+select *
+from subquery_salary
+where max_salary >= 2*min_salary;
