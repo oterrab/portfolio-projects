@@ -2,13 +2,17 @@
 
 ## Introduction
 <br/>
+
 **All queries here were written by me and this repository does not cover queries that were made by the teacher on video.**
+
 <br/>
+
 <details> 
 <summary>
 Click here for Introduction! 👋🏻
 	
 </summary>
+	
 <br/>
 **📈 BIREFING**
 
