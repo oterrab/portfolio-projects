@@ -194,7 +194,8 @@ group by department_id
 having max(salary) >= 2*min(salary);
 ```
 
-This time **using subquery factoring (WITH clause)** instead of an inline view. RESTRICTION: Not allowed to use a HAVING clause.
+This time **using subquery factoring (WITH clause)** instead of an inline view.  
+RESTRICTION: Not allowed to use a HAVING clause.
 
 ```sql
 with subquery_salary (department_id, max_salary, min_salary, average_salary)
@@ -214,7 +215,14 @@ Result:
 ### 📌 Q5: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table
 
 ```sql
-
+with rownumbered as (
+    select e.*, row_number() over (order by salary desc) as rn
+    from employee e
+    order by salary desc
+)
+select *
+from rownumbered
+where rn <= 5;
 ```
 
 Result:  
