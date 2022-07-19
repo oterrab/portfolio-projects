@@ -173,7 +173,7 @@ Result:
 
 ### 📌 Q4: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
 
-**RESTRICTION: Not allowed to use a HAVING clause.**
+RESTRICTION: Not allowed to use a HAVING clause.
 
 ```sql
 select *
@@ -194,7 +194,7 @@ group by department_id
 having max(salary) >= 2*min(salary);
 ```
 
-**This time using subquery factoring (WITH clause) instead of an inline view. RESTRICTION: Not allowed to use a HAVING clause.**
+This time **using subquery factoring (WITH clause)** instead of an inline view. RESTRICTION: Not allowed to use a HAVING clause.
 
 ```sql
 with subquery_salary (department_id, max_salary, min_salary, average_salary)
