@@ -4,7 +4,7 @@ Hello 👋, is there anybody in there?
 
 This is my Portfolio Summary where I provide a walkthrough to all of my forays into data analytics projects and courses. I'll track my projects here with a quick note on what each project does.
 
-Feel free to chat with me on [LinkedIn](https://www.linkedin.com/in/lucas-passos-barreto-93b84351/) about my projects!
+Feel free to chat with me on [LinkedIn](https://www.linkedin.com/in/lucaspassosbarreto/) about my projects!
 
 ***
 
