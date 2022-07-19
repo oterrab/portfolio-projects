@@ -329,7 +329,7 @@ Click here for study notes on key concepts. 🔑
 
 **Content**
 
-- Texto Functions
+- Text Functions
 - Numeric Functions
 - Date Functions
 - Conversion Functions
