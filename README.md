@@ -57,6 +57,6 @@ Functions: joins, subqueries, inline views, CTE (WITH clause), row limiting clau
 | Project Name | Description | SQL Functions | Top |
 |---|---|---|-|
 | 📊 [SQL Made Practical](https://github.com/oterrab/portfolio-projects/tree/main/sql-learning/oracle-sql-course) | Course I took that aims to teach SQL in a pratical way. Every topic is teached on video and after that, it gives a challenge that I had to do it by myself. Some of the queries are a little off topic because I was exploring learning possibilities within the lesson. | Oracle, SQL | [Top](#table-of-contents) |
-| 🔖 [SQL Learning](https://github.com/oterrab/portfolio-projects/tree/main/sql-learning) | **Temporary Section.** For now this is just queries that I used to practice SQL | PL/SQL, MySQL, MS SQL | [Top](#table-of-contents) |
+| 🔖 [SQL Learning](https://github.com/oterrab/portfolio-projects/tree/main/sql-learning) | **Temporary Section.** For now this is just queries that I used to practice SQL | PL/SQL, MySQL, MS SQL Server | [Top](#table-of-contents) |
 
 ***
