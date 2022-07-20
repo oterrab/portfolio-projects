@@ -150,18 +150,14 @@ Click here for study notes on key concepts. 🔑</p>
 - [Top-N Queries](#top-n-queries)
 - [Row Limiting Clause](#row-limiting-clause)
 
-<br/>
-
-<a href="table-of-contents"> <p align="right"> [🔺] </p> </a>
-
 
 <br/>
 
-### Subqueries
+### Subqueries 
 
 <br/>
 
-#### 📌 C1: Query to display all of the detail of the department where the youngest employee n the company works.
+#### 📌 C1: \*Query to display all of the detail of the department where the youngest employee n the company works.\*
 
 
 ```sql
