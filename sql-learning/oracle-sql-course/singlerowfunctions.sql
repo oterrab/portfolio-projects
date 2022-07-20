@@ -6,4 +6,3 @@ from department;
 
 -- 
 
-
