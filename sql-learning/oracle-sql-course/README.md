@@ -459,3 +459,72 @@ Result:
 <img width="870" alt="Screen Shot 2022-07-19 at 22 02 01" src="https://user-images.githubusercontent.com/59098085/179873303-3ddef305-5800-40ec-bd0c-0d09ba9bfd13.png">
 
 ***
+
+### Date Functions
+
+<br/>
+
+#### 📌 C4: 
+ 
+```sql
+
+```
+
+Result:  
+
+
+
+### Conversion Functions
+
+<br/>
+
+#### 📌 C5: 
+ 
+```sql
+
+```
+
+Result:  
+
+#### 📌 C6: 
+ 
+```sql
+
+```
+
+Result:  
+
+### Decode Function and CASE expression
+
+<br/>
+
+#### 📌 C7: 
+ 
+```sql
+
+```
+
+Result:  
+
+
+#### 📌 C8: 
+ 
+```sql
+
+```
+
+Result:  
+
+### Date Arithmetic
+
+<br/>
+
+#### 📌 C9: 
+ 
+```sql
+
+```
+
+Result:  
+
+***
