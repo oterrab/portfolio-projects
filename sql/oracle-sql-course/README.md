@@ -480,11 +480,13 @@ select
     add_months(hire_date, 6) as raise_earned_date,
     next_day(hire_date, 'monday') as induction_date,
     last_day(hire_date)+1 as newsletter_day
-from employee;
+from employee
+where department_id != 3;
 ```
 
 Result:  
-<img width="854" alt="Screen Shot 2022-07-20 at 16 28 52" src="https://user-images.githubusercontent.com/59098085/180065886-db4858ab-3c7a-48d9-a347-2a900cac3bae.png">
+<img width="816" alt="Screen Shot 2022-07-20 at 16 30 36" src="https://user-images.githubusercontent.com/59098085/180066272-1c24888a-a07c-4d81-a072-9d37fd56650b.png">
+
 
 ### Conversion Functions
 
