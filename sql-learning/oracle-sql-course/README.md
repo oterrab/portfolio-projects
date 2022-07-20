@@ -407,11 +407,23 @@ Result:
  - The report must be ordered by salary, in descending order.
  
 ```sql
-
+select  id,
+  name,
+  birthdate,
+  phone,
+  substr(phone, instr(phone, '.')+1, to_number(instr(phone,'.',1,2) - instr(phone,'.')-1)) as phone,
+  salary,
+  department_Id,
+  hire_date,
+  job_id,
+  email
+from Employee
+where hire_date >= to_date('01-01-2010', 'dd-mm-yyyy')
+order by salary desc;
 ```
 
 Result:  
-
+<img width="818" alt="Screen Shot 2022-07-19 at 21 35 24" src="https://user-images.githubusercontent.com/59098085/179870961-cae2543c-f0bb-4ae7-82dd-3b4216ccf621.png">
 
 
 <br/>
