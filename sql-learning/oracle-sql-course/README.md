@@ -125,7 +125,7 @@ commit;
 
 <details> 
 <summary>
-Click here for study notes on key concepts. 🔑
+Click here for study notes on key concepts. 🔑</p>
 	
 </summary>
 	
@@ -139,7 +139,7 @@ Click here for study notes on key concepts. 🔑
 	
 **Scalar Subqueries:**	
 	A scalar subquery is a subquery expression that can return a maximum of one value and can be either correlated or non-correlated. It is correlated when it returns a single value for each row of its correlated outer table set, as in **C3**. And it is non-correlated when it returns a single value to its containing query, as in **C1**.
-</details> 
+</details>
 <br/>
 
 **Content**
@@ -149,6 +149,11 @@ Click here for study notes on key concepts. 🔑
 - [Subquery Factoring (WITH clause)](#cte) 
 - [Top-N Queries](#top-n-queries)
 - [Row Limiting Clause](#row-limiting-clause)
+
+<br/>
+
+<a href="table-of-contents"> <p align="right"> [🔺] </p> </a>
+
 
 <br/>
 
