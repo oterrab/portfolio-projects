@@ -449,17 +449,42 @@ Result:
 
 ### Date Functions
 
+**Change Date Format on Oracle Live**
+<br/>
+```sql
+alter session set NLS_DATE_FORMAT = 'DD/MM/YYYY HH24:MI:SS';
+```
 <br/>
 
-#### 📌 C4: 
+#### 📌 C4: Write the query necessary to generate the report with the following characteristics:
+
+- The report must include the employee id, name, and hire date.
+
+- It must include a column that tells us for how many months the employee has worked for the company.
+
+- Every employee receives a raise after 6 months of working for the company. Include a column that tells us the date in which they earned the right for the mentioned raise.
+
+- Every employee is sent to a short induction the next Monday after they are hired. Include a column that tells us the date in which they attended their induction.
+
+- Every employee is subscribed to the company’s monthly newsletter on the first day of the next month after they are hired. Add a column that tells us the date in which they were subscribed to the newsletter.
+
+- Do not include employees from the IT department.
+
  
 ```sql
-
+select
+    id,
+    name,
+    hire_date,
+    trunc(months_between(sysdate, hire_date)) as months_worked,
+    add_months(hire_date, 6) as raise_earned_date,
+    next_day(hire_date, 'monday') as induction_date,
+    last_day(hire_date)+1 as newsletter_day
+from employee;
 ```
 
 Result:  
-
-
+<img width="854" alt="Screen Shot 2022-07-20 at 16 28 52" src="https://user-images.githubusercontent.com/59098085/180065886-db4858ab-3c7a-48d9-a347-2a900cac3bae.png">
 
 ### Conversion Functions
 
