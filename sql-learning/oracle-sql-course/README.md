@@ -41,6 +41,7 @@ Click here for Introduction! 👋🏻
 - [Schema](#schema)
 - [Subqueries](#subqueries)
 - [Single Row Functions](#single-row-functions)
+- [Transposing](#transposing)
 
 ## Schema
 
@@ -348,20 +349,6 @@ Result:
 
 <br/>
 
-<details> 
-<summary>
-Click here for study notes on key concepts. 🔑
-	
-</summary>
-	
-<br/>
-	
-**Placeholder:**
-	Placeholder
-
-</details> 
-<br/>
-
 **Content**
 
 - [Text Functions](#text-functions)
@@ -528,3 +515,39 @@ Result:
 Result:  
 
 ***
+
+## Transposing
+
+<br/>
+
+**Content**
+
+- [Pivot](#pivot)
+- [Unpivot](#unpivot)
+
+<br/>
+
+### Pivot
+
+<br/>
+
+#### 📌 C1: 
+ 
+```sql
+
+```
+
+Result: 
+
+
+### Unpivot
+
+<br/>
+
+#### 📌 C2: 
+ 
+```sql
+
+```
+
+Result:  
