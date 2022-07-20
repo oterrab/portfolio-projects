@@ -45,3 +45,22 @@ select  id,
 from Employee
 where hire_date >= to_date('01-01-2010', 'dd-mm-yyyy')
 order by salary desc;
+
+-- Write the query needed to generate a report with the following characteristics. For this task assume that a month has 30 days:
+/*
+The report must include the names, job_id, salary, daily salary, and the result of applying the round, trunc, ceil and floor functions to the daily salary calculation.
+The report must include only employees whose daily salary is an integer and either were hired after 2010 or work for the ‘IT’ department.
+*/
+
+select name, 
+       job_id, 
+       salary, 
+       (salary/30) as daily_salary,
+       round(salary/30),
+       trunc(salary/30),
+       ceil(salary/30),
+       floor(salary/30) 
+from employee e
+where hire_date >= to_date('01-01-2010', 'dd-mm-yyyy')
+and MOD((salary/30),1) = 0
+or department_id = 3;
