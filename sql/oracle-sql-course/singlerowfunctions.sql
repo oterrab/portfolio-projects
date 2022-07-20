@@ -70,4 +70,29 @@ or department_id = 3;
 
 alter session set NLS_DATE_FORMAT = 'DD/MM/YYYY HH24:MI:SS';
 
---
+--Write the query necessary to generate the report with the following characteristics:
+
+/* 
+The report must include the employee id, name, and hire date.
+
+It must include a column that tells us for how many months the employee has worked for the company.
+
+Every employee receives a raise after 6 months of working for the company. Include a column that tells us the date in which they earned the right for the mentioned raise.
+
+Every employee is sent to a short induction the next Monday after they are hired. Include a column that tells us the date in which they attended their induction.
+
+Every employee is subscribed to the company’s monthly newsletter on the first day of the next month after they are hired. Add a column that tells us the date in which they were subscribed to the newsletter.
+
+Do not include employees from the IT department.
+*/
+
+select
+    id,
+    name,
+    hire_date,
+    trunc(months_between(sysdate, hire_date)) as months_worked,
+    add_months(hire_date, 6) as raise_earned_date,
+    next_day(hire_date, 'monday') as induction_date,
+    last_day(hire_date)+1 as newsletter_day
+from employee
+where department_id != 3;
