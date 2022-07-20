@@ -64,3 +64,10 @@ from employee e
 where hire_date >= to_date('01-01-2010', 'dd-mm-yyyy')
 and MOD((salary/30),1) = 0
 or department_id = 3;
+
+
+-- Oracle Live Session change date format.
+
+alter session set NLS_DATE_FORMAT = 'DD/MM/YYYY HH24:MI:SS';
+
+--
