@@ -348,6 +348,32 @@ Result:
 ## Single Row Functions
 
 <br/>
+<details> 
+<summary>
+Click here for study notes on key concepts. 🔑</p>
+	
+</summary>
+	
+<br/>
+	
+**Implicit Conversions:**
+	Implicit conversions occur when SQL Server has to do a conversion from one data type to another data type to be able to make a comparison and that conversion wasn't specified in the query. These hidden conversions can be a performance killer, especially if SQL Server has to apply them to every row to perform that comparison. One easy way to see this implicit conversion is with the sql_variant data type. Any comparison to a value that is of that type requires a conversion.
+	This requires an implicit conversion, because the column 'period' in this example is deined as varchar2 and we are comparing with a number. So, oracle applies TO_NUMBER() to the column:
+
+```sql	
+SELECT *
+FROM monthly.account.balance
+WHERE period =  201811 and client_id = 100;
+```
+	This does not require an implict conversion. Because we are explicitly converting to varchar and it runs 20x faster.
+
+```sql	
+SELECT *
+FROM monthly.account.balance
+WHERE period =  '201811' and client_id = 100;
+```
+
+</details>
 
 **Content**
 
