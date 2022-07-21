@@ -489,7 +489,7 @@ Result:
 
 
 ### Conversion Functions
-
+<br/>
 <details> 
 <summary>
 Click here for study notes on key concepts. 🔑</p>
@@ -501,7 +501,6 @@ Click here for study notes on key concepts. 🔑</p>
 **Formating:**
 	The format element for minutes is 'MI' and not 'MM'. Careful, using MM will not give any error, it will just mix months in the time portion of your results. This can go unotice for a long time!
 </details>
-<br/>
 
 #### 📌 C5: Generate a report of all of the employees who were born after 1970 and for whom we have a phone number registered. In the report, the department_id must be displayed using 4 digits, left-padded with zeros. The salary must be displayed with your local currency symbol and 2 decimals and with commas as the thousands separator.
 
@@ -520,10 +519,18 @@ The company is planning to give every employee a surprise bonus for the amount o
 They will receive this surprise bonus in the month that corresponds to the last digit of their phone number, so, for example, if the employee’s phone number ends with a 4, it means that he must receive his bonus in April. Please include an additional column that tells us the name of the month in which they must receive their bonus. If any employee has a phone number that ends in a number that is not a valid month, they must receive their bonus in December.
  
 ```sql
-
+select name,birthdate,phone,
+  to_char(department_id,'fm0000') as department_id,
+  to_char(salary,'fmL99,990.00') as salary,
+  to_date(to_char(birthdate,'ddmmyyyy') default null on conversion error,'mmddyyyy') as alt_birthdate
+from employee e
+where trunc(birthdate, 'yy') >= to_date(1970, 'yyyy')
+--where birthdate > to_date('31-12-1969', 'dd-mm-yyyy')
+and phone is not null;
 ```
 
-Result:  
+Result: 
+<img width="625" alt="Screen Shot 2022-07-21 at 13 27 46" src="https://user-images.githubusercontent.com/59098085/180265631-96a19f69-204d-4708-9adf-cc0d344bd5ba.png">
 
 ### Decode Function and CASE expression
 
