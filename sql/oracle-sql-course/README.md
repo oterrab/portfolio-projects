@@ -574,31 +574,105 @@ Result:
 
 
 ### Decode Function and CASE expression
+<details> 
+<summary>
+Click here for study notes on key concepts. 🔑</p>
+	
+</summary>
+	
+<br/>
+	
+**Decode vs Case:**
+	- Decode is exclusive of oracle and less readeble than CASE expressions.
+```
+
+</details>
 
 <br/>
 
-#### 📌 C7: 
+#### 📌 C7: The company wants to give a rise to all employees according to these conditions:
+
+- Employees who work in the ACCOUNTING department get a 10% increase to their salary.
+
+- Employees who work in the MARKETING department get a 15% increase to their salary.
+
+- Employees from the other departments get a 20% increase to their salary.
+
+Please generate a report that includes the employee id, name, current salary, and new salary. Please generate 2 columns for the new salary. To calculate the first one use the DECODE function and for the second one use a simple CASE expression. The result in both new salary columns must be the same.
  
 ```sql
-
+select
+    id,
+    name,
+    salary as current_salary,
+    salary + (salary * decode(department_id,1,0.10,2,0.15,0.20)) as new_salary_1,
+    salary + (salary * 
+    case 
+        when department_id = 1
+            then 0.1
+        when department_id = 2
+            then 2
+        else 3
+    end) as new_salary_2
+from employee;
 ```
 
 Result:  
+<img width="485" alt="Screen Shot 2022-07-21 at 20 17 31" src="https://user-images.githubusercontent.com/59098085/180330559-80b3fc41-256c-4d7b-b7b0-4bde25f248d4.png">
 
 
-#### 📌 C8: 
+#### 📌 C8: The company is planning to assign a classification to each employee based on the salary they earn. The classification would be as follows:
+
+- Employees who earn less than 2500 will be classified as “A”.
+
+- Employees who earn 2500 or more but less than 4000 will be classified as “B”.
+
+- Employees who earn 4000 or more will be classified as “C” if they were hired before 2014 and will be classified as “D” if they were hired in 2014 or 2015.
+
+Please generate a report that includes the employee id, name, salary, the year they were hired, and the classification of each employee, but don’t include employees from the MARKETING department, and also don’t include employees who don’t have a phone number registered. The report must be ordered by salary and hire_date.
  
 ```sql
-
+select
+    id,
+    name,
+    salary,
+    extract(year from hire_date) as hire_year,
+    case
+        when salary < 2500
+            then 'A'
+        when salary >= 2500 and salary < 4000
+            then 'B'
+        when salary >= 4000 and extract(year from hire_date) < 2014
+            then 'C'
+        when salary >= 4000 and extract(year from hire_date) >= 2014 and extract(year from hire_date) <= 2015
+            then 'D'
+        else 'not categorized'
+    end as classification
+from employee
+where department_id != 2
+  and phone is not null
+order by salary,hire_date;
 ```
 
 Result:  
+<img width="426" alt="Screen Shot 2022-07-21 at 20 35 37" src="https://user-images.githubusercontent.com/59098085/180332025-c8d8138a-d16e-471e-80d9-9677d7272118.png">
+
 
 ### Date Arithmetic
 
 <br/>
 
-#### 📌 C9: 
+#### 📌 C9: Write an employees report with the following columns:
+
+- Id
+
+- Name
+
+- Date of their second birthday (don’t use functions to calculate this date, and assume that all years have 365 days (ignore the possibility of leap years), so the result will actually be an approximation of the second birthday date.)
+
+- How old they were when they were hired. Their age must be expressed in hours (not years).
+
+Please include only employees who were hired in 1980 or later and whose phone number starts with “1”. Order results by department id (ascending) and salary (descending).
  
 ```sql
 
