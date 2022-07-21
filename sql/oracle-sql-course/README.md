@@ -574,6 +574,7 @@ Result:
 
 
 ### Decode Function and CASE expression
+
 <details> 
 <summary>
 Click here for study notes on key concepts. 🔑</p>
