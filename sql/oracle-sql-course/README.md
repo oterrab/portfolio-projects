@@ -535,9 +535,7 @@ select
     to_char(to_date(substr(phone,-1) default '12' on conversion error,'mm'),'Month') as bonus_month
 from employee
 where trunc(birthdate, 'yy') < to_date(2015, 'yyyy') and salary >= 2500
---where birthdate > to_date('31-12-1969', 'dd-mm-yyyy') and salary >= 2500
-or trunc(birthdate, 'yy') = to_date(2015, 'yyyy') and salary <= 3000
---where birthdate > to_date('31-12-1969', 'dd-mm-yyyy') and salary <= 3000;
+or trunc(birthdate, 'yy') = to_date(2015, 'yyyy') and salary <= 3000;
 ```
 
 Result:  
