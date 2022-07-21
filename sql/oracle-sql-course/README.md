@@ -574,18 +574,16 @@ Result:
 
 
 ### Decode Function and CASE expression
-
+<br/>
 <details> 
 <summary>
 Click here for study notes on key concepts. 🔑</p>
 	
 </summary>
-	
 <br/>
 	
 **Decode vs Case:**
 	- Decode is exclusive of oracle and less readeble than CASE expressions.
-```
 
 </details>
 
