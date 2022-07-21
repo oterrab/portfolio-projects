@@ -490,6 +490,19 @@ Result:
 
 ### Conversion Functions
 
+<details> 
+<summary>
+Click here for study notes on key concepts. 🔑</p>
+	
+</summary>
+	
+<br/>
+	
+**Formating:**
+	The format element for minutes is 'MI' and not 'MM'. Careful, using MM will not give any error, it will just mix months in the time portion of your results. This can go unotice for a long time!
+</details>
+<br/>
+
 <br/>
 
 #### 📌 C5: 
