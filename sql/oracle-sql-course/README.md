@@ -535,11 +535,12 @@ select
     to_char(to_date(substr(phone,-1) default '12' on conversion error,'mm'),'Month') as bonus_month
 from employee
 where trunc(birthdate, 'yy') < to_date(2015, 'yyyy') and salary >= 2500
-or trunc(birthdate, 'yy') = to_date(2015, 'yyyy') and salary <= 3000;
---where birthdate > to_date('31-12-1969', 'dd-mm-yyyy');
+--where birthdate > to_date('31-12-1969', 'dd-mm-yyyy') and salary >= 2500
+or trunc(birthdate, 'yy') = to_date(2015, 'yyyy') and salary <= 3000
+--where birthdate > to_date('31-12-1969', 'dd-mm-yyyy') and salary <= 3000;
 ```
 
-Result: 
+Result:  
 <img width="563" alt="Screen Shot 2022-07-21 at 13 45 36" src="https://user-images.githubusercontent.com/59098085/180268905-9de0d283-828e-4d0a-ad14-d2286b3de7d5.png">
 
 ### Decode Function and CASE expression
