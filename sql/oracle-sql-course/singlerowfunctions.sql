@@ -101,9 +101,14 @@ where department_id != 3;
 
 Please add an additional column called “ALT_BIRTHDATE” that will result from swapping the month and day parts of the birthdate, so, for example, if the birthdate is 10-Mar-2015, the alternate birthdate would be 03-Oct-2015 (the day becomes the month and the month becomes the day). If the resulting date is invalid, this column should return NULL. */
 
-
-
-
+select name,birthdate,phone,
+  to_char(department_id,'fm0000') as department_id,
+  to_char(salary,'fmL99,990.00') as salary,
+  to_date(to_char(birthdate,'ddmmyyyy') default null on conversion error,'mmddyyyy') as alt_birthdate
+from employee e
+where trunc(birthdate, 'yy') >= to_date(1970, 'yyyy')
+--where birthdate > to_date('31-12-1969', 'dd-mm-yyyy')
+and phone is not null;
 
 
 /* Generate a second report that includes all of the employees that were hired before 2015 and earn more than 2500 or were hired in 2015 but earn less than 3000. The report must include the employees’ names, the day and month of the birthdate, and only the month (name of the month) and year of the hire date.
@@ -111,3 +116,13 @@ Please add an additional column called “ALT_BIRTHDATE” that will result from
 The company is planning to give every employee a surprise bonus for the amount of the last 4 digits of their phone number, so please include an additional column that displays the amount of this bonus for every employee. This amount must be displayed with your local currency symbol and 2 decimals.
 
 They will receive this surprise bonus in the month that corresponds to the last digit of their phone number, so, for example, if the employee’s phone number ends with a 4, it means that he must receive his bonus in April. Please include an additional column that tells us the name of the month in which they must receive their bonus. If any employee has a phone number that ends in a number that is not a valid month, they must receive their bonus in December. */
+
+select 
+    name,
+    to_char(birthdate,'dd/mm') as birthdate,
+    to_char(hire_date,'fmMonth yyyy') as hire_date,
+    to_char(to_number(substr(phone,-4)),'L9990.00') as bonus,
+    to_char(to_date(substr(phone,-1) default '12' on conversion error,'mm'),'Month') as bonus_month
+from employee
+where trunc(hire_date, 'yyyy') < to_date('01-01-2015', 'dd-mm-yyyy') and salary > 2500
+or trunc(hire_date, 'yyyy') = to_date('01-01-2015', 'dd-mm-yyyy') and salary < 3000;
