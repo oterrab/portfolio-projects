@@ -583,7 +583,7 @@ Click here for study notes on key concepts. 🔑</p>
 <br/>
 	
 **Decode vs Case:**
-	- Decode is exclusive of oracle and less readeble than CASE expressions.
+	- Decode is exclusive of oracle and less readable than CASE expressions.
 
 </details>
 
@@ -674,10 +674,20 @@ Result:
 Please include only employees who were hired in 1980 or later and whose phone number starts with “1”. Order results by department id (ascending) and salary (descending).
  
 ```sql
-
+select
+    id,
+    name,
+    birthdate+(2*365) as second_birthday,
+    (hire_date - birthdate) * 24 as hours_old_when_hired
+from employee
+where hire_date >= date '1980-01-01'
+and phone like '1%'
+order by department_id,salary desc;
 ```
 
 Result:  
+<img width="446" alt="Screen Shot 2022-07-21 at 20 58 45" src="https://user-images.githubusercontent.com/59098085/180334125-05be3126-d21a-465e-8272-a87f6a86a979.png">
+
 
 ***
 
