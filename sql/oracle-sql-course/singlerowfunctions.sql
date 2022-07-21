@@ -126,3 +126,66 @@ select
 from employee
 where trunc(hire_date, 'yyyy') < to_date('01-01-2015', 'dd-mm-yyyy') and salary > 2500
 or trunc(hire_date, 'yyyy') = to_date('01-01-2015', 'dd-mm-yyyy') and salary < 3000;
+
+/*The company wants to give a rise to all employees according to these conditions:
+
+- Employees who work in the ACCOUNTING department get a 10% increase to their salary.
+
+- Employees who work in the MARKETING department get a 15% increase to their salary.
+
+- Employees from the other departments get a 20% increase to their salary.
+
+Please generate a report that includes the employee id, name, current salary, and new salary. 
+Please generate 2 columns for the new salary. To calculate the first one use the DECODE function and for the second one use a simple CASE expression. 
+The result in both new salary columns must be the same.
+ */
+
+ select
+    id,
+    name,
+    salary as current_salary,
+    salary + (salary * decode(department_id,1,0.10,2,0.15,0.20)) as new_salary_1,
+    salary + (salary * 
+    case 
+        when department_id = 1
+            then 0.1
+        when department_id = 2
+            then 2
+        else 3
+    end) as new_salary_2
+from employee;
+
+/*
+The company is planning to assign a classification to each employee based on the salary they earn. The classification would be as follows:
+
+- Employees who earn less than 2500 will be classified as “A”.
+
+- Employees who earn 2500 or more but less than 4000 will be classified as “B”.
+
+- Employees who earn 4000 or more will be classified as “C” if they were hired before 2014 and will be classified as “D” if they were hired in 2014 or 2015.
+
+Please generate a report that includes the employee id, name, salary, the year they were hired, and the classification of each employee, 
+but don’t include employees from the MARKETING department, and also don’t include employees who don’t have a phone number registered. 
+The report must be ordered by salary and hire_date.
+*/
+
+select
+    id,
+    name,
+    salary,
+    extract(year from hire_date) as hire_year,
+    case
+        when salary < 2500
+            then 'A'
+        when salary >= 2500 and salary < 4000
+            then 'B'
+        when salary >= 4000 and extract(year from hire_date) < 2014
+            then 'C'
+        when salary >= 4000 and extract(year from hire_date) >= 2014 and extract(year from hire_date) <= 2015
+            then 'D'
+        else 'not categorized'
+    end as classification
+from employee
+where department_id != 2
+  and phone is not null
+order by salary,hire_date;
