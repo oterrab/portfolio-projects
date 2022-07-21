@@ -189,3 +189,28 @@ from employee
 where department_id != 2
   and phone is not null
 order by salary,hire_date;
+
+/*
+Write an employees report with the following columns:
+
+- Id
+
+- Name
+
+- Date of their second birthday (don’t use functions to calculate this date, and assume that all years have 365 days (ignore the possibility of leap years), so the result will actually be an approximation of the second birthday date.)
+
+- How old they were when they were hired. Their age must be expressed in hours (not years).
+
+Please include only employees who were hired in 1980 or later and whose phone number starts with “1”. 
+Order results by department id (ascending) and salary (descending).
+*/
+
+select
+    id,
+    name,
+    birthdate+(2*365) as second_birthday,
+    (hire_date - birthdate) * 24 as hours_old_when_hired
+from employee
+where hire_date >= date '1980-01-01'
+and phone like '1%'
+order by department_id,salary desc;
