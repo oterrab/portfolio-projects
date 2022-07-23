@@ -808,6 +808,19 @@ Result:
 ## Analytic Functions
 
 <br/>
+<details> 
+<summary>
+Click here for study notes on key concepts. 🔑</p>
+	
+</summary>
+<br/>
+	
+**Aggregate Functions vs Analytic Functions:**
+	- **Aggregate functions** (count(), avg(), sum(), min(), max()) perform a calculation on a set of values and **return a single value**. **Analytic functions** compute an aggregate value based on a set of values, and, unlike aggregate functions, can **return multiple rows for each set of values.**
+
+</details>
+
+<br/>
 
 **Content**
 
