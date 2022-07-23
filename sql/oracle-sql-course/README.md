@@ -832,11 +832,7 @@ Result:
 
 · The report must include the following columns from the table: Id, name, department_id, email.
 
-· The report must also include the following calculated columns:
-
-     - The length of the email.
-
-     - The number of employees from the same department who have an email of the same length.
+· The report must also include the following calculated columns: The length of the email. The number of employees from the same department who have an email of the same length.
 
 · The report must be ordered by department_id and length of the email column.
 
