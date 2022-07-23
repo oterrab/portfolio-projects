@@ -20,14 +20,14 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 
 # Python
 
-Level: 
+**Level:**
 
-Skills: Data cleaning, wrangling, visualisation, analysis
+**Skills:** Data cleaning, wrangling, visualisation, analysis
 
-Libraries: pandas, numpy, matplotlib, seaborn, scikit-learn
+**Libraries:** pandas, numpy, matplotlib, seaborn, scikit-learn
 
 | Project Name | Area | Description | Libraries | Top |   
-|----|--|---|---|-|
+|:---|--|---|---|-|
 | :pencil2: [Education in ES](https://github.com/oterrab/portfolio-projects/tree/main/python/educacao-es) |   Data Wrangling & EDA | A project close to 🏡 home. Analysis of educational data from my home state using data from the institute responsible for promoting studies, research and periodic evaluations on the Brazilian educational system - Which city has the most number os schools, How many students there are per school, How much does each city invest in its students? | _pandas, seaborn, matplotlib_ | [Top](#table-of-contents) |
 | 📑 [Natural Language Processing](https://github.com/oterrab/portfolio-projects/tree/main/python/nlp-learning) |  Data Wrangling, EDA & Machine Learning | Analysis using NLP techniques to interpret text data that I was working with in my PhD and to learn some techniques I was going to use in other context. The text used to perform this analysis was a transcript of a chemistry class for undergraduation students. | _pandas, scikit-learn, pickle, textblob, spacy, re, string, numpy, wordcloud, matplotlib_ | [Top](#table-of-contents) |
 
@@ -35,11 +35,11 @@ Libraries: pandas, numpy, matplotlib, seaborn, scikit-learn
 
 # R
 
-Level: 
+**Level:**
 
-Functions: 
+**Functions:**
 
-Libraries: ggplot2
+**Libraries:** ggplot2
 
 | Project Name | Area | Description | Libraries | Top |   
 |----|--|---|---|-|
@@ -50,9 +50,9 @@ Libraries: ggplot2
 
 # SQL
 
-Level: Intermediate SQL
+**Level:** Intermediate SQL
 
-Functions: joins, subqueries, inline views, CTE (WITH clause), row limiting clause, analytic functions (count, partitions, top-N queries, etc..), functions, procedures.
+**Functions:** joins, subqueries, inline views, subqueries factoring aka CTE (WITH clause), row limiting clause, analytic functions (count, partitions, top-N queries, etc..), procedual functions, procedures.
 
 | Project Name | Description | SQL 'Flavour' | Top |
 |---|---|---|-|
