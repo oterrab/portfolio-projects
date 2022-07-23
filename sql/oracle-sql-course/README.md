@@ -815,8 +815,8 @@ Click here for study notes on key concepts. 🔑</p>
 </summary>
 <br/>
 	
-**Aggregate Functions vs Analytic Functions:**
-	- **Aggregate functions** (count(), avg(), sum(), min(), max()) perform a calculation on a set of values and **return a single value**. **Analytic functions** compute an aggregate value based on a set of values, and, unlike aggregate functions, can **return multiple rows for each set of values.**
+**Aggregate Functions vs Analytic Functions:** <br/>
+	- _Aggregate functions_ (count(), avg(), sum(), min(), max()) perform a calculation on a set of values and _return a single value. Analytic functions_ compute an aggregate value based on a set of values, and, unlike aggregate functions, can _return multiple rows for each set of values._
 
 </details>
 
@@ -828,8 +828,8 @@ Click here for study notes on key concepts. 🔑</p>
 - [Windowing](#windowing)
 - [Common Analytic Functions](#common-analytic-functions)
 - [Ranking Functions](#ranking-functions)
-- [LISTAGG Function](#listagg-functions)
-- [LAG and LEAD Functions](#lead-and-lag-functions)
+- [LISTAGG Function](#listagg-function)
+- [LAG and LEAD Functions](#lag-and-lead-functions)
 - [FIRST and LAST Functions](#first-and-last-functions)
 - [FIRST_VALUE and LAST_VALUE Functions](#first_value-and-last_value-functions)
 
@@ -851,10 +851,20 @@ Click here for study notes on key concepts. 🔑</p>
 
 
 ```sql
-
+select 
+    id,
+    name,
+    department_id,
+    email,
+    length(email) as length_email,
+    count(*) over (partition by (length(email)), department_id) as CNT_elength
+from employee
+order by department_id, length_email;
 ```
 
 Result:  
+<img width="538" alt="Screen Shot 2022-07-23 at 16 36 19" src="https://user-images.githubusercontent.com/59098085/180620391-53ff5240-2340-43e5-aceb-9be6548ee4b7.png">
+
 
 ### Windowing
 
