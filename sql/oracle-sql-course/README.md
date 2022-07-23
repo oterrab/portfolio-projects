@@ -707,6 +707,12 @@ Result:
 
 <br/>
 
+<details> 
+<summary>
+Click here for an interesting example given by the teacher. 🔑</p>
+	
+</summary>
+
 #### 📌 Interesting Example: Write a query that tells the number of employees hired in the years of 2014 and 2015 for each department. First example is made in traditional way, second example is made using pivot clause.
  
 ```sql
@@ -737,9 +743,14 @@ from employee
 pivot (count(*) for year in (2014, 2015))
 order by department_id;
 ```
-Result:  
+
+Result:   
+
 <img width="203" alt="Screen Shot 2022-07-22 at 23 00 08" src="https://user-images.githubusercontent.com/59098085/180586243-47813f56-4be4-41fa-9018-ac7672428c61.png">
 
+<br/>
+	
+</details>
 
 #### 📌 C1: Write a query that returns a single row that has one column for each of the monthly budgets of the departments ACCOUNTING, MARKETING, and INFORMATION TECHNOLOGY. The column titles for the budgets must be the names of the departments.
  
