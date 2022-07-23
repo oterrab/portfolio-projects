@@ -1,9 +1,3 @@
-select * 
-from employee;
-
-select *
-from department;
-
 -- Write a query that returns a single row that has one column for each of the monthly budgets of the departments ACCOUNTING, MARKETING, and INFORMATION TECHNOLOGY. The column titles for the budgets must be the names of the departments.
 
 select *
