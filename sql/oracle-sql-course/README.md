@@ -961,7 +961,7 @@ Result:
 
 <br/>
 
-#### 📌 C9: Write a query that will produce an employees’ report with the following information for each employee:
+#### 📌 C10: Write a query that will produce an employees’ report with the following information for each employee:
 
 · Id, name, and department_id of the employee.
 
