@@ -52,7 +52,7 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 
 **Level:** Intermediate SQL
 
-**Functions:** joins, subqueries, inline views, subquery factoring (WITH clause), row limiting clause, aggregate functions (count, avg, sum, min/max, etc..), analytic functions (window functions, partition, ranking, LISTAGG, LAG, LEAD, FIRST, LAST, FIRST_VALUE and LAST_VALUE), procedural functions, procedures.
+**Functions:** joins, subqueries, inline views, subquery factoring (WITH clause), row limiting clause, aggregate functions (count, avg, sum, min/max, etc..), analytic functions (windows, partitions, rankings, LISTAGG, LAG, LEAD, FIRST, LAST, FIRST_VALUE and LAST_VALUE), procedural functions, procedures.
 
 | Project Name | Description | SQL 'Flavour' |
 |:---|---|:--:|
