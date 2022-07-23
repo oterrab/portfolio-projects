@@ -744,8 +744,7 @@ pivot (count(*) for year in (2014, 2015))
 order by department_id;
 ```
 
-Result:   
-
+Result:  
 <img width="203" alt="Screen Shot 2022-07-22 at 23 00 08" src="https://user-images.githubusercontent.com/59098085/180586243-47813f56-4be4-41fa-9018-ac7672428c61.png">
 
 <br/>
@@ -766,7 +765,7 @@ max(monthly_budget) for name in ('ACCOUNTING', 'MARKETING','INFORMATION TECHNOLO
 );
 ```
 
-Result: 
+Result:  
 <img width="378" alt="Screen Shot 2022-07-22 at 23 20 46" src="https://user-images.githubusercontent.com/59098085/180586950-c4e2705e-7055-4686-88a3-81d5d1c075f8.png">
 
 ### Unpivot
@@ -776,10 +775,18 @@ Result:
 #### 📌 C2: Write a query to generate a list of employees who work in the Accounting and Marketing departments. The report must include the name, birthdate, and hire_date, but each employee must appear in the report 2 times, and the birth date and hire date must appear in the same column but in different rows. This column must be called “date_value” and there must be an additional column that explains the kind of date that is included in the date_value column. This additional column must be called “date_type” and will contain either “Date of Birth” or “Date of Hiring”.
  
 ```sql
-
+select name,date_type,date_value
+from employee
+  unpivot
+  ( 
+    date_value for 
+    date_type in (birthdate as 'Date of Birth', hire_date as 'Date of Hiring')
+  )
+  where department_id in (1, 2);
 ```
 
 Result:  
+<img width="301" alt="Screen Shot 2022-07-22 at 23 40 26" src="https://user-images.githubusercontent.com/59098085/180587562-9e69d93d-df56-4864-b479-8a3797ac2bb5.png">
 
 ***
 
