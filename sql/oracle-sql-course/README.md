@@ -134,13 +134,13 @@ Click here for study notes on key concepts. 🔑</p>
 <br/>
 	
 **Correlated Subqueries:**
-	Correlated subqueries are used for row-by-row processing. Each subquery is executed once for every row of the outer query. A correlated subquery is one way of reading every row in a table and comparing values in each row against related data. Because the subquery may be evaluated once for each row processed by the outer query, **it can be slow.** _It is used whenever a subquery must return a different result or set of results for each candidate row considered by the outer query (main query)._ For example, return a value necessary to compare with each employee (aka, a row) as in **C3**. In this sense, a correlated subquery requires values from its outer query (main query) in order to execute, and if you try to run it separately, you have to substitute at least one of the values.
+<p align="justify"> Correlated subqueries are used for row-by-row processing. Each subquery is executed once for every row of the outer query. A correlated subquery is one way of reading every row in a table and comparing values in each row against related data. Because the subquery may be evaluated once for each row processed by the outer query, it can be slow. It is used whenever a subquery must return a different result or set of results for each candidate row considered by the outer query (main query). For example, return a value necessary to compare with each employee (aka, a row) as in C3. In this sense, a correlated subquery requires values from its outer query (main query) in order to execute, and if you try to run it separately, you have to substitute at least one of the values. </p>
 	
 **Non-Correlated Subqueries:**	
-	Non-correlated subqueries are those that are totally independent of the main statement. The subquery executes first, and then passes its results to the outer query.
+<p align="justify">Non-correlated subqueries are those that are totally independent of the main statement. The subquery executes first, and then passes its results to the outer query.</p>
 	
 **Scalar Subqueries:**	
-	A scalar subquery is a subquery expression that can return a maximum of one value and can be either correlated or non-correlated. It is correlated when it returns a single value for each row of its correlated outer table set, as in **C3**. And it is non-correlated when it returns a single value to its containing query, as in **C1**.
+<p align="justify">A scalar subquery is a subquery expression that can return a maximum of one value and can be either correlated or non-correlated. It is correlated when it returns a single value for each row of its correlated outer table set, as in **C3**. And it is non-correlated when it returns a single value to its containing query, as in C1. </p>
 </details>
 <br/>
 
@@ -358,7 +358,7 @@ Click here for study notes on key concepts. 🔑</p>
 <br/>
 	
 **Implicit Conversions:**
-	Implicit conversions occur when SQL Server has to do a conversion from one data type to another data type to be able to make a comparison and that conversion wasn't specified in the query. These hidden conversions can be a performance killer, especially if SQL Server has to apply them to every row to perform that comparison. One easy way to see this implicit conversion is with the sql_variant data type. Any comparison to a value that is of that type requires a conversion.   
+<p align="justify">Implicit conversions occur when SQL Server has to do a conversion from one data type to another data type to be able to make a comparison and that conversion wasn't specified in the query. These hidden conversions can be a performance killer, especially if SQL Server has to apply them to every row to perform that comparison. One easy way to see this implicit conversion is with the sql_variant data type. Any comparison to a value that is of that type requires a conversion.</p>
 
 ```sql	
 /* This requires an implicit conversion, 
@@ -531,7 +531,7 @@ Click here for study notes on key concepts. 🔑</p>
 <br/>
 	
 **Formating:**
-	The format element for minutes is 'MI' and not 'MM'. Careful, using MM will not give any error, it will just mix months in the time portion of your results. This can go unotice for a long time!
+<p align="justify">The format element for minutes is 'MI' and not 'MM'. Careful, using MM will not give any error, it will just mix months in the time portion of your results. This can go unotice for a long time!</p>
 </details>
 
 #### 📌 C5: Generate a report of all of the employees who were born after 1970 and for whom we have a phone number registered. In the report, the department_id must be displayed using 4 digits, left-padded with zeros. The salary must be displayed with your local currency symbol and 2 decimals and with commas as the thousands separator.
@@ -588,7 +588,6 @@ Click here for study notes on key concepts. 🔑</p>
 
 </details>
 
-<br/>
 
 #### 📌 C7: The company wants to give a rise to all employees according to these conditions:
 
@@ -705,8 +704,6 @@ Result:
 
 ### Pivot
 
-<br/>
-
 <details> 
 <summary>
 Click here for an interesting example given by the teacher. 🔑</p>
@@ -774,9 +771,9 @@ Why MAX()?</p>
 	
 **Why MAX()?**
 
-You need an aggregate function. Depending on what you want to do, it could be MAX, MIN, AVG, etc…
+<p align="justify">You need an aggregate function. Depending on what you want to do, it could be MAX, MIN, AVG, etc…
 
-Sometimes you don’t want to aggregate anything, because you are working with a single row for each value. In those cases, you can use some function like MAX or MIN just to comply with the requirement of using an aggregate function, but because there is only one row for each value, the results would be correct.
+Sometimes you don’t want to aggregate anything, because you are working with a single row for each value. In those cases, you can use some function like MAX or MIN just to comply with the requirement of using an aggregate function, but because there is only one row for each value, the results would be correct.</p>
 
 </details>
 
@@ -816,16 +813,15 @@ Click here for study notes on key concepts. 🔑</p>
 <br/>
 	
 **Aggregate Functions vs Analytic Functions:** <br/>
-	- _Aggregate functions_ (count(), avg(), sum(), min(), max()) perform a calculation on a set of values and _return a single value. Analytic functions_ compute an aggregate value based on a set of values, and, unlike aggregate functions, can _return multiple rows for each set of values._
+<p align="justify">Aggregate functions_ (count(), avg(), sum(), min(), max()) perform a calculation on a set of values and return a single value. Analytic functions_ compute an aggregate value based on a set of values, and, unlike aggregate functions, can return multiple rows for each set of values.</p>
 
 </details>
 
-<br/>
 
 **Content**
 
-- [Partition](#partition)
-- [Windowing](#windowing)
+- [Partition Clause](#partition-clause)
+- [Window Function](#window-function)
 - [Common Analytic Functions](#common-analytic-functions)
 - [Ranking Functions](#ranking-functions)
 - [LISTAGG Function](#listagg-function)
@@ -835,7 +831,7 @@ Click here for study notes on key concepts. 🔑</p>
 
 <br/>
 
-### Partition
+### Partition Clause
 
 <br/>
 
@@ -866,9 +862,33 @@ Result:
 <img width="538" alt="Screen Shot 2022-07-23 at 16 36 19" src="https://user-images.githubusercontent.com/59098085/180620391-53ff5240-2340-43e5-aceb-9be6548ee4b7.png">
 
 
-### Windowing
+### Window Function
 
 <br/>
+<details> 
+<summary>
+Click here for study notes on key concepts. 🔑</p>
+	
+</summary>
+<br/>
+	
+**What is a Window Function?** <br/>
+<p align="justify">A window functions perform calculations over a set of rows (known as a “window”) and return a single value for each row from the underlying query. A window (or windowing or windowed) function makes use of the values from the rows in a window to calculate the returned values. When you use a window function in a query, define the window using the OVER() clause. The OVER() clause (window definition) differentiates window functions from other analytical and reporting functions. A query can include multiple window functions with the same or different window definitions. If a function has an OVER clause, then it is a window function. If it lacks an OVER clause, then it is an ordinary aggregate or scalar function. Window functions might also have a FILTER clause in between the function and the OVER clause.</p>
+
+Named window-defn clauses may also be added to a SELECT statement using a WINDOW clause and then referred to by name within window function invocations. For example, the following SELECT statement contains two named window-defs clauses, "win1" and "win2":
+
+```sql
+SELECT x, y, row_number() OVER win1, rank() OVER win2 
+FROM t0 
+WINDOW win1 AS (ORDER BY y RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW),
+       win2 AS (PARTITION BY y ORDER BY x)
+ORDER BY x;
+```
+	
+**Partition Clause vs Window Function:** <br/>
+<p align="justify">Partition is static, once you define the partition it does not change. But the windows can change or move as we process diferent rows. In this sense, when used together, windows move inside the partitions.</p>
+</details>
+
 
 #### 📌 C2: Write a query to generate a report of the employees, which includes at least the following columns:
 
