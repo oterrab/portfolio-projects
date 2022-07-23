@@ -56,7 +56,7 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 
 | Project Name | Description | SQL 'Flavour' | Top |
 |---|---|---|-|
-| 📊 [SQL Made Practical](https://github.com/oterrab/portfolio-projects/tree/main/sql/oracle-sql-course) | Documentation of a SQL course I took. Course was created because most courses, if not all, focus too much on “telling” or “demonstrating” how to do things, but don’t give the student the opportunity to test and practice what is being taught.  Every lesson in this course has a coding task to practice what I was learning. You will notice that some of the queries are a little off topic because I was exploring learning possibilities within the lesson. _19 sections, 210 lectures and 16 h and 5m total length_ | Oracle, SQL | [Top](#table-of-contents) |
+| 📊 [SQL Made Practical](https://github.com/oterrab/portfolio-projects/tree/main/sql/oracle-sql-course) | Documentation of a SQL course I took. Course was created because most courses, if not all, focus too much on “telling” or “demonstrating” how to do things, but don’t give the student the opportunity to test and practice what is being taught.  Every lesson in this course has a coding task to practice what I was learning. You will notice that some of the queries are a little off topic because I was exploring learning possibilities within the lesson. _19 sections, 210 lectures and 16 h and 5m total length_ | Oracle SQL | [Top](#table-of-contents) |
 | 🔖 SQL Learning | **Temporary Section.** For now this is just queries that I used to practice SQL | PL/SQL, MySQL, MS SQL Server | [Top](#table-of-contents) |
 
 ***
