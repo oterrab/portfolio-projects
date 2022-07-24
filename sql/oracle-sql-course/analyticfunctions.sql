@@ -15,6 +15,15 @@ Write a query to generate a list of employees with the following characteristics
 · The report must be ordered by department_id and length of the email column.
 */
 
+select 
+    id,
+    name,
+    department_id,
+    email,
+    length(email) as length_email,
+    count(*) over (partition by (length(email)), department_id) as CNT_elength
+from employee
+order by department_id, length_email;
 
 
 /*
@@ -25,12 +34,36 @@ Write a query to generate a report of the employees, which includes at least the
 
 · Hire_date,
 
-· A count of the number of employees hired in the same year than the current employee or in the previous year.
+· A count of the number of employees hired in the same year of the current employee or in the previous year.
 
 The results must be ordered by the hire date.
 */
 
+ -- SOLUTION 1
+select
+    id,
+    name,
+    department_id,
+    salary,
+    hire_date,
+    count(*) over(
+    order by to_number(to_char(hire_date, 'yyyy'))
+    range 1 preceding
+    ) as counts
+from employee;
 
+-- SOLUTION 2
+select
+    id,
+    name,
+    department_id,
+    salary,
+    hire_date,
+    count(*) over(
+    order by extract(year from hire_date)
+    range 1 preceding
+    ) as counts
+from employee;
 
 /*
 Write a query to generate a list of all of the departments including their ID, name, and monthly budget, but also include a column that shows the accumulated budget (the sum of the budget of previous departments plus the current one). To decide the order in which the budgets are accumulated you must sort them by smallest to greatest budget.
