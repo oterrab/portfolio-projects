@@ -1,9 +1,3 @@
-select * 
-from employee;
-
-select *
-from department;
-
 /*
 Write a query to generate a list of employees with the following characteristics:
 · All employees must be returned.
