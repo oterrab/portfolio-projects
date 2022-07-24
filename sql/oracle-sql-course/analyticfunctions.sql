@@ -62,7 +62,12 @@ from employee;
 /*
 Write a query to generate a list of all of the departments including their ID, name, and monthly budget, but also include a column that shows the accumulated budget (the sum of the budget of previous departments plus the current one). To decide the order in which the budgets are accumulated you must sort them by smallest to greatest budget.
 */
-
+select 
+    id,
+    name,
+    monthly_budget,
+    sum(monthly_budget) over (order by monthly_budget) as accumulated_mb
+from department;
 
 /*
 Write a query to list all the employees. The result must include their name, department id, hire date, and a column called “hire_order” which is a number that indicates the order in which they were hired. This order is related to the department where they work only, so, the first employee that was hired in each department will have a hire_order of 1.
