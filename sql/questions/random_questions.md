@@ -1,15 +1,7 @@
-# ♾ StrataScratch Interview Questions
+# ♻️ Random Questions
 
-[StrataScratch](https://www.stratascratch.com) is a data science platform with over 1,000+
-real interview questions from top companies, including FAANG companies (Facebook, Amazon, Apple, Netflix and Google).
+Just a place to drop all the random SQL questions I solved and share my answers.
 
-I'll be solving SQL questions and sharing my answers.
-
-### Table of Contents
-
-***
-
-## Level: ---
 
 ### 📌 Placeholder | Placeholder
 [Question: ](https://platform.stratascratch.com/coding/10308-salaries-differences?code_type=1) Placeholder
