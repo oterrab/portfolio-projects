@@ -1,4 +1,4 @@
-# ♾ Interview Questions
+# 🏃 Interview Questions #1
 
 I'll be solving SQL questions and sharing my answers.
 
