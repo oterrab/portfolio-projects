@@ -1,6 +1,6 @@
 # 🏃 Interview Questions #1
 
-I'll be solving SQL questions and sharing my answers.
+Solved SQL questions for a job interview.
 
 ## 📌 Context on this Job Interview
 
