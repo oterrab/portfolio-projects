@@ -935,16 +935,23 @@ Result:
 
 
 ### Common Analytic Functions
+Ex. Count, Sum, Min, Max
 
 <br/>
 
 #### 📌 C3: Write a query to generate a list of all of the departments including their ID, name, and monthly budget, but also include a column that shows the accumulated budget (the sum of the budget of previous departments plus the current one). To decide the order in which the budgets are accumulated you must sort them by smallest to greatest budget.
  
 ```sql
-
+select 
+    id,
+    name,
+    monthly_budget,
+    sum(monthly_budget) over (order by monthly_budget) as accumulated_mb
+from department;
 ```
 
 Result:  
+<img width="432" alt="Screen Shot 2022-07-24 at 17 52 58" src="https://user-images.githubusercontent.com/59098085/180665457-5d3841fd-5ccb-43b2-ac81-300128782cbc.png">
 
 ### Ranking Functions
 
@@ -968,6 +975,7 @@ Result:
 ```
 
 Result:  
+
 
 ### LISTAGG Function
 
