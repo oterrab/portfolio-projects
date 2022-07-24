@@ -813,7 +813,7 @@ Click here for study notes on key concepts. 🔑</p>
 <br/>
 	
 **Aggregate Functions vs Analytic Functions:** <br/>
-<p align="justify">Aggregate functions_ (count(), avg(), sum(), min(), max()) perform a calculation on a set of values and return a single value. Analytic functions_ compute an aggregate value based on a set of values, and, unlike aggregate functions, can return multiple rows for each set of values.</p>
+<p align="justify">Aggregate functions (count, avg, sum, min, max, etc..) perform a calculation on a set of values and return a single value. Analytic functions compute an aggregate value based on a set of values, and, unlike aggregate functions, can return multiple rows for each set of values. Aggregate functions can be used as analytic function when you use the windows function (over() clause) since can return multiple rows.</p>
 
 </details>
 
@@ -935,7 +935,7 @@ Result:
 
 
 ### Common Analytic Functions
-Ex. Count, Sum, Min, Max
+- **Observation:** The course author is refering to sum, count, min, max, etc.. when used with over(). Since they can return multiple rows for each set of values, they become analytic functions by definition.
 
 <br/>
 
