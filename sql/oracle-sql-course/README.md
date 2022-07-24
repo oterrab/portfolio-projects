@@ -898,15 +898,41 @@ ORDER BY x;
 
 · Hire_date,
 
-· A count of the number of employees hired in the same year than the current employee or in the previous year.
+· A count of the number of employees hired in the same year of the current employee or in the previous year.
 
 The results must be ordered by the hire date.
  
 ```sql
+-- SOLUTION 1
+select
+    id,
+    name,
+    department_id,
+    salary,
+    hire_date,
+    count(*) over(
+    order by to_number(to_char(hire_date, 'yyyy'))
+    range 1 preceding
+    ) as counts
+from employee;
 
+-- SOLUTION 2
+select
+    id,
+    name,
+    department_id,
+    salary,
+    hire_date,
+    count(*) over(
+    order by extract(year from hire_date)
+    range 1 preceding
+    ) as counts
+from employee;
 ```
 
 Result:  
+<img width="474" alt="Screen Shot 2022-07-24 at 17 38 17" src="https://user-images.githubusercontent.com/59098085/180664982-96074ac7-3750-4970-b40e-cbbeaff83fbc.png">
+
 
 ### Common Analytic Functions
 
