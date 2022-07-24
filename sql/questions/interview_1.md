@@ -14,7 +14,7 @@ Observation: The first time I did it wrong and instead of giving the last 30 day
 ```sql
 /*
 Because of the way the data is structured in the built-in oracle sql datasets,
-we have replace sysdate with a specific date, for example, TO_DATE('04-12-1981', 'dd-mm-yyy') 
+we have replace sysdate with a specific date, for example, TO_DATE('04-12-1981', 'dd-mm-yyyy') 
 */
 
 SELECT ename, hiredate
@@ -23,27 +23,26 @@ WHERE trunc(hiredate, 'MM') = add_months(trunc(sysdate, 'MM'), -1);
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="145" alt="Screen Shot 2022-07-23 at 23 33 13" src="https://user-images.githubusercontent.com/59098085/180629704-efe40b61-b170-4e15-ba00-7b27df634783.png">
 
 **Question 1:** <p align="justify"> Create a query for employees hired in the last 30 days. </p>
 
 ```sql
 /*
 Because of the way the data is structured in the built-in oracle sql datasets,
-we have replace sysdate with a specific date, for example, TO_DATE('04-12-1981', 'dd-mm-yyy') 
+we have replace sysdate with a specific date, for example, TO_DATE('04-12-1981', 'dd-mm-yyyy') 
 */
 
 SELECT ename, hiredate
 FROM scott.emp
 WHERE (hiredate BETWEEN sysdate - 30
                          AND sysdate
-      OR hiredate BETWEEN ADD_MONTHS(sysdate, -12 ) - 30
-                         AND ADD_MONTHS( sysdate, -12 )
 );
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="142" alt="Screen Shot 2022-07-23 at 23 35 12" src="https://user-images.githubusercontent.com/59098085/180629735-bcdeaa34-3e14-4da6-bfdb-388d4c241148.png">
+
 
 **Question 2:** <p align="justify"> Create a query that returns the name and commission of each employee, returning 0 (zero) in the case of unfilled commission.</p>
 
@@ -53,7 +52,8 @@ FROM scott.emp;
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="120" alt="Screen Shot 2022-07-23 at 23 35 40" src="https://user-images.githubusercontent.com/59098085/180629746-ab6b10fd-4797-439c-826a-e50ac2c9d38d.png">
+
 
 **Question 3:** <p align="justify"> Create a query that returns the number of employees per department, including departments without employees.</p>
 
@@ -65,7 +65,8 @@ GROUP BY dept.dname;
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="152" alt="Screen Shot 2022-07-23 at 23 36 19" src="https://user-images.githubusercontent.com/59098085/180629757-e1363ede-f04b-40ce-9b04-82298fd3a1ef.png">
+
 
 **Question 4:** <p align="justify"> Create a query that for each position returns the job of the employee with the lowest salary.</p>
 
@@ -84,7 +85,7 @@ WHERE rn = 1;
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="185" alt="Screen Shot 2022-07-23 at 23 36 46" src="https://user-images.githubusercontent.com/59098085/180629767-5d4d7f8e-e0bc-436a-822f-c62b16606324.png">
 
 
 ```sql
@@ -101,7 +102,7 @@ GROUP BY job;
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="183" alt="Screen Shot 2022-07-23 at 23 37 15" src="https://user-images.githubusercontent.com/59098085/180629777-f2436069-428b-4fd7-8a35-6832e7e4262b.png">
 
 **Question 5:** <p align="justify"> Create a query that returns departments with more than 3 employees.</p>
 
@@ -118,7 +119,8 @@ WHERE deptno IN
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="122" alt="Screen Shot 2022-07-23 at 23 40 10" src="https://user-images.githubusercontent.com/59098085/180629859-d486a853-7814-4de3-85d3-35a6a4cfd4e8.png">
+
 
 **Question 6:** <p align="justify"> Create a query that for each employee shows the city of allocation.</p>
 
@@ -130,7 +132,7 @@ ON emp.deptno = dept.deptno;
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="140" alt="Screen Shot 2022-07-23 at 23 39 26" src="https://user-images.githubusercontent.com/59098085/180629837-51593e74-9bcb-4e6c-b08b-d6b544e78247.png">
 
 **Question 7:** <p align="justify">Create a query that for each employee shows his manager.</p>
 
@@ -142,7 +144,7 @@ CONNECT BY mgr = prior empno;
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="258" alt="Screen Shot 2022-07-23 at 23 40 40" src="https://user-images.githubusercontent.com/59098085/180629868-06665ceb-d55c-4403-87ad-60527b36c805.png">
 
 **Question 8:** <p align="justify"> Create a function that receives an employee id and returns his salary or -1 if the employee is not registered.</p>
 
@@ -160,10 +162,14 @@ when others then
    return -1;
 END;
 /
+
+select ename, getEmpSalary(empno) as salary
+from scott.emp;
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="211" alt="Screen Shot 2022-07-23 at 23 42 33" src="https://user-images.githubusercontent.com/59098085/180629914-aa191684-4fc5-4606-9ac7-37667ee9b58d.png">
+
 
 **Question 9:** <p align="justify"> Create a function that takes a position as a parameter and returns the id of the highest paid employee. If you have more than one, return the one with the most recent hire date.</p>
 
@@ -189,10 +195,13 @@ EXCEPTION
 WHEN NO_DATA_FOUND THEN RETURN NULL;
 END;
 /
+
+select ename, getJobSalary(job) as salary
+from scott.emp;
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="131" alt="Screen Shot 2022-07-23 at 23 43 52" src="https://user-images.githubusercontent.com/59098085/180629945-1f2349c2-58a4-40e4-9aab-9fe9315e133d.png">
 
 **Question 10:** <p align="justify"> Create a procedure that receives a city as a parameter and calls DBMS_OUTPUT.PUT_LINE(item in varchar2), passing as a parameter the information of: employee id, position and salary of each employee who works in that city or "no employee found" if find none.</p>
 
@@ -226,10 +235,15 @@ BEGIN
   END IF;
 END get_employee_info_by_employee_city;
 /
+
+begin
+get_employee_info_by_employee_city('DALLAS');
+end;
 ```
 
 Result:  
-<img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
+<img width="357" alt="Screen Shot 2022-07-23 at 23 52 40" src="https://user-images.githubusercontent.com/59098085/180630147-07d6758b-2763-47bb-b0af-f6105a8bdb2b.png">
+
 
 **Question 10:** <p align="justify"> Add a column in the EMP table, timely define the column type and find a solution so that every time an employee receives a raise, the amount of the last raise received is recorded in this new column.</p>
 
