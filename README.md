@@ -2,7 +2,7 @@
 
 Hello 👋, is there anybody in there?
 
-This is my Portfolio Summary where I provide a walkthrough to all of my forays into data analytics projects and courses. I'll track my projects here with a quick note on what each project does.
+This is my Portfolio Summary where I provide a walkthrough to all of my forays into data analytics projects, courses, problem-solving, interviews, etc... I'll track **everything** here with a quick note on what each project does.
 
 Feel free to chat with me on [LinkedIn](https://www.linkedin.com/in/lucaspassosbarreto/) about my projects!
 
@@ -50,6 +50,8 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 
 # SQL
 
+Click [HERE](/sql/README.md) for my SQL specific guide.
+
 **Level:** Intermediate SQL
 
 **Functions:** joins, subqueries, inline views, subquery factoring (WITH clause), row limiting clause, aggregate functions (count, avg, sum, min/max, etc..), analytic functions (windows, partitions, rankings, LISTAGG, LAG, LEAD, FIRST, LAST, FIRST_VALUE and LAST_VALUE), procedural functions, procedures.
@@ -57,6 +59,5 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 | Project Name | Description | SQL 'Flavour' |
 |:---|---|:--:|
 | 📊 [SQL Made Practical](https://github.com/oterrab/portfolio-projects/tree/main/sql/oracle-sql-course) | <p align="justify"> Documentation of a SQL course I took. Course was created because most courses, if not all, focus too much on “telling” or “demonstrating” how to do things, but don’t give the student the opportunity to test and practice what is being taught.  Every lesson in this course has a coding task to practice what I was learning. You will notice that some of the queries are a little off topic because I was exploring learning possibilities within the lesson. </p> **Course content:** 19 sections, 210 lectures and 16 h and 5 m total length. | Oracle SQL |
-| 🔖 SQL Learning | **Temporary Section.** For now this is just queries that I used to practice SQL | PL/SQL, MySQL, MS SQL Server |
 
 ***
