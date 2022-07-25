@@ -191,15 +191,22 @@ from employee;
 
 ## Filtering and Sorting
 
+
 <br/>
 
 **Content**
 
-- [Filtering](#filtering)
-	- [Schema #2](#schema-2)
+- Filtering
+	- Schema #2
 - [Understanding and Handling NULLs](#understanding-and-handling-nulls)
 - [NULL Handling Functions](#null-handling-functions)
 
+
+<details> 
+<summary>
+Click here this section! I've decided to hide this because its very introductory.
+	
+</summary>
 
 <br/>
 
@@ -210,20 +217,19 @@ from employee;
 #### 📌 C4: Display a list of departments whose monthly budget is greater than or equal to 20,000. Please include only the department name and its budget.
 
 ```sql
-
+select name,monthly_budget
+from department
+where monthly_budget >= 20000;
 ```
-
-Result:  
-
-
 
 #### 📌 C5: Display a list of employees who were born before 1990, which includes the name, phone, and birthdate.
 
 ```sql
-
+select Name, phone, birthdate
+from employee
+where birthdate < date '1990-01-01';
 ```
 
-Result:  
 
 #### 📌 C6: The company is planning to give some employees a special gift, but they will consider only employees that work in the accounting and marketing departments.  For employees of those departments, the condition is that they must earn less than 3000 a month, or have been born before the year 1985.  Your task consists of displaying the list of employees that can participate.
 
@@ -336,6 +342,8 @@ COMMIT;
 
 <img width="367" alt="Screen Shot 2022-07-25 at 18 17 21" src="https://user-images.githubusercontent.com/59098085/180875636-49a23a2d-7d43-47f0-bef5-e0f7df186146.png">
 
+
+</details> 
 
 ### Understanding and Handling NULLs
 
