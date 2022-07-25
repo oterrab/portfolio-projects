@@ -72,12 +72,35 @@ from department;
 /*
 Write a query to list all the employees. The result must include their name, department id, hire date, and a column called “hire_order” which is a number that indicates the order in which they were hired. This order is related to the department where they work only, so, the first employee that was hired in each department will have a hire_order of 1.
 */
-
+with hire_order as (
+select 
+    name,
+    department_id,
+    hire_date,
+    rank() over (partition by department_id order by hire_date) as rn
+from employee
+)
+select *
+from hire_order; 
 
 /*
 Write a query that returns the name, birthdate, and department id of an employee who was born in 1995, preferably from the ACCOUNTING department. If no employee from that department was born in 1995, return one from any other department.
 */
-
+with prioritized as (
+select 
+    name,
+    birthdate,
+    department_id,
+    row_number() over (order by case 
+                                    when department_id = 1 then 'A'
+                                    else 'B'
+                                end) as rn
+from employee
+where to_char(birthdate, 'YYYY') = 1995
+)
+select *
+from prioritized
+where rn = 1;   
 
 /*
 Write a query that lists the different salaries that appear in the employee table. For each salary include a comma-separated list of the names of the employees that earn that amount. The list of employees for each salary must be ordered by the name of the employee, and the final result set must be ordered by salary from greatest to smallest.
