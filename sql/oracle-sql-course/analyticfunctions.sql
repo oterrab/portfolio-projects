@@ -182,6 +182,8 @@ Write a query that will produce an employees’ report with the following inform
 
 · Salary of the employee who was the first hire in the department where the employee works.
 
+· Bonus of the top earner among the employees who were hired in the same year as the employee, regardless of their department. If the bonus is null, the bonus must be shown as 0.
+
 The report must be ordered by department_id and hire_date.
 */
 
@@ -190,6 +192,8 @@ select
     name,
     department_id,
     first_value(name) over(partition by department_id order by hire_date) as fv_hire,
-    first_value(salary) over(partition by department_id order by hire_date) as fv_salary
+    first_value(salary) over(partition by department_id order by hire_date) as fv_salary,
+    nvl(last_value(bonus) over(partition by to_char(hire_date,'YYYY') order by salary
+            rows between unbounded preceding and unbounded following), 0) as top_earner_bonus
 from employee e
 order by department_id, hire_date;
