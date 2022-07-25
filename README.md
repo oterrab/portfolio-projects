@@ -1,5 +1,8 @@
 # 🗺 Portfolio Guide
 
+<p align="right"> <img src="https://komarev.com/ghpvc/?username=oterrab&label=Portfolio%20views&color=0e75b6&style=for-the-badge" alt="oterrab/portfolio-projects" /> </p>
+
+
 Hello 👋, is there anybody in there?
 
 This is my Portfolio Summary where I provide a walkthrough to all of my forays into data analytics projects, courses, problem-solving, interviews, etc... I'll track **everything** here with a quick note on what each project does.
