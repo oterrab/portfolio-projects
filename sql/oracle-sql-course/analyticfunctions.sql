@@ -132,6 +132,8 @@ Write a query to generate a list of employees with the following conditions:
 
 · Hint: You might need to use some kind of subquery.
 */
+
+-- SOLUTION BY ME
 with tab_max_salary as (
 select 
     e.*,
@@ -148,6 +150,17 @@ select
     next_by_salary
 from tab_max_salary
 where salary = max_salary;
+
+-- SOLUTION BY THE TEACHER
+SELECT id, name, salary, department_id,employee_with_2nd_highest
+FROM
+   (
+      SELECT id, name, salary, department_id, 
+         ROW_NUMBER() over (PARTITION BY department_id ORDER BY salary DESC) AS rn,
+         LEAD(ID) over (PARTITION BY department_id ORDER BY salary DESC) AS employee_with_2nd_highest
+      FROM employee
+   )
+WHERE rn = 1;
 
 /*
 Write a query to return the name and hire date of the first employee hired in each department.
