@@ -61,7 +61,7 @@ Click here for Introduction! 👋🏻
 
 <details> 
 <summary>
-Click here this section! I've decided to hidden this because its very introductory.
+Click here this section! I've decided to hide this because its very introductory.
 	
 </summary>
 	
