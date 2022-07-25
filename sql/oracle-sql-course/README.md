@@ -1008,10 +1008,16 @@ Result:
 #### 📌 C6: Write a query that lists the different salaries that appear in the employee table. For each salary include a comma-separated list of the names of the employees that earn that amount. The list of employees for each salary must be ordered by the name of the employee, and the final result set must be ordered by salary from greatest to smallest.
  
 ```sql
-
+select
+    salary,
+    listagg(name, ',') within group (order by name) as emplist
+from employee
+group by salary
+order by salary desc;
 ```
 
 Result:  
+<img width="248" alt="Screen Shot 2022-07-25 at 11 08 20" src="https://user-images.githubusercontent.com/59098085/180797112-31539621-d7d7-4ef5-9ef7-bfebc59dbe6b.png">
 
 ### LAG and LEAD Functions
 
