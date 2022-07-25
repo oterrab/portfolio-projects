@@ -201,6 +201,8 @@ from employee;
 - [Understanding and Handling NULLs](#understanding-and-handling-nulls)
 - [NULL Handling Functions](#null-handling-functions)
 
+<br/>
+<br/>
 
 <details> 
 <summary>
@@ -344,6 +346,8 @@ COMMIT;
 
 
 </details> 
+
+<br/>
 
 ### Understanding and Handling NULLs
 
