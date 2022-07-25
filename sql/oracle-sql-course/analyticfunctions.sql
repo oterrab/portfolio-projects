@@ -105,7 +105,12 @@ where rn = 1;
 /*
 Write a query that lists the different salaries that appear in the employee table. For each salary include a comma-separated list of the names of the employees that earn that amount. The list of employees for each salary must be ordered by the name of the employee, and the final result set must be ordered by salary from greatest to smallest.
 */
-
+select
+    salary,
+    listagg(name, ',') within group (order by name) as emplist
+from employee
+group by salary
+order by salary desc;
 
 /*
 Write a query to generate a list of all employees from the ACCOUNTING and HUMAN RESOURCES departments, ordered by department and birthdate. For every employee, the report must include the name, birthdate, and the name of the employee from the same department who follows him/her if you order them by age.
