@@ -172,6 +172,16 @@ Result:
 ### Question 8: Create a function that receives an employee id and returns his salary or -1 if the employee is not registered.
 
 ```sql
+
+```
+
+Result:  
+
+
+
+### Question 9: Create a function that takes a position as a parameter and returns the id of the highest paid employee. If you have more than one, return the one with the most recent hire date.
+
+```sql
 CREATE OR REPLACE FUNCTION getJobSalary (par_job IN scott.emp.job%TYPE)
 RETURN scott.emp.empno%TYPE IS
      return_value  scott.emp.empno%TYPE;
@@ -200,39 +210,6 @@ from scott.emp;
 
 Result:  
 <img width="130" alt="Screen Shot 2022-07-25 at 12 49 50" src="https://user-images.githubusercontent.com/59098085/180820808-62c6b650-3b0f-4d1d-8f15-bba9699285b6.png">
-
-
-### Question 9: Create a function that takes a position as a parameter and returns the id of the highest paid employee. If you have more than one, return the one with the most recent hire date.
-
-```sql
-CREATE OR REPLACE FUNCTION getJobSalary (par_job IN scott.emp.job%TYPE)
-RETURN scott.emp.empno%TYPE IS
-     return_value  scott.emp.empno%TYPE;
-BEGIN
-    SELECT empno INTO return_value
-       FROM (SELECT empno,
-                    ename,
-                    job,
-                    sal,
-                    hiredate,
-                    ROW_NUMBER ()
-                       OVER (PARTITION BY job ORDER BY sal DESC, hiredate DESC)
-                       rn
-               FROM scott.emp
-              WHERE job = par_job)
-      WHERE rn = 1;
-    RETURN return_value;
-EXCEPTION
-WHEN NO_DATA_FOUND THEN RETURN NULL;
-END;
-/
-
-select ename, getJobSalary(job) as salary
-from scott.emp;
-```
-
-Result:  
-<img width="131" alt="Screen Shot 2022-07-23 at 23 43 52" src="https://user-images.githubusercontent.com/59098085/180629945-1f2349c2-58a4-40e4-9aab-9fe9315e133d.png">
 
 ### Question 10: Create a procedure that receives a city as a parameter and calls DBMS_OUTPUT.PUT_LINE(item in varchar2), passing as a parameter the information of: employee id, position and salary of each employee who works in that city or "no employee found" if find none.
 
