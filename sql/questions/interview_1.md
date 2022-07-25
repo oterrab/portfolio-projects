@@ -9,7 +9,7 @@ This interview was for a job as Developer Pl/SQL Júnior. They gave me as datase
 
 ### Question 1: Create a query for employees hired in the last 30 days.
 
-- The first time I did it wrong and instead of giving the last 30 days as asked in Question 1, I've wrote the code for last month. But since its a valid code, I`ve decided to leave it here. Unfortunately, this was sent as main query in the interview. Rookie mistake, more attention next time.
+The first time I did it wrong and instead of giving the last 30 days as asked in Question 1, I've wrote the code for last month. But since its a valid code, I`ve decided to leave it here. Unfortunately, this was sent as main query in the interview. Rookie mistake, more attention next time.
 
 ```sql
 /*
