@@ -172,26 +172,34 @@ Result:
 ### Question 8: Create a function that receives an employee id and returns his salary or -1 if the employee is not registered.
 
 ```sql
-CREATE OR REPLACE FUNCTION getEmpSalary (par_empno IN scott.emp.empno%TYPE)
+CREATE OR REPLACE FUNCTION getJobSalary (par_job IN scott.emp.job%TYPE)
 RETURN scott.emp.empno%TYPE IS
-    return_salary scott.emp.sal%TYPE;
+     return_value  scott.emp.empno%TYPE;
 BEGIN
-     SELECT sal into return_salary
-     from scott.emp
-     where emp.empno = par_empno;
-     return(return_salary);
-exception
-when others then 
-   return -1;
+    SELECT empno INTO return_value
+       FROM (SELECT empno,
+                    ename,
+                    job,
+                    sal,
+                    hiredate,
+                    ROW_NUMBER ()
+                       OVER (PARTITION BY job ORDER BY sal DESC, hiredate DESC)
+                       rn
+               FROM scott.emp
+              WHERE job = par_job)
+      WHERE rn = 1;
+    RETURN return_value;
+EXCEPTION
+WHEN NO_DATA_FOUND THEN RETURN NULL;
 END;
 /
 
-select ename, getEmpSalary(empno) as salary
+select ename, getJobSalary(job) as id_emp
 from scott.emp;
 ```
 
 Result:  
-<img width="211" alt="Screen Shot 2022-07-23 at 23 42 33" src="https://user-images.githubusercontent.com/59098085/180629914-aa191684-4fc5-4606-9ac7-37667ee9b58d.png">
+<img width="130" alt="Screen Shot 2022-07-25 at 12 49 50" src="https://user-images.githubusercontent.com/59098085/180820808-62c6b650-3b0f-4d1d-8f15-bba9699285b6.png">
 
 
 ### Question 9: Create a function that takes a position as a parameter and returns the id of the highest paid employee. If you have more than one, return the one with the most recent hire date.
