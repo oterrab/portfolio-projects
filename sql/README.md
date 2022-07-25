@@ -31,6 +31,6 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 |:---|---|:--:|
 | 📝 [Interview #1](https://github.com/oterrab/portfolio-projects/blob/main/sql/questions/interview_1.md) | This interview was for a job as Developer Pl/SQL Júnior. They gave me as dataset the built-in oracle sql scott schema. This can be acessed using SQL Developer or at [Oracle Live](https://livesql.oracle.com/). | PL/SQL |
 | ♾ [StrataScratch](https://github.com/oterrab/portfolio-projects/blob/main/sql/questions/stratascratch.md) | [StrataScratch](https://www.stratascratch.com) is a data science platform with over 1,000+ real interview questions from top companies, including FAANG companies (Facebook, Amazon, Apple, Netflix and Google). | SQL |
-| 👾 [Random SQL Questions](/questions/random_questions.md) | Just a place to drop all the random SQL questions I solved and share my answers. | - |
+| 👾 [Random SQL Questions](https://github.com/oterrab/portfolio-projects/blob/main/sql/questions/random_questions.md) | Just a place to drop all the random SQL questions I solved and share my answers. | - |
 
 ***
