@@ -115,7 +115,14 @@ order by salary desc;
 /*
 Write a query to generate a list of all employees from the ACCOUNTING and HUMAN RESOURCES departments, ordered by department and birthdate. For every employee, the report must include the name, birthdate, and the name of the employee from the same department who follows him/her if you order them by age.
 */
-
+select
+    name,
+    birthdate,
+    lead(name) over(partition by department_id order by birthdate desc) as next_by_age
+from employee
+where department_id = 1 or department_id = 4
+-- where department_id in (1,4)
+order by department_id, birthdate;
 
 /*
 Write a query to generate a list of employees with the following conditions:
@@ -125,7 +132,22 @@ Write a query to generate a list of employees with the following conditions:
 
 · Hint: You might need to use some kind of subquery.
 */
-
+with tab_max_salary as (
+select 
+    e.*,
+    max(salary) over(partition by department_id) as max_salary,
+    lead(id) over(partition by department_id order by salary desc) as next_by_salary
+from employee e
+)
+select 
+    id,
+    name,
+    birthdate,
+    salary,
+    department_id,
+    next_by_salary
+from tab_max_salary
+where salary = max_salary;
 
 /*
 Write a query to return the name and hire date of the first employee hired in each department.
