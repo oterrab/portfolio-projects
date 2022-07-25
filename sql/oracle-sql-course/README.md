@@ -41,7 +41,7 @@ Click here for Introduction! 👋🏻
 - [Retrieving Information](#retrieving-information)
 	- Schema #1
 - [Filtering and Sorting](#filtering-and-sorting)
-	- [Schema #2](#schema-2)
+	- Schema #2
 - [Operators](#operators)
 - [Group Operations](#group-operations)
  	- [Schema #3](#schema-3)
