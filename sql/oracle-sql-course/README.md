@@ -43,6 +43,8 @@ Click here for Introduction! 👋🏻
 - [Single Row Functions](#single-row-functions)
 - [Transposing](#transposing)
 - [Analytic Functions](#analytic-functions)
+- [SET Operators](#set-operators)
+- [Selecting data from multiple tables](#selecting-data-from-multiple-tables)
 
 ## Schema
 
@@ -239,7 +241,7 @@ having max(salary) >= 2*min(salary);
 <br/>
 
 ### CTE
-**a.k.a. WITH Clause**
+**a.k.a. Subqueries Factoring or WITH Clause**
 
 <br/>
 
@@ -1137,4 +1139,131 @@ order by department_id, hire_date;
 
 Result:  
 <img width="464" alt="Screen Shot 2022-07-25 at 17 13 45" src="https://user-images.githubusercontent.com/59098085/180866178-cc341aea-b52f-4379-91e3-9c0e1a8960a7.png">
+
+***
+
+## SET Operators
+
+<br/>
+
+
+**Content**
+
+- [UNION and UNION ALL Operators](#union-and-union-all-operators)
+- [INTERSECT Operator](#intersect-operator)
+- [MINUS Operator](#minus-operator)
+- [Combining Set Operators in the Same Query](#combining-set-operators-in-the-same-query)
+
+<br/>
+
+### UNION and UNION ALL Operators
+
+<br/>
+
+#### 📌 C1: The company wants to send a congratulations letter to employees who were born in the months of May or June, and they also want to send a letter to employees who were hired by the company in those months.
+
+Please write a query to generate the list of employees that have to receive the letters mentioned in the previous paragraph.
+
+The list only needs to include the Id, name, birthdate, and hire_date. Nothing more.
+
+If an employee complies with the conditions to receive both letters, he/she has to be included in the report twice.
+
+Please order the report by employee id.
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+### INTERSECT Operator
+
+<br/>
+
+#### 📌 C2: Using the same description of the task from the previous lecture, write a compound query to generate the list of employees that should get the 2 letters. Every employee needs to appear only once in this report.
+
+The list only needs to include the Id, name, birthdate, and hire_date. Nothing more.
+
+Reference Description:
+
+The company wants to send a congratulations letter to employees who were born in the months of May or June, and they also want to send a letter to employees who were hired by the company in those months.
+
+
+```sql
+
+```
+
+Result:  
+
+
+### MINUS Operator
+
+<br/>
+
+#### 📌 C3: Using the same description of the task from the previous lecture, write a compound query to generate the list of employees that should get the first letter but not the second one.
+
+The list only needs to include the Id, name, birthdate, and hire_date. Nothing more.
+
+Reference Description:
+
+The company wants to send a congratulations letter to employees who were born in the months of May or June, and they also want to send a letter to employees who were hired by the company in those months.
+
+
+
+```sql
+
+```
+
+Result:  
+
+
+### Combining Set Operators in the Same Query
+
+<br/>
+
+#### 📌 C4: The company classifies employees who earn more than 3000 as “trusted employees”. This classification, however, does not apply to employees of the IT department. Write a query to list trusted employees that were hired in 2015.
+
+Restrictions:
+
+You must use SET operators
+
+Each component query can have only one single condition in its WHERE clause (the use of ANDs and ORs is not allowed).
+
+
+
+```sql
+
+```
+
+Result:  
+
+
+## Selecting data from multiple tables
+
+<br/>
+
+
+**Content**
+
+- [Introduction to SQL Joins](#introduction-to-sql-joins)
+
+
+<br/>
+
+### Introduction to SQL Joins
+
+<br/>
+
+#### 📌 C1: Write a query to list the names of the departments along with the number of employees and the sum of salaries for each one.
+
+
+```sql
+
+```
+
+Result:  
+
 
