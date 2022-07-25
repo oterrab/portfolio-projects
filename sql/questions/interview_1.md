@@ -68,14 +68,31 @@ Result:
 <img width="152" alt="Screen Shot 2022-07-23 at 23 36 19" src="https://user-images.githubusercontent.com/59098085/180629757-e1363ede-f04b-40ce-9b04-82298fd3a1ef.png">
 
 
-### Question 4: Create a query that for each position returns the job of the employee with the lowest salary.
+### Question 4: Create a query that for each job position returns empno of the employee with the lowest salary.
+
+- The question did not specify more conditions in which they want the result. This is a problem because there is more than one employee with the same position and lower salary. I don't know if it was a way of testing the candidate's attention or if they wanted to see possible solutions based on the candidate's level. 
+
+<br/>
+
+This is the simplest solution. It returns the first employee and the salary.
 
 ```sql
-/* 
-There is more than one employee with the same position and lower salary, 
-this query returns more than one employee. 
-*/
+SELECT
+    job,
+    MIN(sal) AS SAL,
+    MIN(empno) KEEP(DENSE_RANK FIRST ORDER BY sal) empno
+FROM scott.emp
+GROUP BY job;
+```
 
+Result:  
+<img width="183" alt="Screen Shot 2022-07-23 at 23 37 15" src="https://user-images.githubusercontent.com/59098085/180629777-f2436069-428b-4fd7-8a35-6832e7e4262b.png">
+
+<br/>
+
+This is the query I sent as main query. It returns more than one employee and in my opinion is the right answer.
+
+```sql
 SELECT empno, job, sal
 FROM (
     SELECT E.*, RANK() OVER(PARTITION BY job ORDER BY sal) rn
@@ -87,22 +104,28 @@ WHERE rn = 1;
 Result:  
 <img width="185" alt="Screen Shot 2022-07-23 at 23 36 46" src="https://user-images.githubusercontent.com/59098085/180629767-5d4d7f8e-e0bc-436a-822f-c62b16606324.png">
 
+<br/>
+
+After a while I've decided to elaborate a little more on this and came up with this query that I feel its more complete.
 
 ```sql
-/* 
-This query returns the first employee and the salary. 
-*/
-
+WITH emp_rank AS (
+    SELECT E.*, 
+    RANK() OVER(PARTITION BY job ORDER BY sal) rn
+    FROM scott.emp E
+    )
 SELECT
     job,
     MIN(sal) AS SAL,
-    MIN(empno) KEEP(DENSE_RANK FIRST ORDER BY sal) empno
-FROM scott.emp
+    LISTAGG(empno, ',') WITHIN GROUP (ORDER BY rn) AS emplist
+FROM emp_rank
+WHERE rn = 1
 GROUP BY job;
 ```
 
 Result:  
-<img width="183" alt="Screen Shot 2022-07-23 at 23 37 15" src="https://user-images.githubusercontent.com/59098085/180629777-f2436069-428b-4fd7-8a35-6832e7e4262b.png">
+<img width="208" alt="Screen Shot 2022-07-25 at 12 33 50" src="https://user-images.githubusercontent.com/59098085/180817603-8e3f7997-dafa-4237-8593-70b20a7d7de7.png">
+
 
 ### Question 5: Create a query that returns departments with more than 3 employees.
 
