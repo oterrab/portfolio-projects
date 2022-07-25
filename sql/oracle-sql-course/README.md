@@ -953,6 +953,7 @@ from department;
 Result:  
 <img width="432" alt="Screen Shot 2022-07-24 at 17 52 58" src="https://user-images.githubusercontent.com/59098085/180665457-5d3841fd-5ccb-43b2-ac81-300128782cbc.png">
 
+
 ### Ranking Functions
 
 <br/>
@@ -975,7 +976,6 @@ from hire_order;
 Result:  
 <img width="362" alt="Screen Shot 2022-07-25 at 10 52 43" src="https://user-images.githubusercontent.com/59098085/180793932-45ddfd09-8590-4732-ac98-41771a24b0bc.png">
 
-<br/>
 
 #### 📌 C5: Write a query that returns the name, birthdate, and department id of an employee who was born in 1995, preferably from the ACCOUNTING department. If no employee from that department was born in 1995, return one from any other department.
  
@@ -1019,6 +1019,7 @@ order by salary desc;
 Result:  
 <img width="248" alt="Screen Shot 2022-07-25 at 11 08 20" src="https://user-images.githubusercontent.com/59098085/180797112-31539621-d7d7-4ef5-9ef7-bfebc59dbe6b.png">
 
+
 ### LAG and LEAD Functions
 
 <br/>
@@ -1026,13 +1027,19 @@ Result:
 #### 📌 C7: Write a query to generate a list of all employees from the ACCOUNTING and HUMAN RESOURCES departments, ordered by department and birthdate. For every employee, the report must include the name, birthdate, and the name of the employee from the same department who follows him/her if you order them by age.
  
 ```sql
-
+select
+    name,
+    birthdate,
+    lead(name) over(partition by department_id order by birthdate desc) as next_by_age
+from employee
+where department_id = 1 or department_id = 4
+-- where department_id in (1,4)
+order by department_id, birthdate;
 ```
 
 Result:  
+<img width="296" alt="Screen Shot 2022-07-25 at 11 22 03" src="https://user-images.githubusercontent.com/59098085/180799890-dd11c674-6c61-46c8-82e2-efe95ef54188.png">
 
-
-<br/>
 
 #### 📌 C8: Write a query to generate a list of employees with the following conditions:
 
@@ -1043,10 +1050,40 @@ Result:
 · Hint: You might need to use some kind of subquery.
 
 ```sql
+-- SOLUTION BY ME
+with tab_max_salary as (
+select 
+    e.*,
+    max(salary) over(partition by department_id) as max_salary,
+    lead(id) over(partition by department_id order by salary desc) as next_by_salary
+from employee e
+)
+select 
+    id,
+    name,
+    birthdate,
+    salary,
+    department_id,
+    next_by_salary
+from tab_max_salary
+where salary = max_salary;
+```
 
+```sql
+-- SOLUTION BY THE TEACHER
+SELECT id, name, salary, department_id,employee_with_2nd_highest
+FROM
+   (
+      SELECT id, name, salary, department_id, 
+         ROW_NUMBER() over (PARTITION BY department_id ORDER BY salary DESC) AS rn,
+         LEAD(ID) over (PARTITION BY department_id ORDER BY salary DESC) AS employee_with_2nd_highest
+      FROM employee
+   )
+WHERE rn = 1;
 ```
 
 Result:  
+<img width="527" alt="Screen Shot 2022-07-25 at 11 52 34" src="https://user-images.githubusercontent.com/59098085/180806584-691a9063-31c5-4038-9756-340600084399.png">
 
 
 ### FIRST and LAST Functions
@@ -1062,6 +1099,7 @@ The results must include the department_id, name of the employee and their hire 
 ```
 
 Result:  
+
 
 
 ### FIRST_VALUE and LAST_VALUE Functions
