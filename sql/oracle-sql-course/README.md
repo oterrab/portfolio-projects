@@ -1095,11 +1095,17 @@ Result:
 The results must include the department_id, name of the employee and their hire date, and must be ordered by department id.
  
 ```sql
-
+select 
+    department_id,
+    max (name) keep (dense_rank first order by hire_date) as name,
+    min (hire_date) as hire_date
+from employee
+group by department_id
+order by department_id;
 ```
 
 Result:  
-
+<img width="293" alt="Screen Shot 2022-07-25 at 16 13 01" src="https://user-images.githubusercontent.com/59098085/180856298-1d93e461-9cec-48e1-bd15-35c05ec34bd6.png">
 
 
 ### FIRST_VALUE and LAST_VALUE Functions
@@ -1123,4 +1129,5 @@ The report must be ordered by department_id and hire_date.
 ```
 
 Result:  
+
 
