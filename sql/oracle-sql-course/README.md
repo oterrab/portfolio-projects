@@ -224,6 +224,7 @@ INSERT INTO company (id,name,last_contacted,budget,budget_range_start,budget_ran
 
 COMMIT;
 ```
+
 </details>
 
 <img width="813" alt="Screen Shot 2022-07-25 at 18 16 12" src="https://user-images.githubusercontent.com/59098085/180875483-6f1a642b-0e74-4efe-a39d-319e6fe9ea81.png">
@@ -240,10 +241,11 @@ COMMIT;
 
 **Content**
 
-- [Aggregate Functions](#subqueries)
-- [Aggregate Functions](#subqueries)
+- [Aggregate Functions](#aggregate-functions)
+	- [Schema #3](#schema-3)
+- [Grouping Rows](#grouping-rows)
+- [Filtering Groups](#filtering-groups)
 
-- [Schema #3](#schema-3)
 
 
 <br/>
@@ -368,6 +370,7 @@ SET bonus =
 --
 commit;
 ```
+		      
 </details>
 
 <img width="810" alt="Screen Shot 2022-07-25 at 18 13 48" src="https://user-images.githubusercontent.com/59098085/180875145-1496f6f2-8701-4b30-9d0e-7012613e6a28.png">
@@ -383,7 +386,23 @@ commit;
 
 <br/>
 
-#### 📌 C1: Write a query to list the different bonuses from the employee table, along with the number of employees that earn that bonus, and the greatest salary for employees in that group. Please include only employees who were born before 1995.
+#### 📌 C2: Write a query to list the different bonuses from the employee table, along with the number of employees that earn that bonus, and the greatest salary for employees in that group. Please include only employees who were born before 1995.
+
+```sql
+
+```
+
+Result:  
+
+		
+### Filtering Groups
+**HAVING Clause**
+
+<br/>
+
+#### 📌 C2: Write a query to list the minimum and maximum salaries and also the bonus average per department from the employee table, but please don’t include employees who don’t have a value defined for their bonus.
+
+Also, please show in the results only departments whose smallest salary is less than 2000 or their highest salary is greater than 4000. The results must be displayed in descending order by the minimum salary.
 
 ```sql
 
@@ -458,6 +477,7 @@ from department d, employee e
 where d.id = e.department_id
 group by d.name;
 ```
+
 Result:  
 <img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
 
