@@ -185,7 +185,6 @@ Write a query that will produce an employees’ report with the following inform
 The report must be ordered by department_id and hire_date.
 */
 
-
 select
     id,
     name,
