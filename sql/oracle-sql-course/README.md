@@ -59,6 +59,12 @@ Click here for Introduction! 👋🏻
 
 ## Retrieving Information
 
+<details> 
+<summary>
+Click here this section! I've decided to hidden this because its very introductory.
+	
+</summary>
+	
 <br/>
 
 **Content**
@@ -146,6 +152,7 @@ commit;
 <img width="367" alt="Screen Shot 2022-07-25 at 18 19 30" src="https://user-images.githubusercontent.com/59098085/180875905-bd0adc6e-22e1-4f29-a1f7-5a6dec49b1a6.png">
 
 <br/>
+	
 
 ### Basic SELECT statement
 
@@ -177,7 +184,8 @@ select
     salary*1.2 as raise
 from employee;
 ```
-
+</details> 
+	
 ***
 
 
