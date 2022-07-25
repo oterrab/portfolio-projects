@@ -400,7 +400,7 @@ Result:
 
 <br/>
 
-#### 📌 C2: Write a query to list the minimum and maximum salaries and also the bonus average per department from the employee table, but please don’t include employees who don’t have a value defined for their bonus.
+#### 📌 C3: Write a query to list the minimum and maximum salaries and also the bonus average per department from the employee table, but please don’t include employees who don’t have a value defined for their bonus.
 
 Also, please show in the results only departments whose smallest salary is less than 2000 or their highest salary is greater than 4000. The results must be displayed in descending order by the minimum salary.
 
