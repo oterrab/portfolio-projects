@@ -1415,7 +1415,7 @@ Result:
 
 · Salary of the employee who was the first hire in the department where the employee works.
 
-· ~~Bonus of the top earner among the employees who were hired in the same year as the employee, regardless of their department. If the bonus is null, the bonus must be shown as 0.~~
+· Bonus of the top earner among the employees who were hired in the same year as the employee, regardless of their department. If the bonus is null, the bonus must be shown as 0.
 
 The report must be ordered by department_id and hire_date.
  
@@ -1425,13 +1425,15 @@ select
     name,
     department_id,
     first_value(name) over(partition by department_id order by hire_date) as fv_hire,
-    first_value(salary) over(partition by department_id order by hire_date) as fv_salary
+    first_value(salary) over(partition by department_id order by hire_date) as fv_salary,
+    nvl(last_value(bonus) over(partition by to_char(hire_date,'YYYY') order by salary
+            rows between unbounded preceding and unbounded following), 0) as top_earner_bonus
 from employee e
 order by department_id, hire_date;
 ```
 
 Result:  
-<img width="464" alt="Screen Shot 2022-07-25 at 17 13 45" src="https://user-images.githubusercontent.com/59098085/180866178-cc341aea-b52f-4379-91e3-9c0e1a8960a7.png">
+<img width="586" alt="Screen Shot 2022-07-25 at 18 44 09" src="https://user-images.githubusercontent.com/59098085/180879093-ef5acf3d-9ec4-4a24-a614-5665164a026e.png">
 
 ***
 
