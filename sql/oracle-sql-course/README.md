@@ -38,8 +38,14 @@ Click here for Introduction! 👋🏻
 
 ## Table of Contents
 
-- [Schema #1](#schema-1)
-- [Subqueries](#subqueries)
+- [Retrieving Information](#retrieving-information)
+	- [Schema #1](#schema-1)
+- [Filtering and Sorting](#filtering-and-sorting)
+	- [Schema #2](#schema-2)
+- [Operators](#operators)
+- [Group Operations](#group-operations)
+ 	- [Schema #3](#schema-3)
+- [Subqueries in SQL](#subqueries-in-sql)
 - [Single Row Functions](#single-row-functions)
 - [Transposing](#transposing)
 - [Analytic Functions](#analytic-functions)
@@ -123,7 +129,8 @@ commit;
 	
 <img width="443" alt="Screen Shot 2022-07-18 at 22 54 14" src="https://user-images.githubusercontent.com/59098085/179647724-ba10605d-1ea1-43e4-ab37-99d4ef97f48a.png">
 
-<img width="366" alt="Screen Shot 2022-07-25 at 18 18 13" src="https://user-images.githubusercontent.com/59098085/180875758-51dd5f42-a40d-4a16-874d-b1be3894eeba.png">
+<img width="367" alt="Screen Shot 2022-07-25 at 18 19 30" src="https://user-images.githubusercontent.com/59098085/180875905-bd0adc6e-22e1-4f29-a1f7-5a6dec49b1a6.png">
+
 
 ***
 
@@ -227,7 +234,35 @@ COMMIT;
 
 ***
 
-## Schema #3
+## Group Operations
+
+<br/>
+
+**Content**
+
+- [Aggregate Functions](#subqueries)
+- [Aggregate Functions](#subqueries)
+
+- [Schema #3](#schema-3)
+
+
+<br/>
+
+### Aggregate Functions
+
+<br/>
+
+#### 📌 C1: Write a query to get the number of employees in the Accounting department, the total sum of their salaries, and the average salary. The average must appear 2 times in the results, one of them must be calculated using the AVG function, and one without using the AVG function. Please add column aliases to make it easy to understand the columns in the result.
+
+```sql
+
+```
+
+Result:  
+
+
+
+### Schema #3
 
 <details>
 <summary>
@@ -343,8 +378,25 @@ commit;
 	
 <img width="367" alt="Screen Shot 2022-07-25 at 18 15 05" src="https://user-images.githubusercontent.com/59098085/180875329-5ee796f1-4dac-4ae4-b95d-527512326bf6.png">
 
+	
+### Grouping Rows
+
+<br/>
+
+#### 📌 C1: Write a query to list the different bonuses from the employee table, along with the number of employees that earn that bonus, and the greatest salary for employees in that group. Please include only employees who were born before 1995.
+
+```sql
+
+```
+
+Result:  
+
+
 ***
-## Subqueries
+
+<br/>
+
+## Subqueries in SQL
 
 <br/>
 
@@ -382,7 +434,7 @@ Click here for study notes on key concepts. 🔑</p>
 
 <br/>
 
-#### 📌 C1: \*Query to display all of the detail of the department where the youngest employee n the company works.\*
+#### 📌 C1: Query to display all of the detail of the department where the youngest employee n the company works.
 
 
 ```sql
