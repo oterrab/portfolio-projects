@@ -960,21 +960,45 @@ Result:
 #### 📌 C4: Write a query to list all the employees. The result must include their name, department id, hire date, and a column called “hire_order” which is a number that indicates the order in which they were hired. This order is related to the department where they work only, so, the first employee that was hired in each department will have a hire_order of 1.
  
 ```sql
-
+with hire_order as (
+select 
+    name,
+    department_id,
+    hire_date,
+    rank() over (partition by department_id order by hire_date) as rn
+from employee
+)
+select *
+from hire_order; 
 ```
 
 Result:  
-
+<img width="362" alt="Screen Shot 2022-07-25 at 10 52 43" src="https://user-images.githubusercontent.com/59098085/180793932-45ddfd09-8590-4732-ac98-41771a24b0bc.png">
 
 <br/>
 
 #### 📌 C5: Write a query that returns the name, birthdate, and department id of an employee who was born in 1995, preferably from the ACCOUNTING department. If no employee from that department was born in 1995, return one from any other department.
  
 ```sql
-
+with prioritized as (
+select 
+    name,
+    birthdate,
+    department_id,
+    row_number() over (order by case 
+                                    when department_id = 1 then 'A'
+                                    else 'B'
+                                end) as rn
+from employee
+where to_char(birthdate, 'YYYY') = 1995
+)
+select *
+from prioritized
+where rn = 1;   
 ```
 
 Result:  
+<img width="308" alt="Screen Shot 2022-07-25 at 10 59 33" src="https://user-images.githubusercontent.com/59098085/180795333-c9c10d52-14bf-467b-a2a3-cc6881a37bbf.png">
 
 
 ### LISTAGG Function
