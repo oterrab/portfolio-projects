@@ -39,7 +39,7 @@ Click here for Introduction! 👋🏻
 ## Table of Contents
 
 - [Retrieving Information](#retrieving-information)
-	- [Schema #1](#schema-1)
+	- Schema #1
 - [Filtering and Sorting](#filtering-and-sorting)
 	- [Schema #2](#schema-2)
 - [Operators](#operators)
@@ -196,7 +196,7 @@ from employee;
 **Content**
 
 - [Filtering](#filtering)
-	- [Schema #3](#schema-3)
+	- [Schema #2](#schema-2)
 - [Understanding and Handling NULLs](#understanding-and-handling-nulls)
 - [NULL Handling Functions](#null-handling-functions)
 
