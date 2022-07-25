@@ -45,6 +45,8 @@ Click here for Introduction! 👋🏻
 - [Analytic Functions](#analytic-functions)
 - [SET Operators](#set-operators)
 - [Selecting data from multiple tables](#selecting-data-from-multiple-tables)
+- [Hierarchical Queries](#hierarchical-queries)
+
 
 ## Schema
 
