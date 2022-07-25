@@ -50,7 +50,7 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 
 # SQL
 
-Click [HERE](/sql/README.md) for my SQL specific guide.
+Click [HERE](https://github.com/oterrab/portfolio-projects/tree/main/sql) for my SQL specific guide.
 
 **Level:** Intermediate SQL
 
