@@ -4,7 +4,7 @@ Solved SQL questions for a job interview.
 
 ## 📌 Context on this Job Interview
 
-This interview was for a job as Developer Pl/SQL Júnior. They gave me as dataset the built-in oracle sql scott schema. This can be acessed using SQL Developer or at [Oracle Live](https://livesql.oracle.com/).
+This interview was for a job as Developer Pl/SQL Júnior. They gave me as dataset the built-in oracle sql scott schema. It can be acessed using SQL Developer or at [Oracle Live](https://livesql.oracle.com/). The queries herein were made using Oracle Live.
 
 
 ### Question 1: Create a query for employees hired in the last 30 days.
