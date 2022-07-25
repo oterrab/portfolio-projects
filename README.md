@@ -57,7 +57,7 @@ Click [HERE](https://github.com/oterrab/portfolio-projects/tree/main/sql) for my
 
 **Level:** Intermediate SQL
 
-**Functions:** joins, subqueries, inline views, subquery factoring (WITH clause), row limiting clause, aggregate functions (count, avg, sum, min/max, etc..), analytic functions (windows, partitions, rankings, LISTAGG, LAG, LEAD, FIRST, LAST, FIRST_VALUE and LAST_VALUE), procedural functions, procedures.
+**Functions:** joins, subqueries, inline views, subquery factoring (WITH clause), row limiting clause, aggregate functions (count, avg, sum, min/max, etc..), analytic functions (windows, partitions, rankings, listagg, lag, lead, first, last, first_value and last_value), set operators (union, union all, intersect and minus), procedural functions, procedures.
 
 | Project Name | Description | SQL 'Flavour' |
 |:---|---|:--:|
