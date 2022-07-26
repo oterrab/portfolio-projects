@@ -238,12 +238,10 @@ where birthdate < date '1990-01-01';
 Hint: List the contents of the department table to see the IDs you have to use in your condition to return only the marketing and accounting departments.
 
 ```sql
-
+select *
+from employee
+where department_id = 1 or department_id = 2 and salary < 3000 or birthdate < date '1995-01-01';
 ```
-
-Result:  
-
-
 
 ## Schema #2
 
@@ -358,10 +356,15 @@ COMMIT;
 Your task is to write a query to list ALL employees whose salary is greater than 4000, but you don’t have to include the person currently in charge of server support.
 
 ```sql
-
+select *
+from employee
+where salary > 4000
+and (phone != '1.234.567.8901'
+or phone is null);
 ```
 
 Result:  
+<img width="798" alt="Screen Shot 2022-07-25 at 21 07 41" src="https://user-images.githubusercontent.com/59098085/180895306-f0031c59-123a-4d94-8aab-1103a341e9c7.png">
 
 
 #### 📌 C8: Write a query to get a list of companies from the COMPANY table, which includes the following columns. Please define the appropriate aliases so that the columns are shown in the results as mentioned here.
@@ -373,10 +376,15 @@ CONTACT_NAME: The commercial contact if we have it. If we don’t have the comme
 BUDGET: The budget, if we have it. If we don’t have it, then return the budget range start. Restriction: You must use NVL to generate this column.
 
 ```sql
-
+select 
+	name as company_name, 
+	coalesce(commercial_contact, technical_contact, president, '*NO CONTACT DATA*') as contact_name, 
+	NVL(budget, budget_range_start) as budget
+from company;
 ```
 
 Result:  
+<img width="373" alt="Screen Shot 2022-07-25 at 21 09 25" src="https://user-images.githubusercontent.com/59098085/180895435-14f08699-3dce-45e2-b62e-4c83f4e74a37.png">
 
 
 #### 📌 C9: Someone from our commercial department has been calling the companies stored in the COMPANY table, to confirm if the budgets we have stored are correct, and when that has not been the case, they have immediately made the necessary corrections to the data.
@@ -395,8 +403,6 @@ BUDGET: The budget, but only if we know the value is correct. If we have not con
 
 LAST_CONTACTED_DATE
 
-
-
 Restrictions:
 
 1. The use of the logical operators AND/OR is not allowed.
@@ -405,10 +411,18 @@ Restrictions:
 
 
 ```sql
-
+select 
+    name as company_name, 
+    NULLIF(commercial_contact, technical_contact) as exclusively_commercial_contact, 
+    NVL2(last_contacted, budget, budget_range_start) as budget, 
+    last_contacted as last_contacted_date
+from company
+where LNNVL(last_contacted < date '2019-01-01')
+order by last_contacted nulls first;
 ```
 
 Result:  
+<img width="606" alt="Screen Shot 2022-07-25 at 21 12 20" src="https://user-images.githubusercontent.com/59098085/180895671-2add4906-2e43-468d-9d4e-56652e5a0a0c.png">
 
 
 ***
