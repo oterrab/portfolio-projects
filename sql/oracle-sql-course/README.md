@@ -351,9 +351,7 @@ COMMIT;
 
 <br/>
 
-#### 📌 C7: The company has a cell phone that is assigned to the employee who is in charge of server support. All employees in the company can do that job, and they switch positions constantly, so the person in charge of support can change at any time, but you can identify it by means of their phone number. The phone number for the server support person is ‘1.234.567.8901’.
-
-Your task is to write a query to list ALL employees whose salary is greater than 4000, but you don’t have to include the person currently in charge of server support.
+#### 📌 C7: The company has a cell phone that is assigned to the employee who is in charge of server support. All employees in the company can do that job, and they switch positions constantly, so the person in charge of support can change at any time, but you can identify it by means of their phone number. The phone number for the server support person is ‘1.234.567.8901’. Your task is to write a query to list ALL employees whose salary is greater than 4000, but you don’t have to include the person currently in charge of server support.
 
 ```sql
 select *
@@ -367,7 +365,7 @@ Result:
 <img width="798" alt="Screen Shot 2022-07-25 at 21 07 41" src="https://user-images.githubusercontent.com/59098085/180895306-f0031c59-123a-4d94-8aab-1103a341e9c7.png">
 
 
-#### 📌 C8: Write a query to get a list of companies from the COMPANY table, which includes the following columns. Please define the appropriate aliases so that the columns are shown in the results as mentioned here.
+#### 📌 C8: Write a query to get a list of companies from the COMPANY table, which includes the following columns. Please define the appropriate aliases so that the columns are shown in the results as mentioned here:
 
 COMPANY_NAME
 
@@ -387,11 +385,7 @@ Result:
 <img width="373" alt="Screen Shot 2022-07-25 at 21 09 25" src="https://user-images.githubusercontent.com/59098085/180895435-14f08699-3dce-45e2-b62e-4c83f4e74a37.png">
 
 
-#### 📌 C9: Someone from our commercial department has been calling the companies stored in the COMPANY table, to confirm if the budgets we have stored are correct, and when that has not been the case, they have immediately made the necessary corrections to the data.
-
-As a result, we know that whenever we have any date in the LAST_CONTACTED column, it means that the budget stored in the BUDGET column for that company is correct. If the last_contacted column has NULL, it means we have never contacted that company.
-
-Requirement: Write a query to generate a list of companies with the following information, but don’t include companies we contacted before the year 2019. The companies must be ordered by the last contacted date in ascending order, but companies we have never contacted must appear first.
+#### 📌 C9: Someone from our commercial department has been calling the companies stored in the COMPANY table, to confirm if the budgets we have stored are correct, and when that has not been the case, they have immediately made the necessary corrections to the data. As a result, we know that whenever we have any date in the LAST_CONTACTED column, it means that the budget stored in the BUDGET column for that company is correct. If the last_contacted column has NULL, it means we have never contacted that company. Write a query to generate a list of companies with the following information, but don’t include companies we contacted before the year 2019. The companies must be ordered by the last contacted date in ascending order, but companies we have never contacted must appear first.
 
 Please make sure that the column names are shown in the results as mentioned here.
 
