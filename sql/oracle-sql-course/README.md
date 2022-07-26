@@ -351,6 +351,21 @@ COMMIT;
 
 <br/>
 
+<details> 
+<summary>
+Click here for study notes on key concepts. 🔑</p>
+	
+</summary>
+	
+<br/>
+	
+**Comparing NULLs:**	
+<p align="justify">The only way to compare NULLs correctly is by means of the IS NULL and IS NOT NULL operators. That happens because what is recorded in the fields of a database for each row represents what is known. T</p>
+</details>
+<br/>
+
+<br/>
+
 #### 📌 C7: The company has a cell phone that is assigned to the employee who is in charge of server support. All employees in the company can do that job, and they switch positions constantly, so the person in charge of support can change at any time, but you can identify it by means of their phone number. The phone number for the server support person is ‘1.234.567.8901’. Your task is to write a query to list ALL employees whose salary is greater than 4000, but you don’t have to include the person currently in charge of server support.
 
 ```sql
@@ -522,7 +537,7 @@ Your script must include the command necessary to erase the value entered for th
 
 <br/>
 
-#### 📌 C16: 
+#### 📌 C16: Write a query to get the number of employees in the Accounting department, the total sum of their salaries, and the average salary. The average must appear 2 times in the results, one of them must be calculated using the AVG function, and one without using the AVG function. Please add column aliases to make it easy to understand the columns in the result.
 
 ```sql
 
