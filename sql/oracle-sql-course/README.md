@@ -427,6 +427,88 @@ Result:
 
 ***
 
+## Operators
+
+<br/>
+
+**Content**
+
+- [SQL Operators](#sql-operators)
+- [Logical Operators](#logical-operators)
+- [Substitution Variables](#substitution-variables)
+
+
+<br/>
+
+### SQL Operators
+
+<br/>
+
+#### 📌 C10: Write a query to get the list of employees whose name includes the letter “O” 2 times, but not contiguously, so if there was a name “JOHN DOE”, it should be returned, but a row with name “JIM BROOKS” should not, because the 2 Os are contiguous.
+
+Note: Since at this point we still don’t have the necessary knowledge to count the number of ‘O’s that appear in a string, assume that no name will contain more than 2 Os.
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C11: Write a query to get the list of departments whose monthly budget is greater than 15000 and its name includes a “G” or starts with an “H”, sorted by the department id in descending order.
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C12: Write a query to list all employees of the Information Technology and Human Resources departments who earn 3000 or more but not more than 5000. Please include only employees who were born between 1970 and 1990.
+
+```sql
+
+```
+
+Result:  
+
+
+
+
+### Logical Operators
+
+<br/>
+
+#### 📌 C13: Write a query to list all employees who were born before 01-jan-1980 or after 01-jan-1995 and earn more than 2000 a month, and whose name does not start or end with an “N”.
+
+When evaluating the condition about how much they earn, please take into account the BONUS column too, which was added with the script provided in the resources section of the lesson about UNDERSTANDING NULLS.
+
+```sql
+
+```
+
+Result:  
+
+
+### Substitution Variables
+
+<br/>
+
+
+Warning: As mentioned in the lesson, the ability to use substitution variables is a feature of SQL Developer (and some other client tools), but this feature is not implemented by Live SQL and Apex, so if you try to run statements with substitution variables there you will get errors.
+
+#### 📌 C14: Write a query to list employees who were hired between a certain range of dates (for example, between January 1st, 2011, and December 15th, 2014). The query must be written in a way that allows the user to use a different date range without needing to modify the query.
+
+
+#### 📌 C15: Write a query to list employees who work in a given department. The query must prompt the user to enter a value, and then return only employees whose salary is equal to the value entered, or equal to the half of the value entered or equal to a third of the value entered by the user.
+
+The query must also prompt for the id of the department that the user wants to list.
+
+Your script must include the command necessary to erase the value entered for the salary so that if the query is executed again, the user is prompted for the salary value again.
+
+
 ## Group Operations
 
 <br/>
@@ -446,7 +528,7 @@ Result:
 
 <br/>
 
-#### 📌 C10: 
+#### 📌 C16: 
 
 ```sql
 
@@ -578,7 +660,7 @@ commit;
 
 <br/>
 
-#### 📌 C2: Write a query to list the different bonuses from the employee table, along with the number of employees that earn that bonus, and the greatest salary for employees in that group. Please include only employees who were born before 1995.
+#### 📌 C17: Write a query to list the different bonuses from the employee table, along with the number of employees that earn that bonus, and the greatest salary for employees in that group. Please include only employees who were born before 1995.
 
 ```sql
 
@@ -592,7 +674,7 @@ Result:
 
 <br/>
 
-#### 📌 C3: Write a query to list the minimum and maximum salaries and also the bonus average per department from the employee table, but please don’t include employees who don’t have a value defined for their bonus.
+#### 📌 C18: Write a query to list the minimum and maximum salaries and also the bonus average per department from the employee table, but please don’t include employees who don’t have a value defined for their bonus.
 
 Also, please show in the results only departments whose smallest salary is less than 2000 or their highest salary is greater than 4000. The results must be displayed in descending order by the minimum salary.
 
@@ -645,7 +727,7 @@ Click here for study notes on key concepts. 🔑</p>
 
 <br/>
 
-#### 📌 C1: Query to display all of the detail of the department where the youngest employee n the company works.
+#### 📌 C19: Query to display all of the detail of the department where the youngest employee n the company works.
 
 
 ```sql
@@ -661,7 +743,7 @@ where department.id = (select department_id
 Result:  
 <img width="382" alt="Screen Shot 2022-07-18 at 22 53 46" src="https://user-images.githubusercontent.com/59098085/179647406-289d91d3-fa5d-46dc-b69d-82085e686128.png">
 
-#### 📌 C2: Query to list the names of the departments along with the average salary and the birthdate of the oldest employee that works in each department.
+#### 📌 C20: Query to list the names of the departments along with the average salary and the birthdate of the oldest employee that works in each department.
 
 ```sql
 select d.name, avg(e.salary) as average_salary, max(e.birthdate) as oldest_employee
@@ -673,7 +755,7 @@ group by d.name;
 Result:  
 <img width="408" alt="Screen Shot 2022-07-18 at 22 53 26" src="https://user-images.githubusercontent.com/59098085/179647750-625381af-6aef-4a5d-875e-6a49bc7fca18.png">
 
-#### 📌 C3: Query to list the names of the departments **that exist in the company**, along with the average salary and the birthdate of the oldest employee that works in each department **ordered by department id in descending order**.
+#### 📌 C21: Query to list the names of the departments **that exist in the company**, along with the average salary and the birthdate of the oldest employee that works in each department **ordered by department id in descending order**.
 
 ```sql
 select name, (
@@ -700,7 +782,7 @@ Result:
 
 <br/>
 
-#### 📌 C4: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
+#### 📌 C22: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
 
 RESTRICTION: Not allowed to use a HAVING clause.
 
@@ -730,7 +812,7 @@ having max(salary) >= 2*min(salary);
 
 <br/>
 
-#### 📌 C5: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
+#### 📌 C23: Query to list the max, min, and average of salaries for every department id in the employee table, but include only departments whose max salary is greater than the double of their minimum salary.
 
 This time **using subquery factoring (WITH clause)** instead of an inline view.  
 RESTRICTION: Not allowed to use a HAVING clause.
@@ -757,7 +839,7 @@ Result:
 <br/>
 
 
-#### 📌 C6: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table.
+#### 📌 C24: Query that uses the rownum pseudocolumn to get the top 5 earners in the employee table.
 
 ```sql
 with rownumbered as (
@@ -773,7 +855,7 @@ where rn <= 5;
 Result:  
 <img width="780" alt="Screen Shot 2022-07-18 at 23 14 24" src="https://user-images.githubusercontent.com/59098085/179649638-5ae85699-e895-4607-b6d8-94f992d37153.png">
 
-#### 📌 C7: Query that uses the dense_rank analytic function to list the bottom 3 earners in the employee table.
+#### 📌 C25: Query that uses the dense_rank analytic function to list the bottom 3 earners in the employee table.
 
 ```sql
 with rownumbered as (
@@ -789,7 +871,7 @@ where rn <= 3;
 Result:  
 <img width="747" alt="Screen Shot 2022-07-18 at 23 20 46" src="https://user-images.githubusercontent.com/59098085/179650239-eac18d3f-8d24-4bb4-a9ee-8dfd9ba2d5fc.png">
 
-#### 📌 C8: Use the row limiting clause to write a query to get the top 5 youngest employees among those who earn more than 2000 a month.
+#### 📌 C27: Use the row limiting clause to write a query to get the top 5 youngest employees among those who earn more than 2000 a month.
 
 WARNING: The row limiting clause was introduced in version 12c.
 
@@ -814,7 +896,7 @@ Result:
 
 <br/>
 
-#### 📌 C9: Query that segments the employee table in pages, based on the salary in ascending order, and returns the third page. The size of each page must be 4 rows.
+#### 📌 C28: Query that segments the employee table in pages, based on the salary in ascending order, and returns the third page. The size of each page must be 4 rows.
 
 WARNING: The row limiting clause was introduced in version 12c.
 
@@ -883,7 +965,7 @@ WHERE period =  '201811' and client_id = 100;
 
 <br/>
 
-#### 📌 C1: We need to make some changes to the data about our employees, but before applying the changes we need to see the data as it will be after the changes. Please write a query to list employees data with the following changes:
+#### 📌 C29: We need to make some changes to the data about our employees, but before applying the changes we need to see the data as it will be after the changes. Please write a query to list employees data with the following changes:
 
  - The names of all of the employees must be stored with the first letter of each name in uppercase, and the rest of the name in lowercase.
  - The e-mail addresses are incorrect.  All of them must be modified to add “@gmail.com” to the string they currently have, but the current value must be changed to lowercase.
@@ -907,7 +989,7 @@ from employee;
 Result:  
 <img width="878" alt="Screen Shot 2022-07-19 at 20 13 38" src="https://user-images.githubusercontent.com/59098085/179863620-ba0a916c-83c4-4493-b5a6-27b18eebacff.png">
 
-#### 📌 C2: Write a query to generate a list of employees following these requirements:
+#### 📌 C30: Write a query to generate a list of employees following these requirements:
 
  - We don’t need the complete phone number. In this report, we only want the numbers that are between the first and second dots, for example, for a number like this 515.123.4567 the report must display ‘123’ only.
  - Please don’t include employees hired before 2010.
@@ -939,7 +1021,7 @@ Result:
 
 <br/>
 
-#### 📌 C3: Write the query needed to generate a report with the following characteristics. For this task assume that a month has 30 days:
+#### 📌 C31: Write the query needed to generate a report with the following characteristics. For this task assume that a month has 30 days:
 
 - The report must include the names, job_id, salary, daily salary, and the result of applying the round, trunc, ceil and floor functions to the daily salary calculation.
 
@@ -975,7 +1057,7 @@ alter session set NLS_DATE_FORMAT = 'DD/MM/YYYY HH24:MI:SS';
 ```
 <br/>
 
-#### 📌 C4: Write the query necessary to generate the report with the following characteristics:
+#### 📌 C32: Write the query necessary to generate the report with the following characteristics:
 
 - The report must include the employee id, name, and hire date.
 
@@ -1021,7 +1103,7 @@ Click here for study notes on key concepts. 🔑</p>
 <p align="justify">The format element for minutes is 'MI' and not 'MM'. Careful, using MM will not give any error, it will just mix months in the time portion of your results. This can go unotice for a long time!</p>
 </details>
 
-#### 📌 C5: Generate a report of all of the employees who were born after 1970 and for whom we have a phone number registered. In the report, the department_id must be displayed using 4 digits, left-padded with zeros. The salary must be displayed with your local currency symbol and 2 decimals and with commas as the thousands separator.
+#### 📌 C33: Generate a report of all of the employees who were born after 1970 and for whom we have a phone number registered. In the report, the department_id must be displayed using 4 digits, left-padded with zeros. The salary must be displayed with your local currency symbol and 2 decimals and with commas as the thousands separator.
 
 Please add an additional column called “ALT_BIRTHDATE” that will result from swapping the month and day parts of the birthdate, so, for example, if the birthdate is 10-Mar-2015, the alternate birthdate would be 03-Oct-2015 (the day becomes the month and the month becomes the day). If the resulting date is invalid, this column should return NULL.
  
@@ -1039,7 +1121,7 @@ and phone is not null;
 Result:  
 <img width="625" alt="Screen Shot 2022-07-21 at 13 27 46" src="https://user-images.githubusercontent.com/59098085/180265631-96a19f69-204d-4708-9adf-cc0d344bd5ba.png">
 
-#### 📌 C6: Generate a second report that includes all of the employees that were hired before 2015 and earn more than 2500 or were hired in 2015 but earn less than 3000. The report must include the employees’ names, the day and month of the birthdate, and only the month (name of the month) and year of the hire date.
+#### 📌 C34: Generate a second report that includes all of the employees that were hired before 2015 and earn more than 2500 or were hired in 2015 but earn less than 3000. The report must include the employees’ names, the day and month of the birthdate, and only the month (name of the month) and year of the hire date.
 
 The company is planning to give every employee a surprise bonus for the amount of the last 4 digits of their phone number, so please include an additional column that displays the amount of this bonus for every employee. This amount must be displayed with your local currency symbol and 2 decimals.
 
@@ -1076,7 +1158,7 @@ Click here for study notes on key concepts. 🔑</p>
 </details>
 
 
-#### 📌 C7: The company wants to give a rise to all employees according to these conditions:
+#### 📌 C35: The company wants to give a rise to all employees according to these conditions:
 
 - Employees who work in the ACCOUNTING department get a 10% increase to their salary.
 
@@ -1107,7 +1189,7 @@ Result:
 <img width="485" alt="Screen Shot 2022-07-21 at 20 17 31" src="https://user-images.githubusercontent.com/59098085/180330559-80b3fc41-256c-4d7b-b7b0-4bde25f248d4.png">
 
 
-#### 📌 C8: The company is planning to assign a classification to each employee based on the salary they earn. The classification would be as follows:
+#### 📌 C36: The company is planning to assign a classification to each employee based on the salary they earn. The classification would be as follows:
 
 - Employees who earn less than 2500 will be classified as “A”.
 
@@ -1148,7 +1230,7 @@ Result:
 
 <br/>
 
-#### 📌 C9: Write an employees report with the following columns:
+#### 📌 C37: Write an employees report with the following columns:
 
 - Id
 
@@ -1235,7 +1317,7 @@ Result:
 	
 </details>
 
-#### 📌 C1: Write a query that returns a single row that has one column for each of the monthly budgets of the departments ACCOUNTING, MARKETING, and INFORMATION TECHNOLOGY. The column titles for the budgets must be the names of the departments.
+#### 📌 C38: Write a query that returns a single row that has one column for each of the monthly budgets of the departments ACCOUNTING, MARKETING, and INFORMATION TECHNOLOGY. The column titles for the budgets must be the names of the departments.
  
 ```sql
 select *
@@ -1271,7 +1353,7 @@ Result:
 
 <br/>
 
-#### 📌 C2: Write a query to generate a list of employees who work in the Accounting and Marketing departments. The report must include the name, birthdate, and hire_date, but each employee must appear in the report 2 times, and the birth date and hire date must appear in the same column but in different rows. This column must be called “date_value” and there must be an additional column that explains the kind of date that is included in the date_value column. This additional column must be called “date_type” and will contain either “Date of Birth” or “Date of Hiring”.
+#### 📌 C39: Write a query to generate a list of employees who work in the Accounting and Marketing departments. The report must include the name, birthdate, and hire_date, but each employee must appear in the report 2 times, and the birth date and hire date must appear in the same column but in different rows. This column must be called “date_value” and there must be an additional column that explains the kind of date that is included in the date_value column. This additional column must be called “date_type” and will contain either “Date of Birth” or “Date of Hiring”.
  
 ```sql
 select name,date_type,date_value
@@ -1322,7 +1404,7 @@ Click here for study notes on key concepts. 🔑</p>
 
 <br/>
 
-#### 📌 C1: Write a query to generate a list of employees with the following characteristics:
+#### 📌 C40: Write a query to generate a list of employees with the following characteristics:
 
 · All employees must be returned.
 
@@ -1377,7 +1459,7 @@ ORDER BY x;
 </details>
 
 
-#### 📌 C2: Write a query to generate a report of the employees, which includes at least the following columns:
+#### 📌 C41: Write a query to generate a report of the employees, which includes at least the following columns:
 
 · Id
 
@@ -1426,7 +1508,7 @@ Result:
 
 <br/>
 
-#### 📌 C3: Write a query to generate a list of all of the departments including their ID, name, and monthly budget, but also include a column that shows the accumulated budget (the sum of the budget of previous departments plus the current one). To decide the order in which the budgets are accumulated you must sort them by smallest to greatest budget.
+#### 📌 C42: Write a query to generate a list of all of the departments including their ID, name, and monthly budget, but also include a column that shows the accumulated budget (the sum of the budget of previous departments plus the current one). To decide the order in which the budgets are accumulated you must sort them by smallest to greatest budget.
  
 ```sql
 select 
@@ -1445,7 +1527,7 @@ Result:
 
 <br/>
 
-#### 📌 C4: Write a query to list all the employees. The result must include their name, department id, hire date, and a column called “hire_order” which is a number that indicates the order in which they were hired. This order is related to the department where they work only, so, the first employee that was hired in each department will have a hire_order of 1.
+#### 📌 C43: Write a query to list all the employees. The result must include their name, department id, hire date, and a column called “hire_order” which is a number that indicates the order in which they were hired. This order is related to the department where they work only, so, the first employee that was hired in each department will have a hire_order of 1.
  
 ```sql
 with hire_order as (
@@ -1464,7 +1546,7 @@ Result:
 <img width="362" alt="Screen Shot 2022-07-25 at 10 52 43" src="https://user-images.githubusercontent.com/59098085/180793932-45ddfd09-8590-4732-ac98-41771a24b0bc.png">
 
 
-#### 📌 C5: Write a query that returns the name, birthdate, and department id of an employee who was born in 1995, preferably from the ACCOUNTING department. If no employee from that department was born in 1995, return one from any other department.
+#### 📌 C44: Write a query that returns the name, birthdate, and department id of an employee who was born in 1995, preferably from the ACCOUNTING department. If no employee from that department was born in 1995, return one from any other department.
  
 ```sql
 with prioritized as (
@@ -1492,7 +1574,7 @@ Result:
 
 <br/>
 
-#### 📌 C6: Write a query that lists the different salaries that appear in the employee table. For each salary include a comma-separated list of the names of the employees that earn that amount. The list of employees for each salary must be ordered by the name of the employee, and the final result set must be ordered by salary from greatest to smallest.
+#### 📌 C45: Write a query that lists the different salaries that appear in the employee table. For each salary include a comma-separated list of the names of the employees that earn that amount. The list of employees for each salary must be ordered by the name of the employee, and the final result set must be ordered by salary from greatest to smallest.
  
 ```sql
 select
@@ -1511,7 +1593,7 @@ Result:
 
 <br/>
 
-#### 📌 C7: Write a query to generate a list of all employees from the ACCOUNTING and HUMAN RESOURCES departments, ordered by department and birthdate. For every employee, the report must include the name, birthdate, and the name of the employee from the same department who follows him/her if you order them by age.
+#### 📌 C46: Write a query to generate a list of all employees from the ACCOUNTING and HUMAN RESOURCES departments, ordered by department and birthdate. For every employee, the report must include the name, birthdate, and the name of the employee from the same department who follows him/her if you order them by age.
  
 ```sql
 select
@@ -1528,7 +1610,7 @@ Result:
 <img width="296" alt="Screen Shot 2022-07-25 at 11 22 03" src="https://user-images.githubusercontent.com/59098085/180799890-dd11c674-6c61-46c8-82e2-efe95ef54188.png">
 
 
-#### 📌 C8: Write a query to generate a list of employees with the following conditions:
+#### 📌 C47: Write a query to generate a list of employees with the following conditions:
 
 · The list must include only the employee with the highest salary in each department.
 
@@ -1577,7 +1659,7 @@ Result:
 
 <br/>
 
-#### 📌 C9: Write a query to return the name and hire date of the first employee hired in each department.
+#### 📌 C48: Write a query to return the name and hire date of the first employee hired in each department.
 
 The results must include the department_id, name of the employee and their hire date, and must be ordered by department id.
  
@@ -1599,7 +1681,7 @@ Result:
 
 <br/>
 
-#### 📌 C10: Write a query that will produce an employees’ report with the following information for each employee:
+#### 📌 C49: Write a query that will produce an employees’ report with the following information for each employee:
 
 · Id, name, and department_id of the employee.
 
@@ -1647,7 +1729,7 @@ Result:
 
 <br/>
 
-#### 📌 C1: The company wants to send a congratulations letter to employees who were born in the months of May or June, and they also want to send a letter to employees who were hired by the company in those months.
+#### 📌 C50: The company wants to send a congratulations letter to employees who were born in the months of May or June, and they also want to send a letter to employees who were hired by the company in those months.
 
 Please write a query to generate the list of employees that have to receive the letters mentioned in the previous paragraph.
 
@@ -1670,7 +1752,7 @@ Result:
 
 <br/>
 
-#### 📌 C2: Using the same description of the task from the previous lecture, write a compound query to generate the list of employees that should get the 2 letters. Every employee needs to appear only once in this report.
+#### 📌 C51: Using the same description of the task from the previous lecture, write a compound query to generate the list of employees that should get the 2 letters. Every employee needs to appear only once in this report.
 
 The list only needs to include the Id, name, birthdate, and hire_date. Nothing more.
 
@@ -1690,7 +1772,7 @@ Result:
 
 <br/>
 
-#### 📌 C3: Using the same description of the task from the previous lecture, write a compound query to generate the list of employees that should get the first letter but not the second one.
+#### 📌 C52: Using the same description of the task from the previous lecture, write a compound query to generate the list of employees that should get the first letter but not the second one.
 
 The list only needs to include the Id, name, birthdate, and hire_date. Nothing more.
 
@@ -1711,7 +1793,7 @@ Result:
 
 <br/>
 
-#### 📌 C4: The company classifies employees who earn more than 3000 as “trusted employees”. This classification, however, does not apply to employees of the IT department. Write a query to list trusted employees that were hired in 2015.
+#### 📌 C53: The company classifies employees who earn more than 3000 as “trusted employees”. This classification, however, does not apply to employees of the IT department. Write a query to list trusted employees that were hired in 2015.
 
 Restrictions:
 
@@ -1747,7 +1829,7 @@ Result:
 
 <br/>
 
-#### 📌 C1: Write a query to list the names of the departments along with the number of employees and the sum of salaries for each one.
+#### 📌 C54: Write a query to list the names of the departments along with the number of employees and the sum of salaries for each one.
 
 
 ```sql
@@ -2290,7 +2372,7 @@ Insert into REGIONS (REGION_ID,REGION_NAME) values (4,'Middle East and Africa');
 
 <br/>
 
-#### 📌 C2: Write a query to list the ID, name, and salary of all employees who don't work in the 'IT' department, along with their job titles and the name of the department where they work. Please write a version using the new standard syntax, another version using the “short hand” for the standard syntax, and another version using the old method to write join queries.
+#### 📌 C55: Write a query to list the ID, name, and salary of all employees who don't work in the 'IT' department, along with their job titles and the name of the department where they work. Please write a version using the new standard syntax, another version using the “short hand” for the standard syntax, and another version using the old method to write join queries.
 
 
 ```sql
@@ -2304,7 +2386,7 @@ Result:
 
 <br/>
 
-#### 📌 C3: Write a query that returns a list of employees that includes the employee id, name, and salary along with the name of their manager.
+#### 📌 C56: Write a query that returns a list of employees that includes the employee id, name, and salary along with the name of their manager.
 
 Remember that in the EMPLOYEES table, the column “manager_id” corresponds to the employee_id of another employee who works as a manager. So if you see an employee with manager_id = 100, it means that in the same EMPLOYEES table, there is an employee whose employee_id is 100, who works as a manager.
 
@@ -2334,7 +2416,7 @@ Result:
 
 <br/>
 
-#### 📌 C1: Using your employees table, write a query to generate a report of all of the employees, which includes the following columns:
+#### 📌 C57: Using your employees table, write a query to generate a report of all of the employees, which includes the following columns:
 
 Employee id, first name, last name, and job id of the employee plus first name, last name, and job id of their direct manager.
 
@@ -2351,7 +2433,7 @@ Result:
 
 <br/>
 
-#### 📌 C2: Write a query to list the employees that are part of the hierarchy tree for which employee ‘Neena Kochhar’ is the root. The list must include the employee id, first name, last name, and the hierarchy path, which should be built using the employee id, separating levels with a slash.
+#### 📌 C58: Write a query to list the employees that are part of the hierarchy tree for which employee ‘Neena Kochhar’ is the root. The list must include the employee id, first name, last name, and the hierarchy path, which should be built using the employee id, separating levels with a slash.
 
 ```sql
 
@@ -2360,7 +2442,7 @@ Result:
 Result:  
 
 
-#### 📌 C3: Write a query to list every manager from the employees table, along with the number of employees who report to him/her directly or indirectly.
+#### 📌 C59: Write a query to list every manager from the employees table, along with the number of employees who report to him/her directly or indirectly.
 
 The list must include 3 columns:
 
