@@ -505,20 +505,28 @@ Result:
 Note: Since at this point we still don’t have the necessary knowledge to count the number of ‘O’s that appear in a string, assume that no name will contain more than 2 Os.
 
 ```sql
-
+select *
+from employee
+where name like '%O_%O%';
 ```
 
 Result:  
+<img width="754" alt="Screen Shot 2022-07-27 at 16 24 29" src="https://user-images.githubusercontent.com/59098085/181355284-93f3c6fb-a1b4-4ba0-ace6-fb3eeedc3c62.png">
 
 
 
 #### 📌 C11: Write a query to get the list of departments whose monthly budget is greater than 15000 and its name includes a “G” or starts with an “H”, sorted by the department id in descending order.
 
 ```sql
-
+select *
+from department
+where monthly_budget > 15000
+and (name like '%G%' 
+    or name like 'H_%');
 ```
 
 Result:  
+<img width="438" alt="Screen Shot 2022-07-27 at 16 24 49" src="https://user-images.githubusercontent.com/59098085/181355338-ecfe5888-1228-4125-a3d8-42d60f5fb10c.png">
 
 
 
