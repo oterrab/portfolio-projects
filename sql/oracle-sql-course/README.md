@@ -39,9 +39,9 @@ Click here for Introduction! 👋🏻
 ## Table of Contents
 
 - [Retrieving Information](#retrieving-information)
-	- Schema #1
+	- [Schema #1](#retrieving-information)
 - [Filtering and Sorting](#filtering-and-sorting)
-	- Schema #2
+	- [Schema #2](#filtering-and-sorting)
 - [Operators](#operators)
 - [Group Operations](#group-operations)
  	- [Schema #3](#schema-3)
@@ -360,10 +360,11 @@ Click here for study notes on key concepts. 🔑</p>
 <br/>
 	
 **Comparing NULLs:**	
-<p align="justify">The SQL NULL value serves a special purpose. To maintain the integrity of a database, it represents a non-existent value AND an unknown value.
+<p align="justify">The SQL NULL value serves a special purpose. To maintain the integrity of a database, it represents a non-existent value AND an unknown value.</p>
 
-SQL uses a Ternary logic. Binary logic uses two values: True and False, 0 and 1, etc. Ternary logic uses three values True, False and Unknown. Because of that, logical operation involving a NULL results in a value of unknown. In this sense, any logical operation involving a NULL results in a value of unknown except for TRUE OR NULL and FALSE AND NULL because the TRUE/FALSE will be valid, but you will be actually testing 'TRUE/FALSE or UNKNOWN'. That means that the only way to compare NULLs correctly is by means of the IS NULL and IS NOT NULL operators. They return only true or false and are the best practice for incorporating NULL values into your queries. </p>
+<p align="justify">TSQL uses a Ternary logic. Binary logic uses two values: True and False, 0 and 1, etc. Ternary logic uses three values True, False and Unknown. Because of that, logical operation involving a NULL results in a value of unknown. In this sense, any logical operation involving a NULL results in a value of unknown except for TRUE OR NULL and FALSE AND NULL because the TRUE/FALSE will be valid, but you will be actually testing 'TRUE/FALSE or UNKNOWN'. That means that the only way to compare NULLs correctly is by means of the IS NULL and IS NOT NULL operators. They return only true or false and are the best practice for incorporating NULL values into your queries. </p>
 </details>
+
 <br/>
 
 <br/>
