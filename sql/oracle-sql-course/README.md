@@ -363,6 +363,21 @@ Click here for study notes on key concepts. 🔑</p>
 <p align="justify">The SQL NULL value serves a special purpose. To maintain the integrity of a database, it represents a non-existent value AND an unknown value.</p>
 
 <p align="justify">TSQL uses a Ternary logic. Binary logic uses two values: True and False, 0 and 1, etc. Ternary logic uses three values True, False and Unknown. Because of that, logical operation involving a NULL results in a value of unknown. In this sense, any logical operation involving a NULL results in a value of unknown except for TRUE OR NULL and FALSE AND NULL because the TRUE/FALSE will be valid, but you will be actually testing 'TRUE/FALSE or UNKNOWN'. That means that the only way to compare NULLs correctly is by means of the IS NULL and IS NOT NULL operators. They return only true or false and are the best practice for incorporating NULL values into your queries. </p>
+
+
+**Operating NULLs:**	
+<p align="justify">Be very careful when you perform operations with numeric columns that might contains NULLs. Its better to be forewarned and write the query with that in mind or it might give you problems in the future. Thats because Numeric Value x NULL = Unknown.</p>
+</details>
+
+**NVL vs COALESCE:**	
+<p align="justify">The NVL function is Oracle specific and only accepts two expressions as input. If the first expression is null, the function returns the second expression. Otherwise, the first expression will be returned. The input expressions can also be of different types, if this happens an implicit cast attempt will be made, if the cast is not possible an error will be returned. Also, this function always evaluates the two input expressions, making it slightly less performant than COALESCE.Illustration of the NVL function:</p>
+
+![GneVv](https://user-images.githubusercontent.com/59098085/181266679-fca576cd-adad-4d13-87ee-7348e9c899ca.gif)
+
+<p align="justify">COALESCE is part of the ANSI-92 standard, so it is a function that exists in all databases that follow this standard or higher. It always returns the first non-null value in the expression list. You must specify at least two expressions, but you can specify more. Illustration of the COALESCE function:</p>
+![32000](https://user-images.githubusercontent.com/59098085/181266644-049f5c01-0a06-4455-95d2-351977d4214c.gif)
+
+
 </details>
 
 <br/>
