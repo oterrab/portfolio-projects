@@ -4,11 +4,19 @@ Write a query to get the list of employees whose name includes the letter “O�
 Note: Since at this point we still don’t have the necessary knowledge to count the number of ‘O’s that appear in a string, assume that no name will contain more than 2 Os.
 */
 
+select *
+from employee
+where name like '%O_%O%';
 
 /*
 Write a query to get the list of departments whose monthly budget is greater than 15000 and its name includes a “G” or starts with an “H”, sorted by the department id in descending order.
 */
 
+select *
+from department
+where monthly_budget > 15000
+and (name like '%G%' 
+    or name like 'H_%');
 
 /*
 Write a query to list all employees of the Information Technology and Human Resources departments who earn 3000 or more but not more than 5000. Please include only employees who were born between 1970 and 1990.
