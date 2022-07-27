@@ -372,11 +372,11 @@ Click here for study notes on key concepts. 🔑</p>
 **NVL vs COALESCE:**	
 <p align="justify">The NVL function is Oracle specific and only accepts two expressions as input. If the first expression is null, the function returns the second expression. Otherwise, the first expression will be returned. The input expressions can also be of different types, if this happens an implicit cast attempt will be made, if the cast is not possible an error will be returned. Also, this function always evaluates the two input expressions, making it slightly less performant than COALESCE.Illustration of the NVL function:</p>
 
-![GneVv](https://user-images.githubusercontent.com/59098085/181266679-fca576cd-adad-4d13-87ee-7348e9c899ca.gif)
+![NVL](https://user-images.githubusercontent.com/59098085/181266679-fca576cd-adad-4d13-87ee-7348e9c899ca.gif)
 
 <p align="justify">COALESCE is part of the ANSI-92 standard, so it is a function that exists in all databases that follow this standard or higher. It always returns the first non-null value in the expression list. You must specify at least two expressions, but you can specify more. Illustration of the COALESCE function:</p>
-![32000](https://user-images.githubusercontent.com/59098085/181266644-049f5c01-0a06-4455-95d2-351977d4214c.gif)
 
+![COALESCE](https://user-images.githubusercontent.com/59098085/181266644-049f5c01-0a06-4455-95d2-351977d4214c.gif)
 
 </details>
 
@@ -387,11 +387,20 @@ Click here for study notes on key concepts. 🔑</p>
 #### 📌 C7: The company has a cell phone that is assigned to the employee who is in charge of server support. All employees in the company can do that job, and they switch positions constantly, so the person in charge of support can change at any time, but you can identify it by means of their phone number. The phone number for the server support person is ‘1.234.567.8901’. Your task is to write a query to list ALL employees whose salary is greater than 4000, but you don’t have to include the person currently in charge of server support.
 
 ```sql
+-- SOLUTION 1
 select *
 from employee
 where salary > 4000
 and (phone != '1.234.567.8901'
 or phone is null);
+```
+
+```sql
+-- SOLUTION 2
+select *
+from employee
+where salary > 4000
+and LNNVL(phone = '1.234.567.8901');
 ```
 
 Result:  
