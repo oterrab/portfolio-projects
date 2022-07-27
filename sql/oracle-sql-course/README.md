@@ -59,6 +59,8 @@ Click here for Introduction! 👋🏻
 
 ## Retrieving Information
 
+<br/>
+
 <details> 
 <summary>
 Click here this section! I've decided to hide this because its very introductory.
@@ -185,7 +187,8 @@ select
 from employee;
 ```
 </details> 
-	
+<br/>
+
 ***
 
 
@@ -367,18 +370,7 @@ Click here for study notes on key concepts. 🔑</p>
 **Operating NULLs:**	
 <p align="justify">Be very careful when you perform operations with numeric columns that might contains NULLs. Its better to be forewarned and write the query with that in mind or it might give you problems in the future. Thats because Numeric Value x NULL = Unknown.</p>
 
-**NVL vs COALESCE:**	
-<p align="justify">The NVL function is Oracle specific and only accepts two expressions as input. If the first expression is null, the function returns the second expression. Otherwise, the first expression will be returned. The input expressions can also be of different types, if this happens an implicit cast attempt will be made, if the cast is not possible an error will be returned. Also, this function always evaluates the two input expressions, making it slightly less performant than COALESCE.Illustration of the NVL function:</p>
-
-![NVL](https://user-images.githubusercontent.com/59098085/181266679-fca576cd-adad-4d13-87ee-7348e9c899ca.gif)
-
-<p align="justify">COALESCE is part of the ANSI-92 standard, so it is a function that exists in all databases that follow this standard or higher. It always returns the first non-null value in the expression list. You must specify at least two expressions, but you can specify more. Illustration of the COALESCE function:</p>
-
-![COALESCE](https://user-images.githubusercontent.com/59098085/181266644-049f5c01-0a06-4455-95d2-351977d4214c.gif)
-
 </details>
-
-<br/>
 
 <br/>
 
@@ -404,6 +396,36 @@ and LNNVL(phone = '1.234.567.8901');
 Result:  
 <img width="798" alt="Screen Shot 2022-07-25 at 21 07 41" src="https://user-images.githubusercontent.com/59098085/180895306-f0031c59-123a-4d94-8aab-1103a341e9c7.png">
 
+
+<br/>
+
+### NULL Handling Functions
+
+<br/>
+
+<details> 
+<summary>
+Click here for study notes on key concepts. 🔑</p>
+	
+</summary>
+	
+<br/>
+
+**NVL vs COALESCE:**	
+<p align="justify">The NVL function is Oracle specific and only accepts two expressions as input. If the first expression is null, the function returns the second expression. Otherwise, the first expression will be returned. The input expressions can also be of different types, if this happens an implicit cast attempt will be made, if the cast is not possible an error will be returned. Also, this function always evaluates the two input expressions, making it slightly less performant than COALESCE.Illustration of the NVL function:</p>
+
+![NVL](https://user-images.githubusercontent.com/59098085/181266679-fca576cd-adad-4d13-87ee-7348e9c899ca.gif)
+
+<p align="justify">COALESCE is part of the ANSI-92 standard, so it is a function that exists in all databases that follow this standard or higher. It always returns the first non-null value in the expression list. You must specify at least two expressions, but you can specify more. Illustration of the COALESCE function:</p>
+
+![COALESCE](https://user-images.githubusercontent.com/59098085/181266644-049f5c01-0a06-4455-95d2-351977d4214c.gif)
+
+**NVL vs NVL2:**	
+<p align="justify">NVL checks if first argument is null and returns second argument. NVL2 has different logic. If first argument is not null then NVL2 returns second argument, but in other case it will return third argument</p>
+
+</details>
+
+<br/>
 
 #### 📌 C8: Write a query to get a list of companies from the COMPANY table, which includes the following columns. Please define the appropriate aliases so that the columns are shown in the results as mentioned here:
 
