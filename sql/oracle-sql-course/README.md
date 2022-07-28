@@ -1,9 +1,15 @@
 # 📊 Oracle SQL Course: SQL Made Practical
 
+<br/>
+<br/>
+<p align="center"><strong>All queries here were written by me on the tasks given by the teacher.</strong></p>
+
+<br/>
+
 ## Introduction
 <br/>
 
-**All queries here were written by me and this repository does not cover queries that were made by the teacher on video.**
+Click [HERE](https://www.udemy.com/course/oracle-sql-from-scratch/) for taking a look at the course.
 
 <br/>
 
