@@ -2,6 +2,7 @@
 
 <br/>
 <br/>
+<p align="center"><em> 60% done - Topics 136/223</em></strong></p>
 <p align="center"><strong>All queries here were written by me on the tasks given by the teacher.</strong></p>
 
 <br/>
