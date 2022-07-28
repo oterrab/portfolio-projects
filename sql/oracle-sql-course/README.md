@@ -607,11 +607,17 @@ Warning: As mentioned in the lesson, the ability to use substitution variables i
 #### 📌 C16: Write a query to get the number of employees in the Accounting department, the total sum of their salaries, and the average salary. The average must appear 2 times in the results, one of them must be calculated using the AVG function, and one without using the AVG function. Please add column aliases to make it easy to understand the columns in the result.
 
 ```sql
-
+select
+    count(*) as emps,
+    sum(salary) as sum_salary,
+    sum(salary)/count(*) as average_salary1,
+    avg(salary) as average_salary2
+from employee
+where department_id = 1;
 ```
 
 Result:  
-
+<img width="371" alt="Screen Shot 2022-07-27 at 21 31 12" src="https://user-images.githubusercontent.com/59098085/181395160-39f08713-a3ea-4a2e-83d3-724e119a4c99.png">
 
 
 ### Schema #3
@@ -739,11 +745,18 @@ commit;
 #### 📌 C17: Write a query to list the different bonuses from the employee table, along with the number of employees that earn that bonus, and the greatest salary for employees in that group. Please include only employees who were born before 1995.
 
 ```sql
-
+select 
+    nvl(bonus,0) as bonus,
+    count(*) as employees,
+    max(salary) as max_sal
+from employee
+where birthdate < to_date('01-01-1995', 'dd-mm-yyyy')
+group by nvl(bonus,0)
+order by bonus;
 ```
 
 Result:  
-
+<img width="203" alt="Screen Shot 2022-07-27 at 21 43 50" src="https://user-images.githubusercontent.com/59098085/181396361-94bf4295-d06c-4d35-85eb-dd7820de7dd9.png">
 		
 ### Filtering Groups
 **HAVING Clause**
@@ -755,12 +768,23 @@ Result:
 Also, please show in the results only departments whose smallest salary is less than 2000 or their highest salary is greater than 4000. The results must be displayed in descending order by the minimum salary.
 
 ```sql
-
+select 
+    department_id,
+    min(salary) as min_sal,
+    max(salary) as max_sal,
+    avg(bonus) as avg_bonus
+from employee
+where bonus is not null
+group by department_id
+having min(salary) < 2000
+    or max(salary) > 4000
+order by min(salary) desc;
 ```
 
 Result:  
+<img width="528" alt="Screen Shot 2022-07-27 at 21 52 49" src="https://user-images.githubusercontent.com/59098085/181397181-e40e976b-c14f-4e2f-b7d2-1c0409cba22d.png">
 
-
+	
 ***
 
 <br/>
