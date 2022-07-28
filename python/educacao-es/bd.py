@@ -34,13 +34,25 @@ load_dotenv()
 #                           #
 #############################
 
+
+# seta o billing_project_id global
+billing_project_id = os.getenv('billing_project_id')
+bd.config.billing_project_id =  'billing_project_id'
+
+
 bd.list_datasets()
 
-billing_project_id = os.getenv('billing_project_id')
-df_inep_ideb = bd.read_table('br-inep-ideb', 'municipio', billing_project_id= 'billing_project_id')
+# df_inep_ideb = bd.read_table('br-inep-ideb', 'municipio', billing_project_id= 'billing_project_id')
 
 
 
+query = """
+SELECT 
+    * 
+FROM `basedosdados.br-inep-ideb`
+"""
+
+df = bd.read_sql(query=query)
 
 
 
