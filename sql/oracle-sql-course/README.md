@@ -533,12 +533,15 @@ Result:
 #### 📌 C12: Write a query to list all employees of the Information Technology and Human Resources departments who earn 3000 or more but not more than 5000. Please include only employees who were born between 1970 and 1990.
 
 ```sql
-
+select *
+from employee
+where department_id in (3,4)
+  and salary between 3000 and 5000
+  and birthdate between date '1970-01-01' and date '1990-12-31';
 ```
 
 Result:  
-
-
+<img width="767" alt="Screen Shot 2022-07-27 at 21 23 13" src="https://user-images.githubusercontent.com/59098085/181394412-0f5f4e95-70b8-4d97-b222-d7d84efa2379.png">
 
 
 ### Logical Operators
@@ -550,10 +553,19 @@ Result:
 When evaluating the condition about how much they earn, please take into account the BONUS column too, which was added with the script provided in the resources section of the lesson about UNDERSTANDING NULLS.
 
 ```sql
-
+select *
+from employee
+where salary + nvl(bonus,0) > 2000
+  and
+  (birthdate < date '1980-01-01'
+    or birthdate > date '1995-01-01')
+  and not
+  (name like '%N'
+    or name like 'N%');
 ```
 
 Result:  
+<img width="741" alt="Screen Shot 2022-07-27 at 21 21 02" src="https://user-images.githubusercontent.com/59098085/181394213-fbbf004a-40ce-4f3d-8ff9-577c74b3a96e.png">
 
 
 ### Substitution Variables
@@ -563,14 +575,14 @@ Result:
 
 Warning: As mentioned in the lesson, the ability to use substitution variables is a feature of SQL Developer (and some other client tools), but this feature is not implemented by Live SQL and Apex, so if you try to run statements with substitution variables there you will get errors.
 
-#### 📌 C14: Write a query to list employees who were hired between a certain range of dates (for example, between January 1st, 2011, and December 15th, 2014). The query must be written in a way that allows the user to use a different date range without needing to modify the query.
+#### 📌 C14: ~~Write a query to list employees who were hired between a certain range of dates (for example, between January 1st, 2011, and December 15th, 2014). The query must be written in a way that allows the user to use a different date range without needing to modify the query.~~
 
 
-#### 📌 C15: Write a query to list employees who work in a given department. The query must prompt the user to enter a value, and then return only employees whose salary is equal to the value entered, or equal to the half of the value entered or equal to a third of the value entered by the user.
+#### 📌 C15: ~~Write a query to list employees who work in a given department. The query must prompt the user to enter a value, and then return only employees whose salary is equal to the value entered, or equal to the half of the value entered or equal to a third of the value entered by the user.~~
 
-The query must also prompt for the id of the department that the user wants to list.
+~~The query must also prompt for the id of the department that the user wants to list.~~
 
-Your script must include the command necessary to erase the value entered for the salary so that if the query is executed again, the user is prompted for the salary value again.
+~~Your script must include the command necessary to erase the value entered for the salary so that if the query is executed again, the user is prompted for the salary value again.~~
 
 
 ## Group Operations
