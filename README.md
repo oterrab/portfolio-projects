@@ -57,7 +57,7 @@ Click [HERE](https://github.com/oterrab/portfolio-projects/tree/main/sql) for my
 
 **Level:** Intermediate SQL
 
-<p align="justify"> <strong>Knowledge:</strong> handling NULLs functions, subqueries, nested subqueries, inline views, subquery factoring (WITH clause), row limiting clause, aggregate functions (count, avg, sum, min/max, etc..), CASE WHEN statements, analytic functions (windows, partitions, rankings, listagg, lag, lead, first, last, first_value and last_value), set operators (union, union all, intersect and minus), joins (left, right, inner, outer, self) procedural functions, procedures.</p>
+<p align="justify"> <strong>Knowledge:</strong> handling NULLs functions, subqueries, nested subqueries, inline views, subquery factoring (WITH clause), row limiting clause, aggregate functions (count, avg, sum, min/max, etc..), CASE WHEN statements, analytic functions (windows, partitions, rankings, listagg, lag, lead, first, last, first_value and last_value), set operators (union, union all, intersect and minus), joins (left, right, inner, outer, self), procedural functions, procedures.</p>
 
 | Project Name | Description | SQL 'Flavour' |
 |:---|---|:--:|
