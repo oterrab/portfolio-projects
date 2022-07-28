@@ -22,9 +22,26 @@ and (name like '%G%'
 Write a query to list all employees of the Information Technology and Human Resources departments who earn 3000 or more but not more than 5000. Please include only employees who were born between 1970 and 1990.
 */
 
+select *
+from employee
+where department_id in (3,4)
+  and salary between 3000 and 5000
+  and birthdate between date '1970-01-01' and date '1990-12-31';
+
 /*
 Write a query to list all employees who were born before 01-jan-1980 or after 01-jan-1995 and earn more than 2000 a month, and whose name does not start or end with an “N”.
 */
+
+select *
+from employee
+where salary + nvl(bonus,0) > 2000
+  and
+  (birthdate < date '1980-01-01'
+    or birthdate > date '1995-01-01')
+  and not
+  (name like '%N'
+    or name like 'N%');
+
 
 /*
 Warning: As mentioned in the lesson, the ability to use substitution variables is a feature of SQL Developer (and some other client tools), but this feature is not implemented by Live SQL and Apex, so if you try to run statements with substitution variables there you will get errors.
