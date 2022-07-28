@@ -9,7 +9,7 @@
 ## Introduction
 <br/>
 
-Click [HERE](https://www.udemy.com/course/oracle-sql-from-scratch/) for taking a look at the course.
+Click [HERE](https://www.udemy.com/course/oracle-sql-from-scratch/) to take a look at the course.
 
 <br/>
 
