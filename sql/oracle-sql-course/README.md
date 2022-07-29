@@ -56,7 +56,7 @@ Click here for Introduction! 👋🏻
 - [Single Row Functions](#single-row-functions)
 - [Transposing](#transposing)
 - [Analytic Functions](#analytic-functions)
-- [SET Operators](#set-operators)
+- [Set Operators](#set-operators)
 - [Selecting data from multiple tables](#selecting-data-from-multiple-tables)
 - [Hierarchical Queries](#hierarchical-queries)
 
@@ -1818,7 +1818,7 @@ Result:
 
 ***
 
-## SET Operators
+## Set Operators
 
 <br/>
 
