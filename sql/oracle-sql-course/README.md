@@ -1848,11 +1848,26 @@ Please order the report by employee id.
 
 
 ```sql
-
+select
+    id,
+    name,
+    birthdate,
+    hire_date
+from employee
+where extract(month from birthdate) in(5,6)
+union all
+select
+    id,
+    name,
+    birthdate,
+    hire_date
+from employee
+where extract(month from hire_date) in(5,6)
+order by id;
 ```
 
 Result:  
-
+<img width="293" alt="Screen Shot 2022-07-29 at 12 33 02" src="https://user-images.githubusercontent.com/59098085/181793824-2065801e-9a12-4784-ab2c-2ef254a1bce1.png">
 
 
 ### INTERSECT Operator
@@ -1869,10 +1884,27 @@ The company wants to send a congratulations letter to employees who were born in
 
 
 ```sql
-
+select
+    id,
+    name,
+    birthdate,
+    hire_date
+from employee
+where extract(month from birthdate) in(5,6)
+intersect
+select
+    id,
+    name,
+    birthdate,
+    hire_date
+from employee
+where extract(month from hire_date) in(5,6)
+order by id;
 ```
 
 Result:  
+<img width="289" alt="Screen Shot 2022-07-29 at 12 37 10" src="https://user-images.githubusercontent.com/59098085/181794556-fc14d057-1f5c-4734-8f35-8db8f88f9466.png">
+
 
 
 ### MINUS Operator
@@ -1890,10 +1922,27 @@ The company wants to send a congratulations letter to employees who were born in
 
 
 ```sql
-
+select
+    id,
+    name,
+    birthdate,
+    hire_date
+from employee
+where extract(month from birthdate) in(5,6)
+minus
+select
+    id,
+    name,
+    birthdate,
+    hire_date
+from employee
+where extract(month from hire_date) in(5,6)
+order by id;
 ```
 
 Result:  
+<img width="290" alt="Screen Shot 2022-07-29 at 12 41 05" src="https://user-images.githubusercontent.com/59098085/181795224-c3292281-e787-42ce-b505-6352084ccb55.png">
+
 
 
 ### Combining Set Operators in the Same Query
@@ -1911,10 +1960,33 @@ Each component query can have only one single condition in its WHERE clause (the
 
 
 ```sql
-
+select
+    id,
+    name,
+    salary,
+    hire_date
+from employee
+where salary > 3000
+minus
+select
+    id,
+    name,
+    salary,
+    hire_date
+from employee
+where department_id = 3
+intersect
+select
+    id,
+    name,
+    salary,
+    hire_date
+from employee
+where to_char(hire_date, 'yyyy') = 2015;
 ```
 
 Result:  
+<img width="284" alt="Screen Shot 2022-07-29 at 12 47 33" src="https://user-images.githubusercontent.com/59098085/181796408-0487fafe-7086-498c-a9d9-bada37438d9e.png">
 
 
 ## Selecting data from multiple tables
