@@ -2031,12 +2031,13 @@ Result:
 
 ### More Complex Schema
 
+<br/>
 <details>
 <summary>
 Click here to see the script for the tables!
 </summary>
 
-**To run in ORACLE LIVE I had to devide the query. For some reason ORACLE LIVE does not accepted everything at once.**
+**To run in ORACLE LIVE I had to devide the query in. 3 parts. For some reason ORACLE LIVE does not accepted everything at once.**
 
 ```sql
 --Removing old tables
@@ -2554,7 +2555,6 @@ Insert into REGIONS (REGION_ID,REGION_NAME) values (4,'Middle East and Africa');
 ```
 
 </details>
-
 <br/>
 
 ### Inner Joins
@@ -2565,10 +2565,20 @@ Insert into REGIONS (REGION_ID,REGION_NAME) values (4,'Middle East and Africa');
 
 
 ```sql
-
+select 
+    e.employee_id,
+    e.first_name,
+    e.last_name,
+    e.salary,
+    j.job_title
+from employees e
+join jobs j 
+on e.job_id = j.job_id
+where e.department_id = 100;
 ```
 
 Result:  
+<img width="441" alt="Screen Shot 2022-07-31 at 16 43 05" src="https://user-images.githubusercontent.com/59098085/182042542-9c602ed2-0ac2-4fdc-acd6-7813d1cbac0f.png">
 
 
 ### Other Types of Joins
