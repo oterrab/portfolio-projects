@@ -2586,10 +2586,25 @@ Result:
 
 
 ```sql
-
+select 
+    e.employee_id,
+    e.first_name,
+    e.last_name,
+    e.salary,
+    j.job_title,
+    d.department_name
+from employees e
+join jobs j 
+on e.job_id = j.job_id
+join departments d
+on d.department_id = e.department_id
+where e.department_id != 60
+order by employee_id
+--offset 0 rows fetch next 15 rows only;
 ```
 
 Result:  
+<img width="658" alt="Screen Shot 2022-07-31 at 17 05 39" src="https://user-images.githubusercontent.com/59098085/182043271-f7ffce5d-e305-423a-b5e4-09f624920d08.png">
 
 
 
@@ -2603,10 +2618,23 @@ Remember that in the EMPLOYEES table, the column “manager_id” corresponds to
 
 
 ```sql
-
+select 
+    e1.employee_id,
+    e1.first_name,
+    e1.last_name,
+    e1.salary,
+    e1.manager_id,
+    e2.first_name as mgr_fn,
+    e2.last_name as mgr_ln
+from employees e1
+join employees e2
+on e1.manager_id = e2.employee_id
+order by employee_id
+--offset 0 rows fetch next 15 rows only;
 ```
 
 Result:  
+<img width="566" alt="Screen Shot 2022-07-31 at 17 34 11" src="https://user-images.githubusercontent.com/59098085/182044253-3f707a7e-bc00-4d2e-acb7-40548d6636ae.png">
 
 
 ## Hierarchical Queries
