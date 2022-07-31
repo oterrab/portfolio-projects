@@ -2555,13 +2555,10 @@ Insert into REGIONS (REGION_ID,REGION_NAME) values (4,'Middle East and Africa');
 ```
 
 </details>
-<br/>
-
-### Inner Joins
 
 <br/>
 
-#### 📌 C54: Write a query to list the ID, name, and salary of all employees who don't work in the 'IT' department, along with their job titles and the name of the department where they work. Please write a version using the new standard syntax, another version using the “short hand” for the standard syntax, and another version using the old method to write join queries.
+#### 📌 C54: Write a query to list the IDs names and salary of all employees that work in the Finance department, along with their job titles.
 
 
 ```sql
@@ -2581,11 +2578,26 @@ Result:
 <img width="441" alt="Screen Shot 2022-07-31 at 16 43 05" src="https://user-images.githubusercontent.com/59098085/182042542-9c602ed2-0ac2-4fdc-acd6-7813d1cbac0f.png">
 
 
+### Inner Joins
+
+<br/>
+
+#### 📌 C55: Write a query to list the ID, name, and salary of all employees who don't work in the 'IT' department, along with their job titles and the name of the department where they work. Please write a version using the new standard syntax, another version using the “short hand” for the standard syntax, and another version using the old method to write join queries.
+
+
+```sql
+
+```
+
+Result:  
+
+
+
 ### Other Types of Joins
 
 <br/>
 
-#### 📌 C55: Write a query that returns a list of employees that includes the employee id, name, and salary along with the name of their manager.
+#### 📌 C56: Write a query that returns a list of employees that includes the employee id, name, and salary along with the name of their manager.
 
 Remember that in the EMPLOYEES table, the column “manager_id” corresponds to the employee_id of another employee who works as a manager. So if you see an employee with manager_id = 100, it means that in the same EMPLOYEES table, there is an employee whose employee_id is 100, who works as a manager.
 
@@ -2615,7 +2627,7 @@ Result:
 
 <br/>
 
-#### 📌 C56: Using your employees table, write a query to generate a report of all of the employees, which includes the following columns:
+#### 📌 C57: Using your employees table, write a query to generate a report of all of the employees, which includes the following columns:
 
 Employee id, first name, last name, and job id of the employee plus first name, last name, and job id of their direct manager.
 
@@ -2632,7 +2644,7 @@ Result:
 
 <br/>
 
-#### 📌 C57: Write a query to list the employees that are part of the hierarchy tree for which employee ‘Neena Kochhar’ is the root. The list must include the employee id, first name, last name, and the hierarchy path, which should be built using the employee id, separating levels with a slash.
+#### 📌 C58: Write a query to list the employees that are part of the hierarchy tree for which employee ‘Neena Kochhar’ is the root. The list must include the employee id, first name, last name, and the hierarchy path, which should be built using the employee id, separating levels with a slash.
 
 ```sql
 
@@ -2641,7 +2653,7 @@ Result:
 Result:  
 
 
-#### 📌 C58: Write a query to list every manager from the employees table, along with the number of employees who report to him/her directly or indirectly.
+#### 📌 C59: Write a query to list every manager from the employees table, along with the number of employees who report to him/her directly or indirectly.
 
 The list must include 3 columns:
 
