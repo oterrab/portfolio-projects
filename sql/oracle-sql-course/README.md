@@ -58,6 +58,7 @@ Click here for Introduction! 👋🏻
 - [Analytic Functions](#analytic-functions)
 - [Set Operators](#set-operators)
 - [Selecting data from multiple tables](#selecting-data-from-multiple-tables)
+	- [More Complex Schema](#more-complex-schema) 
 - [Hierarchical Queries](#hierarchical-queries)
 
 <br/>
@@ -2012,10 +2013,19 @@ Result:
 
 
 ```sql
-
+select 
+    d.name,
+    count(e.name) as emplo,
+    sum(salary) as sum_salary
+from employee e
+join department d
+on d.id = e.department_id
+group by d.name
+order by emplo desc;
 ```
 
 Result:  
+<img width="310" alt="Screen Shot 2022-07-31 at 15 28 44" src="https://user-images.githubusercontent.com/59098085/182040224-5c9d65e7-2dbf-4eec-8dec-08e11953cc61.png">
 
 
 
