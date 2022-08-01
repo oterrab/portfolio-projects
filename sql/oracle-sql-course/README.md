@@ -2666,10 +2666,23 @@ Employee id, first name, last name, and job id of the employee plus first name, 
 Order the results by employee id.
 
 ```sql
-
+select 
+    employee_id,
+    first_name,
+    last_name,
+    salary,
+    job_id,
+    prior first_name as mgr_fn,
+    prior last_name as mgr_ln,
+    prior job_id as mgr_job_id
+from employees
+start with manager_id is null
+connect by manager_id = prior employee_id
+--offset 0 rows fetch next 15 rows only;
 ```
 
 Result:  
+<img width="631" alt="Screen Shot 2022-08-01 at 10 50 31" src="https://user-images.githubusercontent.com/59098085/182162879-c921378a-dc0b-46a6-9295-5d6e27762d0c.png">
 
 
 
@@ -2683,11 +2696,23 @@ Order the results by their level in descending order.
 
 
 ```sql
-
+select 
+    employee_id,
+    first_name,
+    last_name,
+    manager_id,
+    level,
+    connect_by_isleaf
+from employees
+where level > 2 or connect_by_isleaf = 1
+start with manager_id is null
+connect by manager_id = prior employee_id
+order by level desc
+--offset 0 rows fetch next 15 rows only;
 ```
 
 Result:  
-
+<img width="531" alt="Screen Shot 2022-08-01 at 11 03 13" src="https://user-images.githubusercontent.com/59098085/182165457-a3e06d4b-490b-4416-865e-e8aa6e03545c.png">
 
 
 ### Hierarchical Operators and Functions
@@ -2697,10 +2722,20 @@ Result:
 #### 📌 C59: Write a query to list the employees that are part of the hierarchy tree for which employee ‘Neena Kochhar’ is the root. The list must include the employee id, first name, last name, and the hierarchy path, which should be built using the employee id, separating levels with a slash.
 
 ```sql
-
+select 
+    employee_id,
+    first_name,
+    last_name,
+    sys_connect_by_path(employee_id, '->') as path
+from employees
+start with employee_id = 101
+connect by manager_id = prior employee_id
+order by level;
 ```
 
 Result:  
+<img width="387" alt="Screen Shot 2022-08-01 at 11 17 51" src="https://user-images.githubusercontent.com/59098085/182168308-4d2208ff-e89e-4c2b-ae4e-c5f45c4df555.png">
+
 
 
 #### 📌 C60: Write a query to list every manager from the employees table, along with the number of employees who report to him/her directly or indirectly.
