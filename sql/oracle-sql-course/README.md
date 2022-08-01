@@ -60,6 +60,8 @@ Click here for Introduction! 👋🏻
 - [Selecting data from multiple tables](#selecting-data-from-multiple-tables)
 	- [More Complex Schema](#more-complex-schema) 
 - [Hierarchical Queries](#hierarchical-queries)
+- [Additional Practice](#additional-practice)
+
 
 <br/>
 <br/>
@@ -2759,7 +2761,7 @@ Result:
 <br/>
 
 
-### More Complex Schema
+### Extended practice Schema
 
 <br/>
 <details>
