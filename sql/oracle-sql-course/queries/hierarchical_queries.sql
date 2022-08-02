@@ -26,12 +26,33 @@ Write a hierarchical query from your employees table, in which you include emplo
 Order the results by their level in descending order.
 */
 
-
+select 
+    employee_id,
+    first_name,
+    last_name,
+    manager_id,
+    level,
+    connect_by_isleaf
+from employees
+where level > 2 or connect_by_isleaf = 1
+start with manager_id is null
+connect by manager_id = prior employee_id
+order by level desc
+--offset 0 rows fetch next 15 rows only;
 
 /*
 Write a query to list the employees that are part of the hierarchy tree for which employee ‘Neena Kochhar’ is the root. The list must include the employee id, first name, last name, and the hierarchy path, which should be built using the employee id, separating levels with a slash.
 */
 
+select 
+    employee_id,
+    first_name,
+    last_name,
+    sys_connect_by_path(employee_id, '->') as path
+from employees
+start with employee_id = 101
+connect by manager_id = prior employee_id
+order by level;
 
 /*
 Write a query to list every manager from the employees table, along with the number of employees who report to him/her directly or indirectly.
