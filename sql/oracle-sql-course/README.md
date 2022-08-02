@@ -1635,6 +1635,18 @@ Result:
 
 ### Ranking Functions
 
+<details> 
+<summary>
+Click here for study notes on key concepts. 🔑</p>
+	
+</summary>
+<br/>
+	
+**ROW_NUMBER vs DENSE_RANK vs RANK:** <br/>
+<p align="justify">The row_number() function numbers the rows 1,2,3,etc by the columns in the ORDER BY clause, and if there are ties, it is arbitrary which rows that gets the same number. The difference between rank() and dense_rank() functions comes down to how they handle identical values. The rank() and dense_rank() will give the same ranking to rows that cannot be distinguished by the order by clause, but dense_rank will always generate a contiguous sequence of ranks like (1,2,3,etc), whereas rank() will leave gaps after two or more rows with the same rank (1,2,2,4,etc).</p>
+
+</details>
+
 <br/>
 
 #### 📌 C42: Write a query to list all the employees. The result must include their name, department id, hire date, and a column called “hire_order” which is a number that indicates the order in which they were hired. This order is related to the department where they work only, so, the first employee that was hired in each department will have a hire_order of 1.
