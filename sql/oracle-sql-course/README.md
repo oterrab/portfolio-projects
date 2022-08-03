@@ -2786,11 +2786,12 @@ Result:
 
 ```sql
 with hierarchy as (
-           select  employee_id,
+             select  employee_id,
                    first_name,
                    last_name,
                    sys_connect_by_path(employee_id,',') || ',' path,
                    level as lvl
+                   --rownum rn
              from  employees
              start with manager_id  is null
              connect by manager_id = prior employee_id
@@ -2806,6 +2807,7 @@ group by t1.employee_id,
          t1.first_name,
          t1.last_name,
          t1.lvl
+         --t1.rn
 order by count(*) - 1 desc;
 ```
 
