@@ -2750,33 +2750,56 @@ Result:
 
 
 
-#### 📌 C60: Write a query to list every manager from the employees table, along with the number of employees who report to him/her directly or indirectly.
-
-The list must include 3 columns:
-
+#### 📌 C60: Write a query to list every manager from the employees table, along with the number of employees who report to him/her directly or indirectly. The list must include 3 columns:
+<strong>
 1) The employee id
 
 2) The whole name of the employee, which would be built concatenating the first and last names separated by a blank space
 
 3) The number of employees that report to him/her directly or indirectly.
 
-HINT: You might need to use a subquery.
-
+HINT: You might need to use a subquery. </strong>
 
 ```sql
 
 ```
+Result: 
+
+
+
+```sql
+with hierarchy as (
+           select  employee_id,
+                   first_name,
+                   last_name,
+                   sys_connect_by_path(employee_id,',') || ',' path,
+                   level lvl
+             from  employees
+             start with manager_id  is null
+             connect by manager_id = prior employee_id
+          )
+select  lpad(' ',min(t2.lvl)) || t1.first_name || ' ' || t1.last_name as emp_idented,
+        count(*) - 1 as hierarchy_cnt
+  from  hierarchy t1,
+        hierarchy t2
+  where t2.path like '%,' || t1.employee_id || ',%'
+  having count(*) - 1 != 0
+  group by t1.employee_id,
+           t1.first_name,
+           t1.last_name
+  order by count(*) - 1 desc;
+```
 
 Result:  
+<img width="260" alt="Screen Shot 2022-08-03 at 18 06 31" src="https://user-images.githubusercontent.com/59098085/182711832-2666c7ba-5852-46fd-b0aa-1c5e6ee63410.png">
+
 
 
 ### Understanding The Execution of Hierarchical Queries
 
 <br/>
 
-#### 📌 C61: Write a query to display the rows that are part of the hierarchy of the employee with last name ‘Urman’, which includes the employee id, last name, department name, hierarchy path (built with the last name), and level.
-
-The hierarchy should be built starting with employee ‘Urman’ upwards to ‘King’, so Urman must be level 1 and King level 4.
+#### 📌 C61: Write a query to display the rows that are part of the hierarchy of the employee with last name ‘Urman’, which includes the employee id, last name, department name, hierarchy path (built with the last name), and level. The hierarchy should be built starting with employee ‘Urman’ upwards to ‘King’, so Urman must be level 1 and King level 4.
 
 
 ```sql
