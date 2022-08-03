@@ -68,6 +68,51 @@ The list must include 3 columns:
 HINT: You might need to use a subquery.
 */
 
+with hierarchy as (
+            select
+                employee_id,
+                connect_by_root employee_id as root_id,
+                connect_by_root first_name || ' ' || connect_by_root last_name as root_name
+                -- connect_by_root (first_name || ' ' || last_name) as root_name
+            from employees
+            connect by prior employee_id = manager_id
+)
+select 
+        root_id,
+        root_name,
+        count(*) as employees
+from hierarchy
+where employee_id != root_id
+group by root_id, 
+         root_name
+order by employees desc;
+
+-- Elaborating a little more
+
+with hierarchy as (
+             select  employee_id,
+                   first_name,
+                   last_name,
+                   sys_connect_by_path(employee_id,',') || ',' path,
+                   level as lvl
+                   --rownum rn
+             from  employees
+             start with manager_id  is null
+             connect by manager_id = prior employee_id
+          )
+select  lpad(' ',min(t2.lvl)) || t1.first_name || ' ' || t1.last_name as emp_idented,
+        t1.lvl,
+        count(*) - 1 as hierarchy_cnt
+from  hierarchy t1,
+      hierarchy t2
+where t2.path like '%,' || t1.employee_id || ',%'
+having count(*) - 1 != 0
+group by t1.employee_id,
+         t1.first_name,
+         t1.last_name,
+         t1.lvl
+         --t1.rn
+order by count(*) - 1 desc;
 
 /*
  Write a query to display the rows that are part of the hierarchy of the employee with last name ‘Urman’, which includes the employee id, last name, department name, hierarchy path (built with the last name), and level.
@@ -81,4 +126,5 @@ Write a query to build the hierarchy from the employees table, including the emp
 
 The children of each node must be ordered by salary in ascending order, and those with the same salary should be ordered alphabetically by last_name, in descending order.
 */
+
 
