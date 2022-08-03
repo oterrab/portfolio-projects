@@ -2777,11 +2777,11 @@ group by root_id,
 order by employees desc;
 ```
 
-Result: 
+Result:  
 <img width="282" alt="Screen Shot 2022-08-03 at 18 49 57" src="https://user-images.githubusercontent.com/59098085/182718718-589643df-e03d-4cec-990b-6e9f9f1194af.png">
 
 
-
+<br/>
 <p align="center"><strong> Elaborating a little more this exercise.</p></strong>
 
 ```sql
