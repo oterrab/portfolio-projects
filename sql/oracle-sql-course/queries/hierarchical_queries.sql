@@ -120,6 +120,18 @@ order by count(*) - 1 desc;
 The hierarchy should be built starting with employee ‘Urman’ upwards to ‘King’, so Urman must be level 1 and King level 4.
 */
 
+select 
+    employee_id,
+    last_name,
+    department_name,
+    sys_connect_by_path(last_name, '->') as path,
+    level
+from employees e
+join departments d
+on d.department_id = e.department_id
+start with last_name = 'Urman'
+connect by prior e.manager_id = e.employee_id
+order by level;
 
 /*
 Write a query to build the hierarchy from the employees table, including the employee id, last name, salary, the hierarchy path, and the level.
@@ -127,4 +139,13 @@ Write a query to build the hierarchy from the employees table, including the emp
 The children of each node must be ordered by salary in ascending order, and those with the same salary should be ordered alphabetically by last_name, in descending order.
 */
 
-
+select 
+    employee_id,
+    last_name,
+    salary,
+    sys_connect_by_path(last_name, '->') as path,
+    level
+from employees
+start with manager_id is null
+connect by manager_id = prior employee_id
+order siblings by salary, last_name desc;
