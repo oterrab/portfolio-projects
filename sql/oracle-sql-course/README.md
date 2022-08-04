@@ -2571,6 +2571,14 @@ Insert into REGIONS (REGION_ID,REGION_NAME) values (4,'Middle East and Africa');
 ```
 
 </details>
+<img width="290" alt="Screen Shot 2022-08-04 at 09 39 53" src="https://user-images.githubusercontent.com/59098085/182849230-c0b46190-8146-480f-be7a-34ce6cd27267.png">
+<img width="295" alt="Screen Shot 2022-08-04 at 09 40 17" src="https://user-images.githubusercontent.com/59098085/182849306-ca60ce81-aac7-4b12-9132-5da96658891d.png">
+<img width="264" alt="Screen Shot 2022-08-04 at 09 40 42" src="https://user-images.githubusercontent.com/59098085/182849383-9402798f-ad11-491d-b977-02f1644cda87.png">
+<img width="281" alt="Screen Shot 2022-08-04 at 09 41 09" src="https://user-images.githubusercontent.com/59098085/182849442-2c52997a-9106-4df1-bd54-bc6af04ef80d.png">
+<img width="290" alt="Screen Shot 2022-08-04 at 09 42 00" src="https://user-images.githubusercontent.com/59098085/182849593-49085226-10ca-4c7e-b469-4702d280ee54.png">
+<img width="275" alt="Screen Shot 2022-08-04 at 09 42 23" src="https://user-images.githubusercontent.com/59098085/182849678-36b2a7f9-094d-4213-90e9-b02de974f639.png">
+<img width="269" alt="Screen Shot 2022-08-04 at 09 42 42" src="https://user-images.githubusercontent.com/59098085/182849741-b747a797-3a4b-4ea0-a1c7-f3338a07d56a.png">
+
 
 <br/>
 
@@ -2824,10 +2832,23 @@ Result:
 
 
 ```sql
-
+select 
+    employee_id,
+    last_name,
+    department_name,
+    sys_connect_by_path(last_name, '->') as path,
+    level
+from employees e
+join departments d
+on d.department_id = e.department_id
+start with last_name = 'Urman'
+connect by prior e.manager_id = e.employee_id
+order by level;
 ```
 
 Result:  
+<img width="584" alt="Screen Shot 2022-08-04 at 09 53 56" src="https://user-images.githubusercontent.com/59098085/182851894-05adcb13-21d3-4705-a243-146f6042122b.png">
+
 
 
 ### Sorting The Results of Hierarchical Queries
@@ -2838,11 +2859,20 @@ Result:
 
 
 ```sql
-
+select 
+    employee_id,
+    last_name,
+    salary,
+    sys_connect_by_path(last_name, '->') as path,
+    level
+from employees
+start with manager_id is null
+connect by manager_id = prior employee_id
+order siblings by salary, last_name desc;
 ```
 
 Result:  
-
+<img width="545" alt="Screen Shot 2022-08-04 at 10 18 10" src="https://user-images.githubusercontent.com/59098085/182856681-b22b5eee-2bfe-4f76-b329-719f23b39248.png">
 
 
 ## Additional Practice
