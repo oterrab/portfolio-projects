@@ -3728,3 +3728,332 @@ pivot
 </details>
 
 <br/>
+
+#### 📌 C63: Write a query to generate a list of employees applying the following conditions:    
+
+<strong>The results include the employee_id, first_name and last_name columns, but the column titles must use blank spaces to separate words, instead of underscores.
+
+The salary is less than 3000.
+
+The first or last names start with ‘G’.</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C64: Write a query to generate a list of employees who are managers of more than 6 employees, applying the following conditions:        
+
+<strong>The results include only the employee_id and the number of employees for whom he/she is the manager.
+
+The results must be ordered by employee id in descending order.
+
+Even though you will use the manager_id column in your query, the results must display it as employee_id.</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C65: Write a query to generate a list of the 5 employees who have more time working for the company, applying the following conditions:        
+
+<strong>
+The results include only the employee_id, first_name, last_name, hire_date, and commission_pct.
+
+The query takes into account only employees who have a commission_pct  defined  which is smaller than 0.3 </strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C66: The email address of employees is expected to be constructed by concatenating the first letter of the first_name with the last_name.  Write a query to generate a list of employees whose registered email is different from the expected email, applying the following conditions:        
+
+<strong>The results include only employees of these departments: Marketing, Purchasing, Executive.
+
+Take into account the fact that the email is stored in uppercase, so make sure the expected email is constructed in uppercase too.   </strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+#### 📌 C67: Write a query to generate a report of employees that includes a column with the last digits of the phone number,  applying the following conditions:         
+
+<strong>The “last digits” of the phone number are those that are after the last dot (.)
+
+The results must include employees from the Marketing department.  Employees from other departments can be included only if they have a salary that is greater than or equal to 6000 and smaller than or equal to 6500.
+
+The results must be ordered by department_id.</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+#### 📌 C68:  Write a query to list the names of the departments for which there are more than 5 employees,  applying the following conditions:   
+
+<strong>The results must be ordered by the number of employees, in descending order.</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+#### 📌 C69: Write a query to list the id and names of departments that don’t have any employee,  applying the following conditions:    
+
+<strong>The departments must be ordered alphabetically.
+
+Write 2 versions of the query:  the first one using a subquery and the second one using an aggregate function and an outer join.</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+#### 📌 C70: Write a query to list all locations for which there is at least one employee,  applying the following conditions:    
+
+<strong>The results must include the location id, the city and the number of employees for the location.
+
+The results must be ordered by the number of employees.
+
+Hint:  See the relational diagram you generated at the beginning of this practice session to understand the relationships between employees, departments and locations.</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C71: The SELECT statement in the image below generates a list of the locations in Canada along with the number of departments in each location.  The query was written using the old syntax for joins. Your task is to re-write it using the new ANSI syntax for the outer join.  Make sure that your query returns the exact same results than the original one. 
+
+<p align=center><img width="490" alt="Screen Shot 2022-08-04 at 10 38 39" src="https://user-images.githubusercontent.com/59098085/182861097-0dc0a380-59c1-4240-961e-c1b24d9a0321.png"></p>
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C72: Write a query to generate a list of regions that includes the minimum and maximum salary for each region, taking into account the following conditions:    
+
+<strong>
+The results must include only regions that have employees
+
+The regions must be ordered alphabetically</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C73: Write a query to generate a list of regions that includes the count of employees for each region, taking into account the following conditions:   
+
+<strong>The results must include all regions
+
+The regions must be ordered alphabetically</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C74: Write a query to generate a list of employees along with the number of applications for which they have permissions, taking into account the following conditions:    
+
+<strong>The results must include only employees with employee_id smaller than or equal to 105
+
+Each application must be counted only once for each user.  Some users might have roles that end up giving them permissions for the same application more than once, so you need to do something to only count them once.
+
+In addition to the column that counts the applications, there must be an additional column called “APPS_NOTE” that shows ‘5 OR LESS’ or ‘MORE THAN 5’ according to the number of apps counted.
+
+The results must be ordered by employee_id
+
+Hints: Some aggregate functions have a way to tell it to only take into account different or distinct values (aggregate functions lesson).   You need some kind of IF-THEN-ELSE logic to generate the apps_note column</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C75: Write a query to list all of the departments in the company along with 2 columns that show the number of active and inactive users in the company’s system, taking into account the following conditions:   
+
+<strong>All departments must appear in the list even if they don’t have any user
+
+The results must be ordered by department_id
+
+Write 2 versions of the query, one using CASE expressions and one using the PIVOT clause
+
+Hint: Sometimes you need to use subqueries to “prepare” your data to be pivoted.</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C76: The script you ran for this practice session created a view called "v_active_user_count" in your schema.  Views have not been covered yet, so by now just imagine that it is a table, and use it like that.  This view returns data about the number of active/inactive users per department, pivoted to display one column per department.  Your task is now using the Unpivot feature of Oracle SQL to produce the following output:   
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C77:Write a query to generate a list of the 2 more recently created users per department, taking into account the following conditions:     
+
+<strong>If 2 or more users were created on the same date, they must be assigned the same ranking, which means that the results could actually include more than 2 users per department.
+
+The final results must be ordered by department_id and by the rank assigned according to the user’s creation date.
+
+Write one version of the query using an in-line view, and one using the WITH clause (also called, the subquery factoring clause).
+
+Hint:  This could be called a “partitioned” top-n query.</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C78: The company is giving a raise on their salaries to employees who earn more than 10,000. Here is query that returns the list of employees that will get the raise, which includes a column for their new salary, which will be increased differently depending on the department where they work.  The query gives the correct results, but your task is to re-write using a CASE expression instead of the DECODE function.   
+
+<p align=center><strong>Make sure that your query produces the exact same results as the original one.</strong></p>
+
+<p align=center><img width="576" alt="Screen Shot 2022-08-04 at 10 47 19" src="https://user-images.githubusercontent.com/59098085/182863034-f650a55b-313c-4a88-9de9-25afdf394aff.png"></p>
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C79:  Write a query to list the employees of the “Executive” and “Finance” departments, with an additional column that tells us if the date on which the previous user that was created in the same department was created more than 1 year before.  Follow these requirements/guidelines:   
+
+<strong>Consider a year as always being equal to 365 days.
+
+If the previous user was created later than a year before, or there is no previous user in the department, return null for that column.
+
+To understand the requirement, look at the row with employee_id=100 in the expected output below.  The user that was created before him was created on 23-JAN-2001, so since his user was created on 27-JUN-2003, the difference between the dates is more than one year.  If you see the row for employee_id=108, you can see that the previous user was created on 26-AUG-2002, so the difference is only one day, and thus, the column shows as null.
+
+The SQL Developer instance used to generate the below output is configured to display nulls as "(null)", but you are not forced to do it the same way.  As long as the query returns null when it has to, how the null is displayed is not important.</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C80: Write a query to list the departments for which there are at least 2 employees who earn more than 10,000.     
+
+<strong>The results must be ordered by department id.</strong>
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C81: The following statement produces correct results, but it doesn’t follow the practices recommended in this course to make code readable, and it uses the old syntax for joins.  Re-write it to use the new ANSI syntax and to adhere to the readability recommended practices.  Make sure that your version produces the exact same results as the original one.
+
+<strong>Hint:  Besides the joins, there are 2 different areas of readability improvements that have been recommended in this course.</strong>
+
+<p align=center><img width="524" alt="Screen Shot 2022-08-04 at 10 50 11" src="https://user-images.githubusercontent.com/59098085/182863674-d6609f28-d31d-4568-bd22-65d9cf667a1a.png"></p>
+
+```sql
+
+```
+
+Result:  
+
+
+
+#### 📌 C82: Write a query to get the number of employees and the sum of their salaries, who were hired per year in the Administration, Marketing and purchasing departments since year 2003.  
+
+<strong>The number of employees hired must be displayed with 2 digits.
+
+The sum of the salaries must be displayed with a comma as thousand separator and must include your local currency symbol.  The currency symbol must not be “fixed” or hardcoded in your query. It must use the local currency symbol as defined in your session settings.
+
+The results must be ordered by department_id and year.</strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+#### 📌 C83: Write a query to generate a report of the number of employees per department at each level of the company’s hierarchy, but include only employees who are not managers.
+
+<strong>Levels in which all employees are managers are not expected to be included in the result set.
+
+Please order the results by level and department name. </strong>
+
+
+```sql
+
+```
+
+Result:  
+
+
+
+
+<br/>
