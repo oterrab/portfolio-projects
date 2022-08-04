@@ -3946,7 +3946,7 @@ Result:
 
 
 
-#### 📌 C77:Write a query to generate a list of the 2 more recently created users per department, taking into account the following conditions:     
+#### 📌 C77: Write a query to generate a list of the 2 more recently created users per department, taking into account the following conditions:     
 
 <strong>If 2 or more users were created on the same date, they must be assigned the same ranking, which means that the results could actually include more than 2 users per department.
 
