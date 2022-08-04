@@ -2,7 +2,7 @@
 
 <br/>
 <br/>
-<p align="center"><em> 72% done - 160/223 topics</em></strong></p>
+<p align="center"><em> Completed on Aug 2022 - 223/223 topics</em></strong></p>
 <p align="center"><strong>All queries here were written by me on the tasks given by the teacher.</strong></p>
 
 <br/>
