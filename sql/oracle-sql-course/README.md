@@ -3739,10 +3739,17 @@ The first or last names start with ‘G’.</strong>
 
 
 ```sql
-
+select
+        employee_id as "employee id",
+        first_name as "first name",
+        last_name as "last name"
+from employees
+where salary < 3000 
+and (first_name like 'G%' or last_name like 'G%');
 ```
 
 Result:  
+<img width="264" alt="Screen Shot 2022-08-04 at 21 48 38" src="https://user-images.githubusercontent.com/59098085/182978672-33e11aa2-eb6f-498b-9858-7c2dd0f01e38.png">
 
 
 
