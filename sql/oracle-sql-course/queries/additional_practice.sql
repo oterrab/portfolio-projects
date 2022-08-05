@@ -37,7 +37,6 @@ having count(sub.employee_id) > 6
 group by sup.employee_id
 order by sup.employee_id desc;
 
-
 /*
 Write a query to generate a list of the 5 employees who have more time working for the company, applying the following conditions:   
 
@@ -47,20 +46,19 @@ The query takes into account only employees who have a commission_pct  defined  
 */
 
 with hire_order as (
-        select 
-                employee_id, 
-                first_name, 
-                last_name, 
-                hire_date,
-                commission_pct,
-                rank() over (order by hire_date) as rn
-from employees
-where commission_pct < 0.3
+                    select 
+                        employee_id, 
+                        first_name, 
+                        last_name, 
+                        hire_date,
+                        commission_pct,
+                        rank() over (order by hire_date) as rn
+                    from employees
+                    where commission_pct < 0.3
 )
 select *
 from hire_order
 where rn <= 5;
-
 
 /*
 The email address of employees is expected to be constructed by concatenating the first letter of the first_name with the last_name.  Write a query to generate a list of employees whose registered email is different from the expected email, applying the following conditions:
