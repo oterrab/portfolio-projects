@@ -3816,10 +3816,20 @@ Take into account the fact that the email is stored in uppercase, so make sure t
 
 
 ```sql
-
+select
+        employee_id,
+        first_name,
+        last_name,
+        department_id,
+        email,
+        substr(first_name, 1,1) || upper(last_name) as expected_email
+from employees
+where department_id in (20,30,90)
+and email != (substr(first_name, 1,1) || upper(last_name));
 ```
 
 Result:  
+<img width="553" alt="Screen Shot 2022-08-05 at 15 47 41" src="https://user-images.githubusercontent.com/59098085/183142070-8bf31a6d-7540-446c-aa08-b5e9e84d77fd.png">
 
 
 #### 📌 C67: Write a query to generate a report of employees that includes a column with the last digits of the phone number,  applying the following conditions:         
@@ -3832,11 +3842,22 @@ The results must be ordered by department_id.</strong>
 
 
 ```sql
-
+select
+        employee_id,
+        first_name,
+        last_name,
+        phone_number,
+        substr(phone_number, instr(phone_number,'.',-1)+1) as last_digits,
+        salary,
+        department_id
+from employees
+where department_id = 20
+or (salary >= 6000 and salary <= 6500)
+order by department_id;
 ```
 
 Result:  
-
+<img width="649" alt="Screen Shot 2022-08-05 at 16 05 39" src="https://user-images.githubusercontent.com/59098085/183144460-1353879b-f2d1-4d21-a6a5-185bfdf7b471.png">
 
 
 #### 📌 C68:  Write a query to list the names of the departments for which there are more than 5 employees,  applying the following conditions:   
