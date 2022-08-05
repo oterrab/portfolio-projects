@@ -8,7 +8,13 @@ The salary is less than 3000.
 The first or last names start with ‘G’ .   
 */
 
-
+select
+        employee_id as "employee id",
+        first_name as "first name",
+        last_name as "last name"
+from employees
+where salary < 3000 
+and (first_name like 'G%' or last_name like 'G%');
 
 
 /*
@@ -21,7 +27,15 @@ The results must be ordered by employee id in descending order.
 Even though you will use the manager_id column in your query, the results must display it as employee_id.  
 */
 
-
+select 
+    sup.employee_id,
+    count(sub.employee_id) as number_of_employees
+from employees sub
+join employees sup
+on sub.manager_id = sup.employee_id
+having count(sub.employee_id) > 6
+group by sup.employee_id
+order by sup.employee_id desc;
 
 
 /*
@@ -32,7 +46,20 @@ The results include only the employee_id, first_name, last_name, hire_date, and 
 The query takes into account only employees who have a commission_pct  defined  which is smaller than 0.3 
 */
 
-
+with hire_order as (
+        select 
+                employee_id, 
+                first_name, 
+                last_name, 
+                hire_date,
+                commission_pct,
+                rank() over (order by hire_date) as rn
+from employees
+where commission_pct < 0.3
+)
+select *
+from hire_order
+where rn <= 5;
 
 
 /*
