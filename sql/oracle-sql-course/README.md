@@ -3795,8 +3795,8 @@ with hire_order as (
                         hire_date,
                         commission_pct,
                         rank() over (order by hire_date) as rn
-from employees
-where commission_pct < 0.3
+                    from employees
+                    where commission_pct < 0.3
 )
 select *
 from hire_order
