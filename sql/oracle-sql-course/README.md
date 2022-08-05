@@ -3788,13 +3788,13 @@ The query takes into account only employees who have a commission_pct  defined  
 
 ```sql
 with hire_order as (
-        select 
-                employee_id, 
-                first_name, 
-                last_name, 
-                hire_date,
-                commission_pct,
-                rank() over (order by hire_date) as rn
+                    select 
+                        employee_id, 
+                        first_name, 
+                        last_name, 
+                        hire_date,
+                        commission_pct,
+                        rank() over (order by hire_date) as rn
 from employees
 where commission_pct < 0.3
 )
