@@ -3763,11 +3763,19 @@ Even though you will use the manager_id column in your query, the results must d
 
 
 ```sql
-
+select 
+    sup.employee_id,
+    count(sub.employee_id) as number_of_employees
+from employees sub
+join employees sup
+on sub.manager_id = sup.employee_id
+having count(sub.employee_id) > 6
+group by sup.employee_id
+order by sup.employee_id desc;
 ```
 
 Result:  
-
+<img width="244" alt="Screen Shot 2022-08-04 at 23 13 59" src="https://user-images.githubusercontent.com/59098085/182987076-f7f52986-a57c-46e5-8a4d-8bbbbb486efa.png">
 
 
 #### 📌 C65: Write a query to generate a list of the 5 employees who have more time working for the company, applying the following conditions:        
@@ -3775,14 +3783,28 @@ Result:
 <strong>
 The results include only the employee_id, first_name, last_name, hire_date, and commission_pct.
 
-The query takes into account only employees who have a commission_pct  defined  which is smaller than 0.3 </strong>
+The query takes into account only employees who have a commission_pct  defined  which is smaller than 0.3. </strong>
 
 
 ```sql
-
+with hire_order as (
+        select 
+                employee_id, 
+                first_name, 
+                last_name, 
+                hire_date,
+                commission_pct,
+                rank() over (order by hire_date) as rn
+from employees
+where commission_pct < 0.3
+)
+select *
+from hire_order
+where rn <= 5;
 ```
 
 Result:  
+<img width="481" alt="Screen Shot 2022-08-04 at 23 39 09" src="https://user-images.githubusercontent.com/59098085/182989903-62dc8b50-fc4e-41c4-ab10-f5ad815b5ded.png">
 
 
 
@@ -3814,6 +3836,7 @@ The results must be ordered by department_id.</strong>
 ```
 
 Result:  
+
 
 
 #### 📌 C68:  Write a query to list the names of the departments for which there are more than 5 employees,  applying the following conditions:   
