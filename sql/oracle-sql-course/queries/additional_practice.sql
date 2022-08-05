@@ -68,7 +68,16 @@ The results include only employees of these departments: Marketing, Purchasing, 
 Take into account the fact that the email is stored in uppercase, so make sure the expected email is constructed in uppercase too.   
 */
 
-
+select
+        employee_id,
+        first_name,
+        last_name,
+        department_id,
+        email,
+        substr(first_name, 1,1) || upper(last_name) as expected_email
+from employees
+where department_id in (20,30,90)
+and email != (substr(first_name, 1,1) || upper(last_name));
 
 
 /*
@@ -81,7 +90,18 @@ The results must include employees from the Marketing department.  Employees fro
 The results must be ordered by department_id.   
 */
 
-
+select
+        employee_id,
+        first_name,
+        last_name,
+        phone_number,
+        substr(phone_number, instr(phone_number,'.',-1)+1) as last_digits,
+        salary,
+        department_id
+from employees
+where department_id = 20
+or (salary >= 6000 and salary <= 6500)
+order by department_id;
 
 
 /*
