@@ -355,14 +355,14 @@ ORDER BY city, customer_type;
 Members pay using more Credit Card than other payment methods.<br/></p>
 <br/> 
 
-    Evidences so far:<br/> 
-    - Naypyitaw is the city with 10% more female customers than male customers.<br/> 
-    - While Man consume more 'Sports and travel' products in other branches. In Naypyitaw, Females are consuming more 'Sports and travel' products.<br/> 
-    - Naypyitaw branch is selling less quantity of 'Sports and travel' products.<br/> 
-    - Tax amount paid in Naypyitaw are higher than in other branches.<br/> 
-    - Price of each product in Naypyitaw is 24% to 33% lower.<br/> 
-    - Credit Card is the most used payment method in Naypyitaw. Other branches have Cash and Ewallet as most used payment method.<br/> 
-    - Members pay using more Credit Card in all branches.<br/> 
+Evidences so far:<br/> 
+- Naypyitaw is the city with 10% more female customers than male customers.<br/> 
+- While Man consume more 'Sports and travel' products in other branches. In Naypyitaw, Females are consuming more 'Sports and travel' products.<br/> 
+- Naypyitaw branch is selling less quantity of 'Sports and travel' products.<br/> 
+- Tax amount paid in Naypyitaw are higher than in other branches.<br/> 
+- Price of each product in Naypyitaw is 24% to 33% lower.<br/> 
+- Credit Card is the most used payment method in Naypyitaw. Other branches have Cash and Ewallet as most used payment method.<br/> 
+- Members pay using more Credit Card in all branches.<br/> 
     
     
 ### Does this branch have more members?
@@ -383,7 +383,7 @@ ORDER BY city, customer_type;
 <br/></p>
 <br/>
 
-##Conclusions and Recommendations:
+## Conclusions and Recommendations:
 - Marketing campaign for 'Sports and travel' products towards male customers in Naypyitaw. Its the only branch with this pattern.
 - Research why price of each product is lower in Naypyitaw. Are prices standard across branches? If so, it might be the kind of product in 'Sports and travel' that are being sold in this branch. Need more data. Also, Its this related to why Female customers are consuming more 'Sports and travel' products?
 - Members are responsible for low revenue in 'Sports and travel' products on this branch due to use of credit card as payment method. It might be interesting to brainstorm ways of increasing revenue.
