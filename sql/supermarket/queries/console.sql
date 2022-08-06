@@ -8,36 +8,39 @@ Naypyitaw, Mandalay and Yangon are all located in Myanmar.
 */
 
 -- Which gender frequent more the supermarket?
-select gender, count(*)
-from supermarket.`supermarket_sales - Sheet1`
-group by gender;
+SELECT gender, COUNT(*) AS count
+FROM supermarket.`supermarket_sales - Sheet1`
+GROUP BY gender;
 -- All about the same
 
 -- And in each branch?
-select city, gender, count(*) as cnt_gender
-from supermarket.`supermarket_sales - Sheet1`
-group by city, gender
-order by city;
+SELECT city,
+       gender,
+       COUNT(gender)                                                                   AS cnt_gender,
+       ROUND((COUNT(gender) * 100) / (SUM(COUNT(gender)) OVER (PARTITION BY city)), 1) AS pct
+FROM supermarket.`supermarket_sales - Sheet1`
+GROUP BY city, gender
+ORDER BY city;
 /*
     Branch B in Naypyitaw has 328 costumers in which 178 (54,3%) are Female and 150 Male (45,7%).
-    There are more almost 10% more Female costumers.
+    There are almost 10% more Female costumers.
     Since its a interesting difference, let's dig in.
 */
 
 -- Which product_line generate more revenue in Naypyitaw?
-select product_line, sum(round(total)) as total
-from supermarket.`supermarket_sales - Sheet1`
-where city = 'Naypyitaw'
-group by product_line
-order by sum(total) desc;
--- Food and beverages is the product_line with most revenue and Home and lifestyle the least revenue.
+SELECT product_line, SUM(ROUND(total)) AS total
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE city = 'Naypyitaw'
+GROUP BY product_line
+ORDER BY SUM(total) DESC;
+-- 'Food and beverages' is the product_line with most revenue and 'Home and lifestyle' the least revenue.
 
 -- Is there any difference in costumer gender and product_line?
-select product_line, gender, sum(round(total)) as total
-from supermarket.`supermarket_sales - Sheet1`
-where city = 'Naypyitaw'
-group by product_line, gender
-order by product_line;
+SELECT product_line, gender, SUM(ROUND(total)) AS total
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE city = 'Naypyitaw'
+GROUP BY product_line, gender
+ORDER BY product_line;
 
 /*
     It seems that 'Food and beverages' and 'Sports and travel' are most consumed by Female.
@@ -45,23 +48,23 @@ order by product_line;
     How this compare to other branches/cities?
 */
 
-select product_line, gender, city, sum(round(total)) as total
-from supermarket.`supermarket_sales - Sheet1`
-where product_line = 'Food and beverages'
-group by city, gender
-order by city;
+SELECT gender, city, SUM(ROUND(total)) AS total
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Food and beverages'
+GROUP BY city, gender
+ORDER BY city;
 
-select product_line, gender, city, sum(round(total)) as total
-from supermarket.`supermarket_sales - Sheet1`
-where product_line = 'Sports and travel'
-group by city, gender
-order by city;
+SELECT gender, city, SUM(ROUND(total)) AS total
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+GROUP BY city, gender
+ORDER BY city;
 
-select product_line, gender, city, sum(round(total)) as total
-from supermarket.`supermarket_sales - Sheet1`
-where product_line = 'Health and Beauty'
-group by city, gender
-order by city;
+SELECT gender, city, SUM(ROUND(total)) AS total
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Health and Beauty'
+GROUP BY city, gender
+ORDER BY city;
 
 /*
     For 'Food and beverages' the trend is the same in Mandalay and Naypyitaw but inverse in Yangon.
@@ -74,16 +77,16 @@ order by city;
 
 -- Which product_line that generate more revenue in all branches?
 
-select product_line, sum(round(total)) as total
-from supermarket.`supermarket_sales - Sheet1`
-group by product_line
-order by sum(total) desc;
+SELECT product_line, SUM(ROUND(total)) AS total
+FROM supermarket.`supermarket_sales - Sheet1`
+GROUP BY product_line
+ORDER BY SUM(total) DESC;
 
 -- Which gender spend most on each product line?
-select product_line, gender, sum(round(total)) as total
-from supermarket.`supermarket_sales - Sheet1`
-group by product_line, gender
-order by product_line,gender;
+SELECT product_line, gender, SUM(ROUND(total)) AS total
+FROM supermarket.`supermarket_sales - Sheet1`
+GROUP BY product_line, gender
+ORDER BY product_line, gender;
 
 /*
     It seems that 'Food and beverages' is the most profitable product line in general.
@@ -92,10 +95,10 @@ order by product_line,gender;
     How 'Sports and travel' are performing in each branch?
 */
 
-select product_line, city, sum(round(total)) as total
-from supermarket.`supermarket_sales - Sheet1`
-where product_line = 'Sports and travel'
-group by product_line, city;
+SELECT product_line, city, SUM(ROUND(total)) AS total
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+GROUP BY product_line, city;
 
 /*
     Naypyitaw is doing really bad in 'Sports and travel'.
@@ -110,10 +113,10 @@ group by product_line, city;
     How number of costumers compare in each branch/city?
 */
 
-select city, count(*) as cnt
-from supermarket.`supermarket_sales - Sheet1`
-group by city
-order by city;
+SELECT city, COUNT(*) AS cnt
+FROM supermarket.`supermarket_sales - Sheet1`
+GROUP BY city
+ORDER BY city;
 
 
 /*
@@ -136,17 +139,21 @@ where product_line = 'Sports and travel';
     tax, different legislation?
     payment could be influencing?
     gross_margin_pct, branches have the same margin percentage?
-    quantitu sold is different?
+    quantity sold is different?
 
     Gross Income is expected to be the same since the branch is performing bad with this product_line.
 
 */
 
 -- Tax, Gross Margin Percent and Gross Income
-select city, sum(quantity) as quantity, avg(tax) as tax, sum(round(gross_income)) as gross_income, avg(gross_margin_pct) as gross_percent
-from supermarket.`supermarket_sales - Sheet1`
-where product_line = 'Sports and travel'
-group by city;
+SELECT city,
+       SUM(quantity)            AS quantity,
+       AVG(tax)                 AS tax,
+       SUM(ROUND(gross_income)) AS gross_income,
+       AVG(gross_margin_pct)    AS gross_percent
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+GROUP BY city;
 
 
 /*
@@ -167,10 +174,10 @@ group by city;
 
 
 -- Unit Price
-select city, sum(round(unit_price)) as total
-from supermarket.`supermarket_sales - Sheet1`
-where product_line = 'Sports and travel'
-group by city;
+SELECT city, SUM(ROUND(unit_price)) AS total
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+GROUP BY city;
 
 /*
     That's interesting. There is a difference between 24% and 33% in unit price.
@@ -186,11 +193,11 @@ group by city;
     Is it due to payment type difference?
 */
 
-select city, payment, count(payment) as cnt
-from supermarket.`supermarket_sales - Sheet1`
-where product_line = 'Sports and travel'
-group by city, payment
-order by city;
+SELECT city, payment, COUNT(payment) AS cnt
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+GROUP BY city, payment
+ORDER BY city;
 
 
 /*
@@ -208,21 +215,23 @@ order by city;
     Does female costumers consume using more credit card?
 */
 
-select city, gender, payment, count(payment) as cnt
-from supermarket.`supermarket_sales - Sheet1`
-where product_line = 'Sports and travel' and payment = 'Credit card'
-group by city, gender
-order by city, gender;
+SELECT city, gender, payment, COUNT(payment) AS cnt
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+  AND payment = 'Credit card'
+GROUP BY city, gender
+ORDER BY city, gender;
 
 /*
     It seems that gender its not really a factor in this.
 */
 
-select city, customer_type, payment, count(payment) as cnt
-from supermarket.`supermarket_sales - Sheet1`
-where product_line = 'Sports and travel' and payment = 'Credit card'
-group by city, customer_type
-order by city, customer_type;
+SELECT city, customer_type, payment, COUNT(payment) AS cnt
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+  AND payment = 'Credit card'
+GROUP BY city, customer_type
+ORDER BY city, customer_type;
 
 /*
     We found another piece of evidence.
@@ -241,11 +250,11 @@ order by city, customer_type;
 
 */
 
-select city, customer_type, count(customer_type) as cnt
-from supermarket.`supermarket_sales - Sheet1`
-where product_line = 'Sports and travel'
-group by city, customer_type
-order by city, customer_type;
+SELECT city, customer_type, COUNT(customer_type) AS cnt
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+GROUP BY city, customer_type
+ORDER BY city, customer_type;
 
 /*
     Another evidence. Every branch has similar number os members and normal customers, except for Naypyitaw that has a lot more members.
