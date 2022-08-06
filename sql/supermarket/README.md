@@ -415,6 +415,6 @@ ORDER BY city, customer_type;
 - Research why price of each product is lower in Naypyitaw. Are prices standard across branches? If so, it might be the kind of product in 'Sports and travel' that are being sold in this branch. Need more data. Also, Its this related to why Female customers are consuming more 'Sports and travel' products?
 - Members are responsible for low revenue in 'Sports and travel' products on this branch due to use of credit card as payment method. It might be interesting to brainstorm ways of increasing revenue.
 
-<p align='center'><img width="413" alt="Dashboard 1" src="https://github.com/oterrab/portfolio-projects/blob/main/sql/supermarket/output/dashboard1.png"></p>
+<p align='center'><img width="1013" alt="Dashboard 1" src="https://github.com/oterrab/portfolio-projects/blob/main/sql/supermarket/output/dashboard1.png"></p>
 
-<p align='center'><img width="413" alt="Dashboard 2" src="https://github.com/oterrab/portfolio-projects/blob/main/sql/supermarket/output/dashboard2.png"></p>
+<p align='center'><img width="1013" alt="Dashboard 2" src="https://github.com/oterrab/portfolio-projects/blob/main/sql/supermarket/output/dashboard2.png"></p>
