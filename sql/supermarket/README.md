@@ -276,18 +276,17 @@ GROUP BY city;
 
 <br/>
 <p align='center'><img width="243" alt="Screen Shot 2022-08-06 at 13 05 41" src="https://user-images.githubusercontent.com/59098085/183256848-481943f5-4cb5-4f41-99fb-c92b1102b79b.png"></p>
-
 <br/>
 
 <br/><p align='center'>That's interesting. There is a difference between 24% and 33% in unit price.<br/></p>
 <br/>
 
-    Evidences so far:<br/>
-    - Naypyitaw is the city with 10% more female customers than male customers.<br/>
-    - While Man consume more 'Sports and travel' products in other branches. In Naypyitaw, Females are consuming more 'Sports and travel' products.<br/>
-    - Naypyitaw branch is selling less quantity of 'Sports and travel' products.<br/>
-    - Tax amount paid in Naypyitaw are higher than in other branches.<br/>
-    - Price of each product in Naypyitaw is 24% to 33% lower.<br/>
+Evidences so far:<br/>
+- Naypyitaw is the city with 10% more female customers than male customers.<br/>
+- While Man consume more 'Sports and travel' products in other branches. In Naypyitaw, Females are consuming more 'Sports and travel' products.<br/>
+- Naypyitaw branch is selling less quantity of 'Sports and travel' products.<br/>
+- Tax amount paid in Naypyitaw are higher than in other branches.<br/>
+- Price of each product in Naypyitaw is 24% to 33% lower.<br/>
 <br/><p align='center'>
     It's a bit contradicting that Naypyitaw has lower price for each product and lower quantity but is paying higher tax amount.<br/></p>
 
