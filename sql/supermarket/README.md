@@ -43,9 +43,9 @@ ORDER BY city;
 <p align='center'><img width="505" alt="Screen Shot 2022-08-06 at 12 07 24" src="https://user-images.githubusercontent.com/59098085/183254813-db9ae47d-b50b-4930-b424-555b598e5cd8.png"></p>
 
 <br/>
-<p align='center'><strong>Branch B in Naypyitaw has 328 costumers in which 178 (54,3%) are Female and 150 Male (45,7%).<br/>
-    There are almost 10% more Female costumers.<br/>
-    Since its a interesting difference, let's dig in.</strong></p>
+<p align='center'>Branch B in Naypyitaw has 328 costumers in which 178 (54,3%) are Female and 150 Male (45,7%).<br/>
+  <strong>There are almost 10% more Female costumers.</strong><br/>
+    Since its a interesting difference, let's dig in.</p>
 <br/>
 
 ### Which product_line generate more revenue in Naypyitaw?
@@ -62,7 +62,7 @@ ORDER BY SUM(total) DESC;
 <p align='center'><img width="370" alt="Screen Shot 2022-08-06 at 12 09 46" src="https://user-images.githubusercontent.com/59098085/183254897-88e5a314-21d4-46dc-a0bd-0e8fa5776bce.png"></p>
 
 <br/>
-<p align='center'><strong><sup>'Food and beverages'</sup> is the product_line with most total revenue and <sup>'Home and lifestyle'</sup> is the product_line with least total revenue.</strong></p>
+<p align='center'>'Food and beverages' is the product_line with most total revenue and 'Home and lifestyle' is the product_line with least total revenue.</p>
 <br/>
 
 ### Is there any difference in costumer gender and product_line in Naypyitaw?
@@ -79,8 +79,8 @@ ORDER BY product_line;
 <p align='center'><img width="495" alt="Screen Shot 2022-08-06 at 12 11 35" src="https://user-images.githubusercontent.com/59098085/183254957-54bb4088-8225-437a-ab92-6e3049bc8017.png"></p>
 
 <br/>
-<p align='center'><strong>It seems that <sup>'Food and beverages'</sup> and <sup>'Sports and travel'</sup> are most consumed by Female.<br/>
-    While <sup>'Health and Beauty'</sup> consumed most by Males.</strong></p>
+<p align='center'>It seems that 'Food and beverages' and 'Sports and travel' are most consumed by Female.<br/>
+    While 'Health and Beauty' consumed most by Males.</p>
 <br/>
 
 ### How this compare to other branches/cities?
@@ -129,11 +129,11 @@ ORDER BY city;
 <br/>
 
 <br/>
-<p align='center'><strong>For <sup>'Food and beverages'</sup> the trend is the same in Mandalay and Naypyitaw but inverse in Yangon.<br/>
-    For <sup>'Sports and travel'</sup> it seems that being the most product line consumed by Female is a unique feature of Naypyitaw.<br/>
-    For <sup>'Health and Beauty'</sup> it seems that Naypyitaw is the inverse of Mandalay. While in Yangon male and female consume about the same amount.<br/>
+<p align='center'>For 'Food and beverages' the trend is the same in Mandalay and Naypyitaw but inverse in Yangon.<br/>
+    <strong>For 'Sports and travel' it seems that being the most product line consumed by Female is a unique feature of Naypyitaw.</strong><br/>
+    For 'Health and Beauty' it seems that Naypyitaw is the inverse of Mandalay. While in Yangon male and female consume about the same amount.<br/>
 <br/>
-    So far, Naypyitaw is the city with more female costumers and they are consuming a lot of <sup>'Sports and travel'</sup> products.<br/>
+    So far, Naypyitaw is the city with more female costumers and they are consuming a lot of 'Sports and travel' products.<br/>
 <br/></p>
 <br/>
 
@@ -166,12 +166,12 @@ ORDER BY product_line, gender;
 <br/>
 
 <br/>
-<p align='center'><strong>It seems that <sup>'Health and Beauty'</sup> is the most profitable product line in general.<br/>
+<p align='center'>It seems that 'Health and Beauty' is the most profitable product line in general.<br/>
     So, nothing new being the best product_line in Naypyitaw. Home and lifestyle is also pretty low.<br/>
-    Interestingly, <sup>'Sports and travel'</sup> is the 2nd best product_line in general but the second worst in Naypyitaw.</p>
+    <strong>Interestingly, 'Sports and travel' is the 2nd best product_line in general but the second worst in Naypyitaw.</strong></p>
 <br/>
 
-### How <sup>'Sports and travel'</sup> are performing in each branch?
+### How 'Sports and travel' are performing in each branch?
 
 ```sql
 SELECT product_line, city, SUM(ROUND(total)) AS total
@@ -183,4 +183,40 @@ GROUP BY product_line, city;
 <br/>
 <p align='center'><img width="470" alt="Screen Shot 2022-08-06 at 12 41 45" src="https://user-images.githubusercontent.com/59098085/183256003-1cb1b2ba-ec69-4a4f-a55f-1fb9690fac5c.png"></p>
 <br/>
+
+
+<br/>
+<p align='center'><strong>Naypyitaw is doing really bad in 'Sports and travel'.<br/></p></strong>
+<br/>
+Evidence so far:<br/>
+    - Naypyitaw is the city with 10% more female customers than male customers.<br/>
+    - While Man consume more 'Sports and travel' products in other branches. In Naypyitaw, Females are consuming more 'Sports and travel' products.<br/>
+<br/>
+<br/><p align='center'>
+    For some reason 'Sports and travel' are not performing well there.<br/>
+    Maybe is happening not because of the high number of female costumers, but low number of male costumers?<br/></p>
+<br/>
+  
+### How number of costumers compare in each branch/city?
+
+```sql
+SELECT city, COUNT(*) AS cnt
+FROM supermarket.`supermarket_sales - Sheet1`
+GROUP BY city
+ORDER BY city;
+```
+
+<br/>
+<p align='center'><img width="224" alt="Screen Shot 2022-08-06 at 12 45 24" src="https://user-images.githubusercontent.com/59098085/183256128-5b395b4f-56db-4113-987c-2e51aff6c569.png"></p>
+<br/>
+
+<br/>
+<p align='center'>They are about the same. It seems that number of costumers are not a relevant factor for this difference.<br/>
+    Then, <strong>why 'Sports and travel' products are performing poorly in this branch?</strong><br/>
+<br/>
+    This is interesting to investigate.<br/>
+    Let's broaden our vision and take a look at other factors that might be contributing for this.<br/></p>
+<br/>
+
+
 
