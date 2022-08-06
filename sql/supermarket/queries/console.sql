@@ -1,5 +1,6 @@
 select *
 from supermarket.`supermarket_sales - Sheet1`;
+
 /*
 Branch A is in Yangon, Branch B is in Naypyitaw and Branch C is in Mandalay.
 Naypyitaw, Mandalay and Yangon are all located in Myanmar.
