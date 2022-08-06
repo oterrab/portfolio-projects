@@ -278,3 +278,112 @@ GROUP BY city;
 <p align='center'><img width="243" alt="Screen Shot 2022-08-06 at 13 05 41" src="https://user-images.githubusercontent.com/59098085/183256848-481943f5-4cb5-4f41-99fb-c92b1102b79b.png"></p>
 
 <br/>
+
+<br/><p align='center'>That's interesting. There is a difference between 24% and 33% in unit price.<br/></p>
+<br/>
+
+    Evidences so far:<br/>
+    - Naypyitaw is the city with 10% more female customers than male customers.<br/>
+    - While Man consume more 'Sports and travel' products in other branches. In Naypyitaw, Females are consuming more 'Sports and travel' products.<br/>
+    - Naypyitaw branch is selling less quantity of 'Sports and travel' products.<br/>
+    - Tax amount paid in Naypyitaw are higher than in other branches.<br/>
+    - Price of each product in Naypyitaw is 24% to 33% lower.<br/>
+<br/><p align='center'>
+    It's a bit contradicting that Naypyitaw has lower price for each product and lower quantity but is paying higher tax amount.<br/></p>
+
+
+### Is it due to payment type difference?
+
+```sql
+SELECT city, payment, COUNT(payment) AS cnt
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+GROUP BY city, payment
+ORDER BY city;
+```
+
+<br/>
+<p align='center'><img width="356" alt="Screen Shot 2022-08-06 at 15 09 05" src="https://user-images.githubusercontent.com/59098085/183260848-5e44af5d-1125-4e0c-ad11-4e73505f167a.png"></p>
+<br/>
+
+<br/><p align='center'>Naypyitaw costumers are using more credit card than other payment methods.</p><br/>
+<br/>
+    Evidences so far:<br/>
+    - Naypyitaw is the city with 10% more female customers than male customers.<br/>
+    - While Man consume more 'Sports and travel' products in other branches. In Naypyitaw, Females are consuming more 'Sports and travel' products.<br/>
+    - Naypyitaw branch is selling less quantity of 'Sports and travel' products.<br/>
+    - Tax amount paid in Naypyitaw are higher than in other branches.<br/>
+    - Price of each product in Naypyitaw is 24% to 33% lower.<br/>
+    - Credit Card is the most used payment method in Naypyitaw. Other branches have Cash and Ewallet as most used payment method.<br/>
+<br/>
+<p align='center'>This last piece of evidence probably explains the contradiction between lower price for each product and higher tax amount.<br/></p>
+    
+
+### Does female costumers consume using more credit card?
+
+```sql
+SELECT city, gender, payment, COUNT(payment) AS cnt
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+  AND payment = 'Credit card'
+GROUP BY city, gender
+ORDER BY city, gender;
+```
+
+<br/>
+<p align='center'><img width="477" alt="Screen Shot 2022-08-06 at 15 13 32" src="https://user-images.githubusercontent.com/59098085/183261008-11b7aec2-9160-49cf-9f59-a0367aabba99.png"></p>
+<br/>
+
+<p align='center'>It seems that gender its not really a factor in this.<br/></p>
+<br/> 
+
+```sql
+SELECT city, customer_type, payment, COUNT(payment) AS cnt
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+  AND payment = 'Credit card'
+GROUP BY city, customer_type
+ORDER BY city, customer_type;
+```
+
+<br/>
+<p align='center'><img width="545" alt="Screen Shot 2022-08-06 at 15 16 03" src="https://user-images.githubusercontent.com/59098085/183261113-43321b4f-9dc8-46ff-b9aa-e2399f952882.png"></p>
+<br/>
+
+
+<p align='center'>We found another piece of evidence.<br/> 
+Members pay using more Credit Card than other payment methods.<br/></p>
+<br/> 
+
+    Evidences so far:<br/> 
+    - Naypyitaw is the city with 10% more female customers than male customers.<br/> 
+    - While Man consume more 'Sports and travel' products in other branches. In Naypyitaw, Females are consuming more 'Sports and travel' products.<br/> 
+    - Naypyitaw branch is selling less quantity of 'Sports and travel' products.<br/> 
+    - Tax amount paid in Naypyitaw are higher than in other branches.<br/> 
+    - Price of each product in Naypyitaw is 24% to 33% lower.<br/> 
+    - Credit Card is the most used payment method in Naypyitaw. Other branches have Cash and Ewallet as most used payment method.<br/> 
+    - Members pay using more Credit Card in all branches.<br/> 
+    
+    
+### Does this branch have more members?
+
+```sql
+SELECT city, customer_type, COUNT(customer_type) AS cnt
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+GROUP BY city, customer_type
+ORDER BY city, customer_type;
+```
+
+<br/>
+<p align='center'><img width="413" alt="Screen Shot 2022-08-06 at 15 17 31" src="https://user-images.githubusercontent.com/59098085/183261157-c27f01e8-06f7-4d5b-affd-e28a398a5b5c.png"></p>
+<br/>
+
+<p align='center'>Another evidence. Every branch has similar number os members and normal customers, except for Naypyitaw that has a lot more members.
+<br/></p>
+<br/>
+
+##Conclusions and Recommendations:
+- Marketing campaign for 'Sports and travel' products towards male customers in Naypyitaw. Its the only branch with this pattern.
+- Research why price of each product is lower in Naypyitaw. Are prices standard across branches? If so, it might be the kind of product in 'Sports and travel' that are being sold in this branch. Need more data. Also, Its this related to why Female customers are consuming more 'Sports and travel' products?
+- Members are responsible for low revenue in 'Sports and travel' products on this branch due to use of credit card as payment method. It might be interesting to brainstorm ways of increasing revenue.
