@@ -188,7 +188,7 @@ GROUP BY product_line, city;
 <br/>
 <p align='center'><strong>Naypyitaw is doing really bad in 'Sports and travel'.<br/></p></strong>
 <br/>
-Evidence so far:<br/>
+Evidences so far:<br/>
     - Naypyitaw is the city with 10% more female customers than male customers.<br/>
     - While Man consume more 'Sports and travel' products in other branches. In Naypyitaw, Females are consuming more 'Sports and travel' products.<br/>
 <br/>
@@ -215,8 +215,66 @@ ORDER BY city;
     Then, <strong>why 'Sports and travel' products are performing poorly in this branch?</strong><br/>
 <br/>
     This is interesting to investigate.<br/>
-    Let's broaden our vision and take a look at other factors that might be contributing for this.<br/></p>
+    Let's broaden our vision and take a look at other factors that might be contributing for this.<br/>
+<br/>
+    Besides number of costumers and gender, we have other factors that we can dig in.<br/></p>
+    <strong>They are:</strong><br/>
+    
+```
+    customer_type, is there any particular thing about this branch?
+    unit_price, are the branches selling the same product?
+    tax, different legislation?
+    payment could be influencing?
+    gross_margin_pct, branches have the same margin percentage?
+    quantity sold is different?
+```
+
+<br/>
+    <p align='center'>Gross Income is expected to be the same since the branch is performing bad with this product_line.</p><br/>
 <br/>
 
 
+### Tax, Gross Margin Percent and Gross Income comparison
 
+```sql
+SELECT city,
+       SUM(quantity)            AS quantity,
+       AVG(tax)                 AS tax,
+       SUM(ROUND(gross_income)) AS gross_income,
+       AVG(gross_margin_pct)    AS gross_percent
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+GROUP BY city;
+```
+
+<br/>
+<p align='center'><img width="823" alt="Screen Shot 2022-08-06 at 12 58 49" src="https://user-images.githubusercontent.com/59098085/183256582-4fa68945-b794-42dc-9c20-52058a2bb423.png"></p>
+<br/>
+<br/><p align='center'>
+So, Gross Margin Percent is relative similar between branches.<br/>
+Naypyitaw branch is selling less quantity of 'Sports and travel' products.<br/>
+Naypyitaw branch is paying more taxes although the tax is 5% at all branches.<br/>
+But still, 1% difference in taxes does not explain 20% difference in gross income.<br/>
+And how this branch is paying more taxes while selling less products?<br/></p>
+<br/>
+<br/>
+Evidences so far:<br/>
+    - Naypyitaw is the city with 10% more female costumers than male costumer.<br/>
+    - While Man consume more 'Sports and travel' products in other branches. In Naypyitaw, Females are consuming more 'Sports and travel' products.<br/>
+    - Naypyitaw branch is selling less quantity of 'Sports and travel' products.<br/>
+    - Tax amount paid in Naypyitaw are higher than in other branches.<br/>
+
+### Unit Price
+
+```sql
+SELECT city, SUM(ROUND(unit_price)) AS total
+FROM supermarket.`supermarket_sales - Sheet1`
+WHERE product_line = 'Sports and travel'
+GROUP BY city;
+```
+
+
+<br/>
+<p align='center'><img width="243" alt="Screen Shot 2022-08-06 at 13 05 41" src="https://user-images.githubusercontent.com/59098085/183256848-481943f5-4cb5-4f41-99fb-c92b1102b79b.png"></p>
+
+<br/>
