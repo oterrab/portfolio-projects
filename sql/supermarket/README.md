@@ -12,6 +12,7 @@ The growth of supermarkets in most populated cities are increasing and market co
 
 Naypyitaw, Mandalay and Yangon are all located in Myanmar.
 
+***
 
 ### Which gender frequent more the supermarket?
 
@@ -381,6 +382,8 @@ ORDER BY city, customer_type;
 <p align='center'>Another evidence. Every branch has similar number os members and normal customers, except for Naypyitaw that has a lot more members.
 <br/></p>
 <br/>
+
+***
 
 ## Conclusions and Recommendations:
 - Marketing campaign for 'Sports and travel' products towards male customers in Naypyitaw. Its the only branch with this pattern.
