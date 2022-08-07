@@ -1,10 +1,50 @@
 # 🍉 Supermarket Sales
 
-Click [HERE](https://www.kaggle.com/datasets/aungpyaeap/supermarket-sales) to take a look at the dataset on Kaggle.
+<br/><p align='center'> Click <a href="https://www.kaggle.com/datasets/aungpyaeap/supermarket-sales">HERE</a> to take a look at the dataset on Kaggle.</p><br/>
+
 
 ***
 
-## 🍪 Context on this Dataset
+## Table of Contents
+
+- [Resume 🕜](#resume)
+- [Context on this Dataset 🍪](#context-on-this-dataset)
+- [Attribute information 🍅](#attribute-information)
+- [Line of Thoughts ⏳](#line-of-thoughts)
+- [Conclusions and Recommendations ‼️](#conclusions-and-recommendations)
+
+## Resume
+
+<br/>
+<p align="justify">I've decided to start my research by trying to find loose threads in the dataset. To do that, I've started by analyzing gender ratio in purchases acorss branches. Interestingly, I've found that although gender ratio is roughly the same across all stores (50%), when you take a look closely at each branch, we see that in Naypyitaw (Branch B) there are almost 10% more Female costumers than in other branches. Other branches end up compensating for the gender ratio when we look at the big picture (<strong>Dashboard 1</strong>).</p>
+
+<br/><p align='center'><a href="https://public.tableau.com/app/profile/lucas3607/viz/Marketing1_wb/Marketing1">Link to Dashboard 1 on Tableau Public</a></p><br/>
+
+<p align='center'><img width="913" alt="Dashboard 1" src="https://github.com/oterrab/portfolio-projects/blob/main/sql/supermarket/output/dashboard1.png"></p>
+<br/>
+<br/>
+<p align="justify">After noticing this difference I've decided to dig in more and researched for product lines differences between branches and in general. I've discovered that Naypyitaw (Branch B) is the only branch in which 'Sports and Travel' (S&T) is more consumed by women (<strong>Dashboard 1</strong>). Also, while S&T has the 2nd total amount sold in all branches, Naypyitaw (Branch B) is the branch which is selling worse (<strong>Dashboard 2</strong>).</p>
+
+<br/><p align='center'><a href="https://public.tableau.com/app/profile/lucas3607/viz/Marketing1_wb/Marketing2">Link to Dashboard 2 on Tableau Public</a></p><br/>
+
+<p align='center'><img width="913" alt="Dashboard 2" src="https://github.com/oterrab/portfolio-projects/blob/main/sql/supermarket/output/dashboard2.png"></p>
+<br/>
+<br/>
+<p align="justify">After noticing this difference, I've decided to deepen my research at this point. My first reaction was think about difference in number os customers in each branch. I've saw that there was a slightly difference in number of customers, in which  Naypyitaw (Branch B) had the lowest number of customers, but it did not explain the bad performance. I've analyzed all factors that the dataset gave me, Customer Type, Unit Price, Tax, Payment Method, Gross Margin Percent and Quantity Sold.<br/>
+<br/></p>
+
+<p align="justify">I've noticed that Naypyitaw (Branch B) is paying 1% more taxes although the tax is 5% at all branches (not shown in dashboards). Additionaly, the price of each S&T product in Naypyitaw is 24% to 33% lower compared to other branches. This was very curious because this branch is paying 1% more taxes while selling less products (<strong>Dashboard 2</strong>), selling for less each product and generating less total amount sold. This made me think that there could be another factors responsible for this, Payment Method.<br/>
+<br/></p>
+
+<p align="justify">I've discovered that while credit card is the most used payment method in  Naypyitaw (Branch B), other branches have cash and ewallet as the most used payment method (<strong>Dashboard 2</strong>). So, my next natural reaction was to try to understand why consumers in  Naypyitaw (Branch B) use more credit cards than in other branches. I've discovered that members customers in general (all branches) usually pay using credit card. While every branch has similar number of members and normal customers, Naypyitaw has a lot more members (<strong>Dashboard 2</strong>).
+
+<br/>
+<br/></p>
+
+
+***
+
+## Context on this Dataset
 
 The growth of supermarkets in most populated cities are increasing and market competitions are also high. The dataset is one of the historical sales of supermarket company which has recorded in 3 different branches for 3 months data. 
 
@@ -16,7 +56,7 @@ Naypyitaw, Mandalay and Yangon are all located in Myanmar.
 
 ***
 
-## 🍅 Attribute information
+## Attribute information
 <br/>
 <strong>Invoice id:</strong> Computer generated sales slip invoice identification number.<br/>
 <strong>Branch:</strong> Branch of supercenter (3 branches are available identified by A, B and C).<br/>
@@ -38,6 +78,8 @@ Naypyitaw, Mandalay and Yangon are all located in Myanmar.
 <br/>
 
 ***
+
+## Line of Thoughts
 
 ### Which gender frequent more the supermarket?
 
@@ -404,7 +446,7 @@ ORDER BY city, customer_type;
 <p align='center'><img width="413" alt="Screen Shot 2022-08-06 at 15 17 31" src="https://user-images.githubusercontent.com/59098085/183261157-c27f01e8-06f7-4d5b-affd-e28a398a5b5c.png"></p>
 <br/>
 
-<p align='center'>Another evidence. Every branch has similar number os members and normal customers, except for Naypyitaw that has a lot more members.
+<p align='center'>Another evidence. Every branch has similar number of members and normal customers, except for Naypyitaw that has a lot more members.
 <br/></p>
 <br/>
 
