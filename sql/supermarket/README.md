@@ -1,6 +1,6 @@
 # 🍉 Supermarket Sales
 
-I've analyzed this dataset which is the historical sales of a supermarket company in Myanmar which has recorded data from 3 different branches for 3 months data. I've draw conclusions in which I believe there are meaningful opportunities in Naypyitaw (Branch B) to increase revenue.
+<p align="justify">I've analyzed this dataset which is the historical sales of a supermarket company in Myanmar which has recorded data from 3 different branches for 3 months data. I've draw conclusions in which I believe there are meaningful opportunities in Naypyitaw (Branch B) to increase revenue.</p>
 
 <br/><p align='center'> Click <a href="https://www.kaggle.com/datasets/aungpyaeap/supermarket-sales">HERE</a> to take a look at the dataset on Kaggle.</p><br/>
 
