@@ -17,6 +17,15 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 
 ***
 
+# Analysis
+
+| Course | Description | SQL 'Flavour' |
+|:---|---|:--:|
+| 🍉 [Supermarket](https://github.com/oterrab/portfolio-projects/blob/main/sql/supermarket/README.md) | <p align="justify">  I've analyzed this dataset which is the historical sales of a supermarket company in Myanmar which has recorded data from 3 different branches for 3 months data. I've draw conclusions in which I believe there are meaningful opportunities in Naypyitaw (Branch B) to increase revenue.</p> | MySQL |
+
+
+***
+
 # Courses
 
 | Course | Description | SQL 'Flavour' |
