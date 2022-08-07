@@ -36,11 +36,19 @@
 <p align="justify">I've noticed that Naypyitaw (Branch B) is paying 1% more taxes although the tax is 5% at all branches (not shown in dashboards). Additionaly, the price of each S&T product in Naypyitaw is 24% to 33% lower compared to other branches. This was very curious because this branch is paying 1% more taxes while selling less products (<strong>Dashboard 2</strong>), selling for less each product and generating less total amount sold. This made me think that there could be another factors responsible for this, Payment Method.<br/>
 <br/></p>
 
-<p align="justify">I've discovered that while credit card is the most used payment method in  Naypyitaw (Branch B), other branches have cash and ewallet as the most used payment method (<strong>Dashboard 2</strong>). So, my next natural reaction was to try to understand why consumers in  Naypyitaw (Branch B) use more credit cards than in other branches. I've discovered that members customers in general (all branches) usually pay using credit card. While every branch has similar number of members and normal customers, Naypyitaw has a lot more members (<strong>Dashboard 2</strong>).
-
-<br/>
+<p align="justify">I've discovered that while credit card is the most used payment method in  Naypyitaw (Branch B), other branches have cash and ewallet as the most used payment method (<strong>Dashboard 2</strong>). So, my next natural reaction was to try to understand why consumers in  Naypyitaw (Branch B) use more credit cards than in other branches. I've discovered that members customers in general (all branches) usually pay using credit card. While every branch has similar number of members and normal customers, Naypyitaw has a lot more members (<strong>Dashboard 2</strong>).<br/>
 <br/></p>
 
+<p align="justify">In conclusion, I believe there is an opportunity in this branch to increase revenue. There are peculiarities that can be the target of company actions, whether marketing or policy change. Are they: <br/>
+<br/></p>
+
+- Naypyitaw (Branch B) has almost 10% more Female costumers than in other branches.
+- Naypyitaw (Branch B) is the only branch in which 'Sports and Travel' (S&T) is more consumed by women.
+- S&T unit price product in Naypyitaw is 24% to 33% lower compared to other branches. Are prices standard across branches? If so, it might be the kind of product in S&T that are being sold in this branch. **Need more data.** Also, Its this related to why Female customers are consuming more 'Sports and travel' products?
+- Members are partially responsible for lower revenue in S&T products in Naypyitaw (Branch B) due to use of credit card as payment method.
+
+<p align="justify">It might be interesting to keep researching and take a look at other data. For example, the dataset provides the days that purchases were made. Does this have any influence on branch revenue? The dataset does not have the age of the consumers. This may be a relevant factor considering that older consumers may buy less S&T. What is the age distribution of consumers and what is the age distribution of the city of Naypyitaw? <br/>
+<br/></p>
 
 ***
 
@@ -453,10 +461,15 @@ ORDER BY city, customer_type;
 ***
 
 ## Conclusions and Recommendations:
-- Marketing campaign for 'Sports and travel' products towards male customers in Naypyitaw. Its the only branch with this pattern.
-- Research why price of each product is lower in Naypyitaw. Are prices standard across branches? If so, it might be the kind of product in 'Sports and travel' that are being sold in this branch. Need more data. Also, Its this related to why Female customers are consuming more 'Sports and travel' products?
-- Members are responsible for low revenue in 'Sports and travel' products on this branch due to use of credit card as payment method. It might be interesting to brainstorm ways of increasing revenue.
 
-<p align='center'><img width="1013" alt="Dashboard 1" src="https://github.com/oterrab/portfolio-projects/blob/main/sql/supermarket/output/dashboard1.png"></p>
 
-<p align='center'><img width="1013" alt="Dashboard 2" src="https://github.com/oterrab/portfolio-projects/blob/main/sql/supermarket/output/dashboard2.png"></p>
+<p align="justify">In conclusion, I believe there is an opportunity in this branch to increase revenue. There are peculiarities that can be the target of company actions, whether marketing or policy change. Are they: <br/>
+<br/></p>
+
+- Naypyitaw (Branch B) has almost 10% more Female costumers than in other branches.
+- Naypyitaw (Branch B) is the only branch in which 'Sports and Travel' (S&T) is more consumed by women.
+- S&T unit price product in Naypyitaw is 24% to 33% lower compared to other branches. Are prices standard across branches? If so, it might be the kind of product in S&T that are being sold in this branch. **Need more data.** Also, Its this related to why Female customers are consuming more 'Sports and travel' products?
+- Members are partially responsible for lower revenue in S&T products in Naypyitaw (Branch B) due to use of credit card as payment method.
+
+<p align="justify">It might be interesting to keep researching and take a look at other data. For example, the dataset provides the days that purchases were made. Does this have any influence on branch revenue? The dataset does not have the age of the consumers. This may be a relevant factor considering that older consumers may buy less S&T. What is the age distribution of consumers and what is the age distribution of the city of Naypyitaw? <br/>
+<br/></p>
