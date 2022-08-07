@@ -10,6 +10,7 @@ Feel free to chat with me on [LinkedIn](https://www.linkedin.com/in/lucaspassosb
 
 ## 📚 Table of Contents
 
+- [Analysis](#analysis)
 - [Courses](#courses)
 - [Problem-Solving](#problem-solving)
 
