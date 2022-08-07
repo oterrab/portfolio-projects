@@ -17,7 +17,7 @@
 ## Resume
 
 <br/>
-<p align="justify">I've decided to start my research by trying to find loose threads in the dataset. To do that, I've started by analyzing gender ratio in purchases acorss branches. Interestingly, I've found that although gender ratio is roughly the same across all stores (50%), when you take a look closely at each branch, we see that in Naypyitaw (Branch B) there are almost 10% more Female costumers than in other branches. Other branches end up compensating for the gender ratio when we look at the big picture (<strong>Dashboard 1</strong>).</p>
+<p align="justify">I've decided to start my research by trying to find loose threads in the dataset. To do that, I've started by analyzing gender ratio in purchases across branches. Interestingly, I've found that although gender ratio is roughly the same across all stores (50%), when you take a look closely at each branch, we see that in Naypyitaw (Branch B) there are almost 10% more Female costumers than in other branches. Other branches end up compensating for the gender ratio when we look at the big picture (<strong>Dashboard 1</strong>).</p>
 
 <br/><p align='center'><a href="https://public.tableau.com/app/profile/lucas3607/viz/Marketing1_wb/Marketing1">Link to Dashboard 1 on Tableau Public</a></p><br/>
 
@@ -31,7 +31,7 @@
 <p align='center'><img width="913" alt="Dashboard 2" src="https://github.com/oterrab/portfolio-projects/blob/main/sql/supermarket/output/dashboard2.png"></p>
 <br/>
 <br/>
-<p align="justify">After noticing this difference, I've decided to deepen my research at this point. My first reaction was think about difference in number os customers in each branch. I've saw that there was a slightly difference in number of customers, in which  Naypyitaw (Branch B) had the lowest number of customers, but it did not explain the bad performance. I've analyzed all factors that the dataset gave me, Customer Type, Unit Price, Tax, Payment Method, Gross Margin Percent and Quantity Sold.<br/>
+<p align="justify">Seeing that, I've decided to deepen my research at this point. My first reaction was think about difference in number os customers in each branch. I've saw that there was a slightly difference in number of customers, in which  Naypyitaw (Branch B) had the lowest number of customers, but it did not explain the bad performance. I've analyzed all factors that the dataset gave me, Customer Type, Unit Price, Tax, Payment Method, Gross Margin Percent and Quantity Sold.<br/>
 <br/></p>
 
 <p align="justify">I've noticed that Naypyitaw (Branch B) is paying 1% more taxes although the tax is 5% at all branches (not shown in dashboards). Additionaly, the price of each S&T product in Naypyitaw is 24% to 33% lower compared to other branches. This was very curious because this branch is paying 1% more taxes while selling less products (<strong>Dashboard 2</strong>), selling for less each product and generating less total amount sold. This made me think that there could be another factors responsible for this, Payment Method.<br/>
