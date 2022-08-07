@@ -14,7 +14,7 @@ Feel free to chat with me on [LinkedIn](https://www.linkedin.com/in/lucaspassosb
 - [Courses](#courses)
 - [Problem-Solving](#problem-solving)
 
-_Click on the project's title (**bold** and coloured in Blue) to view my projects! Thank you!_
+_Click on the title (coloured in Blue) for detailed view! Thank you!_
 
 ***
 
