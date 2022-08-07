@@ -1,7 +1,8 @@
 # 🍉 Supermarket Sales
 
-<br/><p align='center'> Click <a href="https://www.kaggle.com/datasets/aungpyaeap/supermarket-sales">HERE</a> to take a look at the dataset on Kaggle.</p><br/>
+I've analyzed this dataset which is the historical sales of a supermarket company in Myanmar which has recorded data from 3 different branches for 3 months data. I've draw conclusions in which I believe there are meaningful opportunities in Naypyitaw (Branch B) to increase revenue.
 
+<br/><p align='center'> Click <a href="https://www.kaggle.com/datasets/aungpyaeap/supermarket-sales">HERE</a> to take a look at the dataset on Kaggle.</p><br/>
 
 ***
 
@@ -54,7 +55,7 @@
 
 ## Context on this Dataset
 
-The growth of supermarkets in most populated cities are increasing and market competitions are also high. The dataset is one of the historical sales of supermarket company which has recorded in 3 different branches for 3 months data. 
+The growth of supermarkets in most populated cities are increasing and market competitions are also high. The dataset is one of the historical sales of supermarket company which was recorded in 3 different branches for 3 months data. 
 
   - Branch A is in Yangon. 
   - Branch B is in Naypyitaw.
