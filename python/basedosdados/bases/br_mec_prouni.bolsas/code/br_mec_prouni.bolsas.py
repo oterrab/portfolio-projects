@@ -1,14 +1,15 @@
 
 import os
 import pandas as pd
+import numpy as np
 import glob
 import time
 
 # Setting working directory
 
-os.chdir(r'/Users/lucaspb/Documents/Arquivos Profissionais/BD/Bases/br_mec_prouni.bolsas')
+os.chdir(r'/Users/lucaspb/git-repositories/portfolio-projects/python/basedosdados/bases/br_mec_prouni.bolsas')
 
-# Setting rename os columns and reorder
+# Setting parameters for renaming and reordering of columns
 
 rename = {'ANO_CONCESSAO_BOLSA':'ano', 
           'ï»¿ANO_CONCESSAO_BOLSA':'ano',
@@ -42,7 +43,7 @@ ordem2020 = ['ano', 'sigla_uf', 'id_municipio', 'cpf', 'sexo', 'raca_cor', 'data
          'beneficiario_deficiente', 'id_ies', 'campus', 'id_municipio_ies', 'curso', 'turno_curso', 'tipo_bolsa', 'modalidade_ensino']
 
 
-# Settings for partition output 
+# Settings parameters for partitioning the output 
 
 anos = [2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020]
 
@@ -50,7 +51,7 @@ ufs = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', '
        'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']
 
 
-# Create Output partitioned
+# Creating folders for output partitioning
 ## chmod -R 777 output
 for ano in anos:
   for uf in ufs:
@@ -59,13 +60,15 @@ for ano in anos:
       os.makedirs(directory)
 
 
-# Get CSV files list from a folder
+# Getting CSV files list from my folder
 path = 'input/'
 csv_files = glob.glob(path + "/*.csv")
 
-# Read into one big dataframe
+# Reading into a list of dataframes
 dfs = [pd.read_csv(file, sep=";", encoding='latin-1') for file in csv_files]
-#prounidata = pd.concat(dfs,ignore_index=True)
+
+## this could be made into one bit dataframe, but I've decided not to go on this route
+## prounidata = pd.concat(dfs,ignore_index=True)
 
 # Cleaning data
 for df in dfs:
@@ -90,8 +93,55 @@ for i in range(len(dfs)):
         dfs[i] = dfs[i][ordem]
     if ano == 2020:
         dfs[i] = dfs[i][ordem2020]   
-        
-# Saving
+
+# Setting to replace counties names for its unique id
+## Importing dataframe with counties and unique ids
+id_uf = pd.read_csv(r'/Users/lucaspb/git-repositories/portfolio-projects/python/basedosdados/assets/dir_municipio.csv', sep=',', dtype='string')
+
+## Normalizing names
+### Upper Case
+id_uf = id_uf.applymap(lambda s: s.upper() if type(s) == str else s)
+
+for df in dfs:
+    ano = int(df['ano'][0])
+    if ano != 2020:
+        df['id_municipio'] = df['id_municipio'].apply(lambda s: s.upper() if type(s) == str else s)
+    if ano == 2020: 
+        df['id_municipio'] = df['id_municipio'].apply(lambda s: s.upper() if type(s) == str else s)
+        df['id_municipio_ies'] = df['id_municipio_ies'].apply(lambda s: s.upper() if type(s) == str else s)
+
+
+### Removing accentuation
+cols = id_uf.select_dtypes(include=[np.object]).columns
+id_uf[cols] = id_uf[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
+id_uf['f0_'] = id_uf['f0_'].apply(lambda x: x.replace("‘", ' ').replace("’", ' ').replace("'", ' '))
+
+for df in dfs:
+    ano = int(df['ano'][0])
+    if ano != 2020:
+        #df['id_municipio'] = [unidecode.unidecode(x) for x in df['id_municipio']]
+        df['id_municipio'] = [lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8') for x in df['id_municipio']]
+        df['id_municipio'] = df['id_municipio'].apply(lambda x: x.replace("‘", ' ').replace("’", ' ').replace("'", ' ') if type(x) == str else x)
+    if ano == 2020: 
+        cols = df.select_dtypes(include=[np.object]).id_municipio
+        df[cols] = df[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
+        df['id_municipio'] = df['id_municipio'].apply(lambda x: x.replace("‘", ' ').replace("’", ' ').replace("'", ' '))
+        cols = df.select_dtypes(include=[np.object]).id_municipio_ies
+        df[cols] = df[cols].apply(lambda x: x.str.normalize('NFKD').str.encode('ascii', errors='ignore').str.decode('utf-8'))
+        df['id_municipio_ies'] = df['id_municipio_ies'].apply(lambda x: x.replace("‘", ' ').replace("’", ' ').replace("'", ' '))
+
+## Replacing counties names for its unique id 
+id_uf = id_uf.set_index('f0_').to_dict()['id_municipio']
+
+for i in range(len(dfs)):
+    ano = int(dfs[i]['ano'].iat[0])
+    if ano != 2020:
+        dfs[i] = dfs[i].replace({"id_municipio": id_uf})
+    if ano == 2020:
+        dfs[i] = dfs[i].replace({"id_municipio": id_uf})
+        dfs[i] = dfs[i].replace({"id_municipio_ies": id_uf})
+
+# Saving partitioned data into specific folders
 for df in dfs:
     ano = int(df['ano'][0])
     print("Particionando ano {}".format(ano))
