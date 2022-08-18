@@ -8,7 +8,7 @@
 <br/>
 <p align="center">
   <a href="https://basedosdados.org">
-    <img src="docs/images/bdmais_logo.png" width="340" alt="Base dos Dados Mais">
+    <img src="https://github.com/basedosdados/mais/raw/master/docs/images/bdmais_logo.png" width="340" alt="Base dos Dados Mais">
   </a>
 </p>
 
@@ -20,9 +20,6 @@
 <p align="center">
   <a href="https://twitter.com/basedosdados" target="_blank">
     <img src="https://img.shields.io/twitter/follow/basedosdados?style=social" alt="Tweet">
-  </a>
-  <a href="https://discord.gg/huKWpsVYx4" target="_blank">
-    <img src="https://img.shields.io/discord/787841210433536010" alt="Discord">
   </a>
   <a href="https://apoia.se/basedosdados" target="_blank">
     <img src="https://img.shields.io/badge/apoie!%E2%9D%A4%EF%B8%8F-ff69b4" alt="Apoiase">
