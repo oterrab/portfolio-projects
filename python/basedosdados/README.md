@@ -26,7 +26,7 @@
   </a>
 </p>
 
-A Base dos Dados Mais (BD+) é um datalake público no Google BigQuery com
+A [Base dos Dados Mais (BD+)](https://github.com/basedosdados/mais) é um datalake público no Google BigQuery com
 os principais conjuntos de dados abertos do Brasil. Na [BD+](https://github.com/basedosdados/mais) você encontra tabelas tratadas e prontas para uso de forma
 gratuita.
 
