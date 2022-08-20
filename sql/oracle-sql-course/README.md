@@ -3884,7 +3884,7 @@ Result:
 
 Write 2 versions of the query:  the first one using a subquery and the second one using an aggregate function and an outer join.</strong>
 
-Version 1 - Using Subquery <br/>
+**Version 1** - Using Subquery <br/>
 Solution 1
 
 ```sql
@@ -3901,6 +3901,7 @@ where  (
 group by department_id, department_name
 order by department_name;
 ```
+
 Solution 2
 
 ```sql
@@ -3918,7 +3919,7 @@ order by department_name;
 ```
 
 
-Version 2 - Using Join and Agragate Function
+**Version 2** - Using Join and Agragate Function
 
 ```sql
 select d.department_id, d.department_name
