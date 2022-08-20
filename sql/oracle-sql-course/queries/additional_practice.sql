@@ -110,7 +110,12 @@ Write a query to list the names of the departments for which there are more than
 The results must be ordered by the number of employees, in descending order.   
 */
 
-
+select department_name, count(employee_id) as employees
+from departments d
+left outer join employees e on d.department_id = e.department_id
+having count(employee_id)>5
+group by department_name
+order by count(employee_id) desc;
 
 
 /*
@@ -121,8 +126,42 @@ The departments must be ordered alphabetically.
 Write 2 versions of the query:  the first one using a subquery and the second one using an aggregate function and an outer join.
 */
 
+-- Version 1
+-- Solution 1
+select 
+    department_name, 
+    department_id
+from departments d
+where  (
+            select count(employee_id)
+            from employees e 
+            where e.department_id = d.department_id
+            having count(employee_id) = 0
+        ) = 0
+group by department_id, department_name
+order by department_name;
 
+-- Solution 2
+select 
+    department_name, 
+    department_id
+from departments d
+where not exists (
+            select employee_id
+            from employees e 
+            where e.department_id = d.department_id
+        )
+group by department_id, department_name
+order by department_name;
 
+-- Version 2
+
+select d.department_id, d.department_name
+from departments d
+left outer join employees e on d.department_id = e.department_id
+having count(employee_id)=0
+group by d.department_id, d.department_name
+order by department_name;
 
 /*
 Write a query to list all locations for which there is at least one employee,  applying the following conditions:    
