@@ -3866,10 +3866,16 @@ Result:
 
 
 ```sql
-
+select department_name, count(employee_id) as employees
+from departments d
+left outer join employees e on d.department_id = e.department_id
+having count(employee_id)>5
+group by department_name
+order by count(employee_id) desc;
 ```
 
 Result:  
+<img width="206" alt="Screen Shot 2022-08-20 at 12 35 33" src="https://user-images.githubusercontent.com/59098085/185754856-36075e90-e1c2-4f23-aed0-ac062a3f0bca.png">
 
 
 #### 📌 C69: Write a query to list the id and names of departments that don’t have any employee,  applying the following conditions:    
