@@ -60,11 +60,31 @@ Result:
 
 ### Question 3: Create a query that returns the number of employees per department, including departments without employees.
 
+Solution sent as correct answer
+
 ```sql
 SELECT dept.dname, COUNT(emp.empno) AS count
 FROM scott.dept
 LEFT OUTER JOIN scott.emp ON emp.deptno = dept.deptno
 GROUP BY dept.dname;
+```
+
+Solution using subqueries but it is less efficient
+
+```sql
+SELECT 
+        dept.dname,
+        (
+        SELECT COUNT(emp.empno) AS count
+        from scott.emp
+        where emp.deptno = dept.deptno
+        ) as count
+FROM scott.dept
+WHERE (
+        SELECT COUNT(emp.empno) AS count
+        from scott.emp
+        where emp.deptno = dept.deptno
+    ) >= 0;
 ```
 
 Result:  
