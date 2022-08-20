@@ -3731,11 +3731,14 @@ pivot
 
 #### 📌 C63: Write a query to generate a list of employees applying the following conditions:    
 
-<strong>The results include the employee_id, first_name and last_name columns, but the column titles must use blank spaces to separate words, instead of underscores.
+<strong>
 
-The salary is less than 3000.
+- The results include the employee_id, first_name and last_name columns, but the column titles must use blank spaces to separate words, instead of underscores.
 
-The first or last names start with ‘G’.</strong>
+- The salary is less than 3000.
+
+- The first or last names start with ‘G’.
+</strong>
 
 
 ```sql
@@ -3755,11 +3758,14 @@ Result:
 
 #### 📌 C64: Write a query to generate a list of employees who are managers of more than 6 employees, applying the following conditions:        
 
-<strong>The results include only the employee_id and the number of employees for whom he/she is the manager.
+<strong>
 
-The results must be ordered by employee id in descending order.
+- The results include only the employee_id and the number of employees for whom he/she is the manager.
 
-Even though you will use the manager_id column in your query, the results must display it as employee_id.</strong>
+- The results must be ordered by employee id in descending order.
+
+- Even though you will use the manager_id column in your query, the results must display it as employee_id.
+</strong>
 
 
 ```sql
@@ -3781,9 +3787,11 @@ Result:
 #### 📌 C65: Write a query to generate a list of the 5 employees who have more time working for the company, applying the following conditions:        
 
 <strong>
-The results include only the employee_id, first_name, last_name, hire_date, and commission_pct.
 
-The query takes into account only employees who have a commission_pct  defined  which is smaller than 0.3. </strong>
+- The results include only the employee_id, first_name, last_name, hire_date, and commission_pct.
+
+- The query takes into account only employees who have a commission_pct  defined  which is smaller than 0.3. 
+</strong>
 
 
 ```sql
@@ -3810,9 +3818,12 @@ Result:
 
 #### 📌 C66: The email address of employees is expected to be constructed by concatenating the first letter of the first_name with the last_name.  Write a query to generate a list of employees whose registered email is different from the expected email, applying the following conditions:        
 
-<strong>The results include only employees of these departments: Marketing, Purchasing, Executive.
+<strong>
 
-Take into account the fact that the email is stored in uppercase, so make sure the expected email is constructed in uppercase too.   </strong>
+- The results include only employees of these departments: Marketing, Purchasing, Executive.
+
+- Take into account the fact that the email is stored in uppercase, so make sure the expected email is constructed in uppercase too.
+</strong>
 
 
 ```sql
@@ -3834,11 +3845,14 @@ Result:
 
 #### 📌 C67: Write a query to generate a report of employees that includes a column with the last digits of the phone number,  applying the following conditions:         
 
-<strong>The “last digits” of the phone number are those that are after the last dot (.)
+<strong>
 
-The results must include employees from the Marketing department.  Employees from other departments can be included only if they have a salary that is greater than or equal to 6000 and smaller than or equal to 6500.
+- The “last digits” of the phone number are those that are after the last dot (.)
 
-The results must be ordered by department_id.</strong>
+- The results must include employees from the Marketing department.  Employees from other departments can be included only if they have a salary that is greater than or equal to 6000 and smaller than or equal to 6500.
+
+- The results must be ordered by department_id.
+</strong>
 
 
 ```sql
@@ -3862,7 +3876,10 @@ Result:
 
 #### 📌 C68:  Write a query to list the names of the departments for which there are more than 5 employees,  applying the following conditions:   
 
-<strong>The results must be ordered by the number of employees, in descending order.</strong>
+<strong>
+
+- The results must be ordered by the number of employees, in descending order.
+</strong>
 
 
 ```sql
@@ -3880,9 +3897,12 @@ Result:
 
 #### 📌 C69: Write a query to list the id and names of departments that don’t have any employee,  applying the following conditions:    
 
-<strong>The departments must be ordered alphabetically.
+<strong>
 
-Write 2 versions of the query:  the first one using a subquery and the second one using an aggregate function and an outer join.</strong>
+- The departments must be ordered alphabetically.
+- Write 2 versions of the query:  the first one using a subquery and the second one using an aggregate function and an outer join.
+
+</strong>
 
 **Version 1** - Using Subquery <br/>
 Solution 1
