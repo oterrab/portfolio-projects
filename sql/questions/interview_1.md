@@ -37,9 +37,10 @@ we have replace sysdate with a specific date, for example, TO_DATE('04-12-1981',
 
 SELECT ename, hiredate
 FROM scott.emp
-WHERE (hiredate BETWEEN sysdate - 30
+WHERE (
+        hiredate BETWEEN sysdate - 30
                          AND sysdate
-);
+      );
 ```
 
 Result:  
@@ -99,7 +100,7 @@ SELECT empno, job, sal
 FROM (
     SELECT E.*, RANK() OVER(PARTITION BY job ORDER BY sal) rn
     FROM scott.emp E
-) E
+      ) E
 WHERE rn = 1;
 ```
 
