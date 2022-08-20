@@ -3884,12 +3884,53 @@ Result:
 
 Write 2 versions of the query:  the first one using a subquery and the second one using an aggregate function and an outer join.</strong>
 
+Version 1 - Using Subquery <br/>
+Solution 1
 
 ```sql
+select 
+    department_name, 
+    department_id
+from departments d
+where  (
+            select count(employee_id)
+            from employees e 
+            where e.department_id = d.department_id
+            having count(employee_id) = 0
+        ) = 0
+group by department_id, department_name
+order by department_name;
+```
+Solution 2
 
+```sql
+select 
+    department_name, 
+    department_id
+from departments d
+where not exists (
+            select employee_id
+            from employees e 
+            where e.department_id = d.department_id
+        )
+group by department_id, department_name
+order by department_name;
+```
+
+
+Version 2 - Using Join and Agragate Function
+
+```sql
+select d.department_id, d.department_name
+from departments d
+left outer join employees e on d.department_id = e.department_id
+having count(employee_id)=0
+group by d.department_id, d.department_name
+order by department_name;
 ```
 
 Result:  
+<img width="269" alt="Screen Shot 2022-08-20 at 13 09 29" src="https://user-images.githubusercontent.com/59098085/185756180-c10f3ada-f92a-4bf5-bcba-f13631c96ae1.png">
 
 
 #### 📌 C70: Write a query to list all locations for which there is at least one employee,  applying the following conditions:    
