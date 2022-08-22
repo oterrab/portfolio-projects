@@ -178,9 +178,9 @@ select
     l.city,
     count(*)
 from locations l
-left outer join departments d 
+join departments d 
 on l.location_id = d.location_id
-left outer join employees e 
+join employees e 
 on d.department_id = e.department_id
 group by l.location_id, l.city
 order by count(*);
