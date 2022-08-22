@@ -173,7 +173,17 @@ The results must be ordered by the number of employees.
 Hint:  See the relational diagram you generated at the beginning of this practice session to understand the relationships between employees, departments and locations. 
 */
 
-
+select 
+    l.location_id,
+    l.city,
+    count(*)
+from locations l
+left outer join departments d 
+on l.location_id = d.location_id
+left outer join employees e 
+on d.department_id = e.department_id
+group by l.location_id, l.city
+order by count(*);
 
 /*
 The SELECT statement in the image below generates a list of the locations in Canada along with the number of departments in each location.  The query was written using the old syntax for joins. Your task is to re-write it using the new ANSI syntax for the outer join.  Make sure that your query returns the exact same results than the original one.
