@@ -3969,16 +3969,16 @@ select
     l.city,
     count(*)
 from locations l
-left outer join departments d 
+join departments d 
 on l.location_id = d.location_id
-left outer join employees e 
+join employees e 
 on d.department_id = e.department_id
 group by l.location_id, l.city
 order by count(*);
 ```
 
 Result:  
-<img width="254" alt="Screen Shot 2022-08-22 at 15 41 13" src="https://user-images.githubusercontent.com/59098085/185995141-b7209b5c-bb30-442c-a830-51cc80928357.png">
+<img width="315" alt="Screen Shot 2022-08-22 at 15 51 29" src="https://user-images.githubusercontent.com/59098085/185996803-d6fe7710-36c1-4175-9acb-e24d0e4e8e94.png">
 
 
 
@@ -4007,6 +4007,7 @@ The regions must be ordered alphabetically</strong>
 ```
 
 Result:  
+
 
 
 
