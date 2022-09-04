@@ -4,7 +4,6 @@ Write a query to generate a list of employees applying the following conditions:
 The results include the employee_id, first_name and last_name columns, but the column titles must use blank spaces to separate words, instead of underscores.
 
 The salary is less than 3000.
-
 The first or last names start with ‘G’ .   
 */
 

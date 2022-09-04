@@ -60,13 +60,19 @@ for ano in anos:
 del(ano, uf, directory)
 
 # Getting CSV files list from my folder
-path = 'input/'
-csv_files = glob.glob(path + "/*.csv")
-
-del(path)
+path1 = 'input/1'
+path2 = 'input/2'
+csv_files1 = glob.glob(path1 + "/*.csv")
+csv_files2 = glob.glob(path2 + "/*.csv")
 
 # Reading into a list of dataframes
-dfs = [pd.read_csv(file, sep=";", encoding='latin-1') for file in csv_files]
+## 2017,2018 and 2019 are in another encoding format
+
+dfs = [pd.read_csv(file, sep=";", encoding='latin-1') for file in csv_files1]
+dfs2 = [pd.read_csv(file, sep=";", encoding='utf-8') for file in csv_files2]
+
+dfs.extend(dfs2)
+del(dfs2)
 
 ## this could be made into one bit dataframe, but I've decided not to go on this route
 ##prounidata = pd.concat(dfs,ignore_index=True)
