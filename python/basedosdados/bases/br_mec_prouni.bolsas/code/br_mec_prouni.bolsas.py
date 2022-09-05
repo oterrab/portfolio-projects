@@ -176,16 +176,19 @@ for i in range(len(dfs)):
         dfs[i].rename(columns={'id_municipio_x':'id_municipio'}, inplace=True)
         dfs[i] = dfs[i][ordem2020]  
         
-
-# Dropping Duplicates
-#### It could have been done earlier but it is also fine do it now
-for i in range(len(dfs)):
-    dfs[i].drop_duplicates(inplace=True)
-
+# Checking for duplicates and Droping it
 ## Checking for duplicates
 for i in range(len(dfs)):
     len(dfs[i])-len(dfs[i].drop_duplicates())
 
+## Dropping Duplicates
+#### It could have been done earlier but it is also fine do it now
+for i in range(len(dfs)):
+    dfs[i].drop_duplicates(inplace=True)
+
+## Checking for duplicates again
+for i in range(len(dfs)):
+    len(dfs[i])-len(dfs[i].drop_duplicates())
 
 # Saving partitioned data into specific folders
 for df in dfs:
