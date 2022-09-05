@@ -103,7 +103,7 @@ for df in dfs:
 
 del(df)
 
-# Setting to replace counties names for its unique id
+# Setting up to replace counties names for its unique id
 ## Importing dataframe with counties and unique ids
 id_mcp = pd.read_csv(r'/Users/lucaspb/git-repositories/portfolio-projects/python/basedosdados/assets/dir_municipio_uf.csv', sep=',', dtype='string')
 
@@ -141,7 +141,7 @@ for df in dfs:
         df['id_municipio'] = df['id_municipio'].apply(lambda x: x.replace("‘", ' ').replace("’", ' ').replace("'", ' ').replace('"', ' ').replace('`', ' ').replace('-', ' ') if type(x) == str else x)
         df['id_municipio_ies'] = df['id_municipio_ies'].apply(lambda x: x.replace("‘", ' ').replace("’", ' ').replace("'", ' ').replace('"', ' ').replace('`', ' ').replace('-', ' ') if type(x) == str else x)
 
-
+### Fixing specific problems
 for df in dfs:
     ano = int(df['ano'][0])
     if ano != 2020:
@@ -151,6 +151,7 @@ for df in dfs:
         df['id_municipio_ies'] = df['id_municipio_ies'].apply(lambda x: x.replace("EMBU", 'EMBU DAS ARTES') if type(x) == str else x)
 
 
+# Replacing counties names for its unique id
 for i in range(len(dfs)):
      ano = int(dfs[i]['ano'].iat[0])
      if ano != 2020:
@@ -176,6 +177,11 @@ for i in range(len(dfs)):
         dfs[i] = dfs[i][ordem2020]  
         
 
+# Dropping Duplicates
+#### It could have been done earlier but it is also fine do it now
+for i in range(len(dfs)):
+    dfs[i].drop_duplicates(inplace=True)
+
 # Saving partitioned data into specific folders
 for df in dfs:
     ano = int(df['ano'][0])
@@ -188,12 +194,10 @@ for df in dfs:
         df_uf.drop(['ano', 'sigla_uf'], axis=1, inplace=True)
         exec("df_uf.to_csv('output/ano={}/sigla_uf={}/microdados.csv', index=False, encoding='utf-8', na_rep='', float_format='%.0f')".format(ano, uf))
 
-# Drop Duplicates       
-dfs.drop_duplicates(inplace=True)
-
 # Uploading to BigLake
-     
 import basedosdados as bd
+
+
 prouni = bd.Table(dataset_id='br_mec_prouni', table_id='microdados')
 prouni.create(r'F:\prouni',
               if_table_exists='replace', 
