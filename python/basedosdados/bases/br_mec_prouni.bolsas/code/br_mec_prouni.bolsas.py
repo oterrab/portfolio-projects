@@ -182,6 +182,11 @@ for i in range(len(dfs)):
 for i in range(len(dfs)):
     dfs[i].drop_duplicates(inplace=True)
 
+## Checking for duplicates
+for i in range(len(dfs)):
+    len(dfs[i])-len(dfs[i].drop_duplicates())
+
+
 # Saving partitioned data into specific folders
 for df in dfs:
     ano = int(df['ano'][0])
