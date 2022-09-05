@@ -186,4 +186,18 @@ for df in dfs:
         time.sleep(1)
         df_uf = df[df['sigla_uf'] == uf]
         df_uf.drop(['ano', 'sigla_uf'], axis=1, inplace=True)
-        exec("df_uf.to_csv('output/ano={}/sigla_uf={}/microdados.csv', index=False, encoding='latin-1', na_rep='', float_format='%.0f')".format(ano, uf))
+        exec("df_uf.to_csv('output/ano={}/sigla_uf={}/microdados.csv', index=False, encoding='utf-8', na_rep='', float_format='%.0f')".format(ano, uf))
+
+# Drop Duplicates       
+dfs.drop_duplicates(inplace=True)
+
+# Uploading to BigLake
+     
+import basedosdados as bd
+prouni = bd.Table(dataset_id='br_mec_prouni', table_id='microdados')
+prouni.create(r'F:\prouni',
+              if_table_exists='replace', 
+              if_storage_data_exists='replace', 
+              if_table_config_exists='replace')
+prouni.update_columns('https://docs.google.com/spreadsheets/d/15O81vGBNTfDJ4rPI3jbGDDFS2gMCqR8IQhGPM2W7mHs/edit#gid=0%27)
+prouni.publish(if_exists='replace')

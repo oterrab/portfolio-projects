@@ -66,7 +66,6 @@ The results include only employees of these departments: Marketing, Purchasing, 
 
 Take into account the fact that the email is stored in uppercase, so make sure the expected email is constructed in uppercase too.   
 */
-
 select
         employee_id,
         first_name,
