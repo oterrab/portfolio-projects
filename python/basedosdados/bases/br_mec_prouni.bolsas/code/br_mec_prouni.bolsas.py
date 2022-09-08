@@ -1,6 +1,4 @@
 ## original data: https://dadosabertos.mec.gov.br/prouni
-
-
 import os
 import pandas as pd
 import numpy as np
@@ -160,8 +158,6 @@ for i in range(len(dfs)):
      if ano == 2020:
          dfs[i] = pd.merge(id_mcp, dfs[i],
                     how='right', left_on=['sigla_uf', 'nome'], right_on=['sigla_uf', 'id_municipio'])
-         dfs[i] = pd.merge(id_mcp, dfs[i],
-                    how='right', left_on=['sigla_uf', 'nome'], right_on=['sigla_uf', 'id_municipio_ies'])
 
 
 # Reordering columns
@@ -172,7 +168,6 @@ for i in range(len(dfs)):
         dfs[i] = pd.concat([dfs[i],pd.DataFrame(columns=['campus', 'id_municipio_ies'])])
         dfs[i] = dfs[i][ordem2020]
     if ano == 2020:
-        dfs[i].rename(columns={'id_municipio_x':'id_municipio'}, inplace=True)
         dfs[i].rename(columns={'id_municipio_x':'id_municipio'}, inplace=True)
         dfs[i] = dfs[i][ordem2020]  
         
