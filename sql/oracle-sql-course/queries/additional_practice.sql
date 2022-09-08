@@ -194,6 +194,10 @@ AND l.country id = "CA"
 GROUP BY l.location_id, l.city;
 */
 
+  SELECT l.location_id, l.city, COUNT (d.location_id) AS departments
+    FROM location l LEFT JOIN departments d ON d.location_id = l.location_id
+   WHERE l.country_id = 'CA'
+GROUP BY l.location_id, l.city;
 
 
 
@@ -318,5 +322,3 @@ Levels in which all employees are managers are not expected to be included in th
 
 Please order the results by level and department name.
 */
-
-
