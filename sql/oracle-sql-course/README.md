@@ -3987,11 +3987,11 @@ Result:
 <p align=center><img width="490" alt="Screen Shot 2022-08-04 at 10 38 39" src="https://user-images.githubusercontent.com/59098085/182861097-0dc0a380-59c1-4240-961e-c1b24d9a0321.png"></p>
 
 ```sql
-
+  select l.location_id, l.city, count (d.location_id) as departments
+    from location l left join departments d on d.location_id = l.location_id
+   where l.country_id = 'CA'
+group by l.location_id, l.city;
 ```
-
-Result:  
-
 
 
 #### 📌 C72: Write a query to generate a list of regions that includes the minimum and maximum salary for each region, taking into account the following conditions:    
