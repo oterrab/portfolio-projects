@@ -194,10 +194,10 @@ AND l.country id = "CA"
 GROUP BY l.location_id, l.city;
 */
 
-  SELECT l.location_id, l.city, COUNT (d.location_id) AS departments
-    FROM location l LEFT JOIN departments d ON d.location_id = l.location_id
-   WHERE l.country_id = 'CA'
-GROUP BY l.location_id, l.city;
+  select l.location_id, l.city, count (d.location_id) as departments
+    from locations l left join departments d on d.location_id = l.location_id
+   where l.country_id = 'CA'
+group by l.location_id, l.city;
 
 
 
@@ -209,6 +209,18 @@ The results must include only regions that have employees
 The regions must be ordered alphabetically
 */
 
+select region_name, min(e.salary) as min_salary, max(e.salary) as max_salary
+from regions r
+join countries c
+    on r.region_id = c.region_id
+join locations l
+    on c.country_id = l.country_id
+join departments d
+    on d.location_id = l.location_id
+join employees e
+    on d.department_id = e.department_id
+group by r.region_name
+order by region_name;
 
 /*
 Write a query to generate a list of regions that includes the count of employees for each region, taking into account the following conditions:   
@@ -218,6 +230,18 @@ The results must include all regions
 The regions must be ordered alphabetically
 */
 
+select region_name, count(e.employee_id)
+from regions r
+right outer join countries c
+    on r.region_id = c.region_id
+left outer join locations l
+    on c.country_id = l.country_id
+left outer join departments d
+    on d.location_id = l.location_id
+left outer join employees e
+    on d.department_id = e.department_id
+group by r.region_name
+order by region_name;
 
 
 /*
