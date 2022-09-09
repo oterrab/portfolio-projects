@@ -3988,10 +3988,13 @@ Result:
 
 ```sql
   select l.location_id, l.city, count (d.location_id) as departments
-    from location l left join departments d on d.location_id = l.location_id
+    from locations l left join departments d on d.location_id = l.location_id
    where l.country_id = 'CA'
 group by l.location_id, l.city;
 ```
+
+Result:  
+<img width="194" alt="Captura de tela 2022-09-09 135057" src="https://user-images.githubusercontent.com/59098085/189401186-082a9a08-b90a-4c23-af87-b9c3d2e65cd1.png">
 
 
 #### 📌 C72: Write a query to generate a list of regions that includes the minimum and maximum salary for each region, taking into account the following conditions:    
@@ -4003,12 +4006,22 @@ The regions must be ordered alphabetically</strong>
 
 
 ```sql
-
+select region_name, min(e.salary) as min_salary, max(e.salary) as max_salary
+from regions r
+join countries c
+    on r.region_id = c.region_id
+join locations l
+    on c.country_id = l.country_id
+join departments d
+    on d.location_id = l.location_id
+join employees e
+    on d.department_id = e.department_id
+group by r.region_name
+order by region_name;
 ```
 
 Result:  
-
-
+<img width="184" alt="Captura de tela 2022-09-09 143745" src="https://user-images.githubusercontent.com/59098085/189411490-a6a7d01c-537e-4138-bb01-6e567af3f15a.png">
 
 
 #### 📌 C73: Write a query to generate a list of regions that includes the count of employees for each region, taking into account the following conditions:   
@@ -4019,10 +4032,22 @@ The regions must be ordered alphabetically</strong>
 
 
 ```sql
-
+select region_name, count(e.employee_id)
+from regions r
+right outer join countries c
+    on r.region_id = c.region_id
+left outer join locations l
+    on c.country_id = l.country_id
+left outer join departments d
+    on d.location_id = l.location_id
+left outer join employees e
+    on d.department_id = e.department_id
+group by r.region_name
+order by region_name;
 ```
 
 Result:  
+<img width="221" alt="Captura de tela 2022-09-09 144547" src="https://user-images.githubusercontent.com/59098085/189412669-2ea660d2-54ae-45f2-8945-b3aceae7dc37.png">
 
 
 
