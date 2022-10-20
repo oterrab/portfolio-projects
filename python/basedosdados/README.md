@@ -1,7 +1,7 @@
 <!-- Header -->
 
 <p align="center">
-    <strong>Aqui eu vou listar algumas das contribuições que eu fiz para a Base dos Dados</strong>
+    <strong>Here I will list some of the contributions I made to Base dos Dados</strong>
 </p>
 <br/>
 <br/>
@@ -14,7 +14,7 @@
 
 
 <p align="center">
-    <em>Universalizando o acesso a dados de qualidade no Brasil.</em>
+    <em>Universalizing access to quality data in Brazil.</em>
 </p>
 
 <p align="center">
@@ -26,9 +26,9 @@
   </a>
 </p>
 
-A [Base dos Dados Mais (BD+)](https://github.com/basedosdados/mais) é um datalake público no Google BigQuery com
-os principais conjuntos de dados abertos do Brasil. Na [BD+](https://github.com/basedosdados/mais) você encontra tabelas tratadas e prontas para uso de forma
-gratuita.
+[Base dos Dados Mais (BD+)](https://github.com/basedosdados/mais) is a public datalake on Google BigQuery with
+the main open datasets in Brazil. In [BD+](https://github.com/basedosdados/mais) you will find tables treated and ready to use for
+free.
 
-> O projeto [BD+](https://github.com/basedosdados/mais) faz parte da [Base dos Dados](http://basedosdados.org), uma organização sem fins lucrativos com a missão de universalizar o acesso a dados de qualidade para todes. 
+> The project [BD+](https://github.com/basedosdados/mais) its part of [Base dos Dados](http://basedosdados.org), a non-profit organization with a mission to universalize access to quality data for all.
 
