@@ -77,4 +77,4 @@ Click [HERE](https://github.com/oterrab/portfolio-projects/tree/main/sql) for my
 
 | Project Name | Area | Description | Placeholder | 
 |:---|----|----|:--:|
-| [Placeholder] |  [Placeholder] | [Placeholder] | [Placeholder] |
+| [Power BI for Business Intelligence](https://github.com/oterrab/portfolio-projects/tree/main/bi/bi-for-business-intelligence) |  [Placeholder] | [Placeholder] | [Placeholder] |
