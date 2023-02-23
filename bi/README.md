@@ -1,4 +1,4 @@
-# 📝 SQL
+# 📝 Power BI
 
 This is my BI Summary for Microsoft Power BI where I provide a walkthrough to all of my BI forays. I'll everything here with a quick note on what each project does.
 
