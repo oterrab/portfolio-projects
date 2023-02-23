@@ -24,8 +24,6 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 
 # Python
 
-**Level:**
-
 **Skills:** Data cleaning, wrangling, visualisation, analysis
 
 **Libraries:** pandas, numpy, matplotlib, seaborn, scikit-learn
@@ -38,8 +36,6 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 ***
 
 # R
-
-**Level:**
 
 **Functions:**
 
@@ -56,8 +52,6 @@ _Click on the project's title (**bold** and coloured in Blue) to view my project
 
 Click [HERE](https://github.com/oterrab/portfolio-projects/tree/main/sql) for my SQL specific summary. I'll keep here just the more relevant stuff.
 
-**Level:** Intermediate SQL
-
 <p align="justify"> <strong>Knowledge:</strong> handling NULLs functions, subqueries, nested subqueries, inline views, subquery factoring (WITH clause), row limiting clause, aggregate functions (count, avg, sum, min/max, etc..), CASE WHEN statements, analytic functions (windows, partitions, rankings, listagg, lag, lead, first, last, first_value and last_value), set operators (union, union all, intersect and minus), joins (inner, outer, cross, self, equijoins, non-equijoins), hierarchical queries (level, connect_by_isleaf, connect_by_root, sys_connect_by_path), procedural functions, procedures.</p>
 
 | Project Name | Description | SQL 'Flavour' |
@@ -69,7 +63,7 @@ Click [HERE](https://github.com/oterrab/portfolio-projects/tree/main/sql) for my
 
 # Power BI
 
-**Level:**
+Click [HERE](https://github.com/oterrab/portfolio-projects/tree/main/bi) for my BI specific summary.
 
 **Functions:**
 
