@@ -16,6 +16,7 @@ Feel free to chat with me on [LinkedIn](https://www.linkedin.com/in/lucaspassosb
 - [Python](#python)
 - [R](#r)
 - [SQL](#sql)
+- [Power BI](#power-bi)
 
 _Click on the project's title (**bold** and coloured in Blue) to view my projects! Thank you!_
 
@@ -66,3 +67,14 @@ Click [HERE](https://github.com/oterrab/portfolio-projects/tree/main/sql) for my
 
 ***
 
+# Power BI
+
+**Level:**
+
+**Functions:**
+
+**Libraries:**
+
+| Project Name | Area | Description | Placeholder | 
+|:---|----|----|:--:|
+| [Placeholder] |  [Placeholder] | [Placeholder] | [Placeholder] |
