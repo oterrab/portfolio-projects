@@ -17,6 +17,7 @@ Feel free to chat with me on [LinkedIn](https://www.linkedin.com/in/lucaspassosb
 - [R](#r)
 - [SQL](#sql)
 - [Power BI](#power-bi)
+- [Java](#java)
 
 _Click on the project's title (**bold** and coloured in Blue) to view my projects! Thank you!_
 
@@ -72,3 +73,17 @@ Click [HERE](https://github.com/oterrab/portfolio-projects/tree/main/bi) for my 
 | Project Name | Area | Description | Placeholder | 
 |:---|----|----|:--:|
 | [Power BI for Business Intelligence](https://github.com/oterrab/portfolio-projects/tree/main/bi/bi-for-business-intelligence) |  [Placeholder] | [Placeholder] | [Placeholder] |
+
+***
+
+# Java
+
+**Skills:** 
+
+**Libraries:** 
+
+| Project Name | Area | Description | Libraries | 
+|:---|:--:|----|:--:|
+| :ninja: [Maratona Java Virado No Jiraya](https://github.com/oterrab/portfolio-projects/tree/main/java/maratona-java) |   -, <br /> - | <p align="justify"> More than 250 videoclasses where it's covered practically the entire core of the language. From the first 'Hello World', to Object Orientation, Collections, Database Connection, Exception Handling, Threads, Functional Programming and much more. 011/286 </p> | _-_ |
+
+***
