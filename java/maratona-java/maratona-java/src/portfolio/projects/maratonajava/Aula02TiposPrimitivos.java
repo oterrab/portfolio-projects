@@ -26,5 +26,10 @@ public class Aula02TiposPrimitivos {
 
         System.out.println("Char na ASCII: " + gender);
 
+        // String não são tipos primitivos no Java.
+        String name ="Jiraya";
+        System.out.println("My name is " + name);
+
+        // var name2 ="Jiraya"; // Adicionado no Java 10 onde é possível omitir o nome da variável.
     }
 }
