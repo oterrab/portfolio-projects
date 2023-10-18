@@ -84,6 +84,6 @@ Click [HERE](https://github.com/oterrab/portfolio-projects/tree/main/bi) for my 
 
 | Project Name | Area | Description | Libraries | 
 |:---|:--:|----|:--:|
-| :ninja: [Maratona Java Virado No Jiraya](https://github.com/oterrab/portfolio-projects/tree/main/java/maratona-java) |   -, <br /> - | <p align="justify"> More than 250 videoclasses where it's covered practically the entire core of the language. From the first 'Hello World', to Object Orientation, Collections, Database Connection, Exception Handling, Threads, Functional Programming and much more. 011/286 </p> | _-_ |
+| :ninja: [Maratona Java - Virado No Jiraya](https://github.com/oterrab/portfolio-projects/tree/main/java/maratona-java) |   -, <br /> - | <p align="justify"> More than 250 videoclasses where it's covered practically the entire core of the language. From the first 'Hello World', to Object Orientation, Collections, Database Connection, Exception Handling, Threads, Functional Programming and much more. 011/286 </p> | _-_ |
 
 ***
