@@ -1,0 +1,4 @@
+go 1.21.5
+
+use ./go-server
+use ./learn-go-with-tests
