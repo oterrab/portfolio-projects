@@ -1,4 +1,4 @@
-module go-server
+module go-movies-crud
 
 go 1.21.5
 
